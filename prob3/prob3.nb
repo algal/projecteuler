@@ -1,0 +1,51 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[       999,         41]
+NotebookOptionsPosition[       752,         28]
+NotebookOutlinePosition[      1092,         43]
+CellTagsIndexPosition[      1049,         40]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+The prime factors of 13195 are 5, 7, 13 and 29.
+
+What is the largest prime factor of the number 600851475143 ?
+\
+\>", "Text",
+ CellChangeTimes->{{3.449470198712222*^9, 3.4494701993925753`*^9}}]
+},
+WindowSize->{640, 750},
+WindowMargins->{{28, Automatic}, {38, Automatic}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 203, 6, 71, "Text"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

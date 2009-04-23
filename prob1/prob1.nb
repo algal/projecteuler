@@ -1,0 +1,260 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      7727,        251]
+NotebookOptionsPosition[      6690,        211]
+NotebookOutlinePosition[      7049,        227]
+CellTagsIndexPosition[      7006,        224]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Calculated directly by defining a list comprehension", "Text",
+ CellChangeTimes->{{3.44946617180547*^9, 3.449466207455418*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"Range", "[", 
+     RowBox[{"1000", "-", "1"}], "]"}], ",", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{"#", ",", "3"}], "]"}], "\[Equal]", "0"}], " ", "||", " ", 
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{"#", ",", "5"}], "]"}], "\[Equal]", "0"}]}], " ", ")"}], 
+     "&"}]}], "]"}], " ", "//", " ", "Total"}]], "Input",
+ CellChangeTimes->{{3.449465371050241*^9, 3.449465392308587*^9}, {
+  3.449465441145286*^9, 3.449465545910921*^9}, {3.449465779095503*^9, 
+  3.449465780788258*^9}, {3.449465836744439*^9, 3.449465840063602*^9}, {
+  3.4494660275619993`*^9, 3.44946615928761*^9}}],
+
+Cell[BoxData["233168"], "Output",
+ CellChangeTimes->{{3.449466049206573*^9, 3.449466159920261*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Calculated indirectly.
+
+We notice that there are three sets: \
+\>", "Text",
+ CellChangeTimes->{{3.449466191125842*^9, 3.449466225887479*^9}, {
+  3.449466644182456*^9, 3.449466652404882*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"DivisibleBy5", " ", "=", " ", 
+   RowBox[{"5", "*", 
+    RowBox[{"Range", "[", 
+     RowBox[{"1", ",", "199"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DivisibleBy3", " ", "=", " ", 
+   RowBox[{"3", "*", 
+    RowBox[{"Range", "[", 
+     RowBox[{"1", ",", "333"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DivisibleBy3and5", " ", "=", " ", 
+   RowBox[{"15", "*", 
+    RowBox[{"Range", "[", 
+     RowBox[{"1", ",", "66"}], "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.449464906958935*^9, 3.449464929830258*^9}, {
+  3.449465046254404*^9, 3.4494652712802353`*^9}, {3.449466655583893*^9, 
+  3.449466662359193*^9}}],
+
+Cell["\<\
+The third set is the intersection of the first two sets.
+
+Therefore, we can work out the sum of the elements in the union of the first \
+two sets by summing the first two sets and subtracting the intersection to \
+compensate for the doublecounting of it.\
+\>", "Text",
+ CellChangeTimes->{{3.449466679501663*^9, 3.449466716991767*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Total", "[", "DivisibleBy5", "]"}], "+", 
+  RowBox[{"Total", "[", "DivisibleBy3", "]"}], "-", 
+  RowBox[{"Total", "[", "DivisibleBy3and5", "]"}]}]], "Input",
+ CellChangeTimes->{{3.449464906958935*^9, 3.449464929830258*^9}, {
+   3.449465046254404*^9, 3.4494652712802353`*^9}, {3.449466655583893*^9, 
+   3.449466677895702*^9}, 3.449466725626204*^9}],
+
+Cell[BoxData["233168"], "Output",
+ CellChangeTimes->{
+  3.449465055366947*^9, 3.449465118891375*^9, {3.449465171566671*^9, 
+   3.449465195620927*^9}, 3.449465234607563*^9, 3.449465271700541*^9, 
+   3.449465561475485*^9, 3.449466726578182*^9}]
+}, Open  ]],
+
+Cell["Calculated analytically", "Text",
+ CellChangeTimes->{{3.4494662478969097`*^9, 3.449466301809265*^9}, {
+  3.449466742522846*^9, 3.449466744585142*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"s", "[", "n_", "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"max5", "=", 
+       RowBox[{"IntegerPart", "[", 
+        FractionBox[
+         RowBox[{"n", "-", "1"}], "5"], "]"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"max3", "=", 
+       RowBox[{"IntegerPart", "[", 
+        FractionBox[
+         RowBox[{"n", "-", "1"}], "3"], "]"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"max15", " ", "=", " ", 
+       RowBox[{"IntegerPart", "[", 
+        FractionBox[
+         RowBox[{"n", "-", "1"}], "15"], "]"}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Hold", "[", 
+     RowBox[{
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{"5", "i"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "max5"}], "}"}]}], "]"}], "+", 
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{"3", "i"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "max3"}], "}"}]}], "]"}], "-", 
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{"15", "i"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "max15"}], "}"}]}], "]"}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.449467476905653*^9, 3.449467583053585*^9}, {
+  3.449467620554143*^9, 3.4494676246959877`*^9}, {3.4494676823046627`*^9, 
+  3.449467765896039*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"s3", "[", "1000", "]"}]], "Input",
+ CellChangeTimes->{{3.449467585206586*^9, 3.449467587178162*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Hold", "[", 
+  RowBox[{
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", "i", "199"], 
+    RowBox[{"5", " ", "i"}]}], "+", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", "i", "333"], 
+    RowBox[{"3", " ", "i"}]}], "-", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", "i", "66"], 
+    RowBox[{"15", " ", "i"}]}]}], "]"}]], "Output",
+ CellChangeTimes->{3.44946758756769*^9, 3.449467627058257*^9, 
+  3.44946768560818*^9, 3.449467767493854*^9}]
+}, Open  ]],
+
+Cell["\<\
+The above formulas can be calculated using the usual expression for the sum \
+of interegers\
+\>", "Text",
+ CellChangeTimes->{{3.449467780627227*^9, 3.449467789779313*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Sum", "[", 
+  RowBox[{"i", ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "n"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.449467808097587*^9, 3.449467813582807*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", "n", " ", 
+  RowBox[{"(", 
+   RowBox[{"1", "+", "n"}], ")"}]}]], "Output",
+ CellChangeTimes->{3.449467813984501*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"s3", "[", "1000", "]"}], " ", "//", " ", "ReleaseHold"}]], "Input",\
+
+ CellChangeTimes->{{3.449467640863186*^9, 3.449467642413102*^9}, {
+  3.4494676988087597`*^9, 3.449467701357499*^9}, {3.4494678196172333`*^9, 
+  3.4494678224653883`*^9}}],
+
+Cell[BoxData["233168"], "Output",
+ CellChangeTimes->{3.4494676427079067`*^9, 3.4494677019572372`*^9, 
+  3.449467769073496*^9, 3.449467823349081*^9}]
+}, Open  ]]
+},
+WindowSize->{640, 750},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 133, 1, 26, "Text"],
+Cell[CellGroupData[{
+Cell[703, 25, 741, 19, 27, "Input"],
+Cell[1447, 46, 99, 1, 27, "Output"]
+}, Open  ]],
+Cell[1561, 50, 200, 6, 56, "Text"],
+Cell[1764, 58, 696, 18, 58, "Input"],
+Cell[2463, 78, 344, 7, 71, "Text"],
+Cell[CellGroupData[{
+Cell[2832, 89, 382, 7, 27, "Input"],
+Cell[3217, 98, 242, 4, 27, "Output"]
+}, Open  ]],
+Cell[3474, 105, 156, 2, 26, "Text"],
+Cell[3633, 109, 1381, 40, 164, "Input"],
+Cell[CellGroupData[{
+Cell[5039, 153, 124, 2, 27, "Input"],
+Cell[5166, 157, 458, 13, 56, "Output"]
+}, Open  ]],
+Cell[5639, 173, 181, 4, 26, "Text"],
+Cell[CellGroupData[{
+Cell[5845, 181, 194, 5, 27, "Input"],
+Cell[6042, 188, 170, 5, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6249, 198, 274, 6, 27, "Input"],
+Cell[6526, 206, 148, 2, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
