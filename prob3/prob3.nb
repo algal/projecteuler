@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[       999,         41]
-NotebookOptionsPosition[       752,         28]
-NotebookOutlinePosition[      1092,         43]
-CellTagsIndexPosition[      1049,         40]
+NotebookDataLength[      2209,         84]
+NotebookOptionsPosition[      1691,         61]
+NotebookOutlinePosition[      2052,         77]
+CellTagsIndexPosition[      2009,         74]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,10 +24,44 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143 ?
 \
 \>", "Text",
- CellChangeTimes->{{3.449470198712222*^9, 3.4494701993925753`*^9}}]
+ CellChangeTimes->{{3.449470198712222*^9, 3.4494701993925753`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"x", "=", "600851475143"}], ";"}]], "Input",
+ CellChangeTimes->{{3.449470213702113*^9, 3.449470224824912*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FactorInteger", "[", "x", "]"}], " ", "//", " ", "Max"}]], "Input",\
+
+ CellChangeTimes->{{3.449470226127089*^9, 3.449470255177249*^9}, {
+  3.449470293483527*^9, 3.449470310180194*^9}}],
+
+Cell[BoxData["6857"], "Output",
+ CellChangeTimes->{3.4494703106016283`*^9, 3.4494744895212793`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FactorInteger", "[", "9823", "]"}], "  ", "//", " ", 
+  "Max"}]], "Input",
+ CellChangeTimes->{{3.449471481366638*^9, 3.4494714837861433`*^9}, {
+  3.4494739673944397`*^9, 3.449473968817833*^9}, {3.44947449877845*^9, 
+  3.449474501394333*^9}}],
+
+Cell[BoxData["47"], "Output",
+ CellChangeTimes->{3.449471484176272*^9, 3.449473970205299*^9, 
+  3.449474501714324*^9}]
+}, Open  ]]
 },
 WindowSize->{640, 750},
 WindowMargins->{{28, Automatic}, {38, Automatic}},
+ShowSelection->True,
 FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
 StyleDefinitions->"Default.nb"
 ]
@@ -42,10 +76,18 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[545, 20, 203, 6, 71, "Text"]
+Cell[545, 20, 203, 6, 71, "Text"],
+Cell[751, 28, 144, 3, 27, "Input"],
+Cell[CellGroupData[{
+Cell[920, 35, 219, 5, 27, "Input"],
+Cell[1142, 42, 99, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1278, 48, 276, 6, 27, "Input"],
+Cell[1557, 56, 118, 2, 27, "Output"]
+}, Open  ]]
 }
 ]
 *)
 
 (* End of internal cache information *)
-

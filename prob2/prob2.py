@@ -5,5 +5,6 @@ def fib(value):
         yield b
         a,b=b,a+b
 
+
 answer = sum(i for i in fib(4000000) if i%2==0)
 
