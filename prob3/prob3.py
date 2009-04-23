@@ -71,4 +71,24 @@ def factors(number):
         if number == 1:
             raise StopIteration
 
-print max(factors(317584931803))
+def prime_factors(num, factor=2):
+    """Return all prime factors of num in an ordered list"""
+    from functionalpy import chain,first
+    from math import sqrt
+    
+    if num <= 1:
+        return []
+    # We know sqrt(num)+1 is the upper bound.
+    # a stream of candidate, starting with 'factor'
+    # E.g.,   [factor,factor+1,...,sqrt(num)+1,num]
+    candidates = chain(xrange(factor, int(sqrt(num))+1), [num])
+    # the next prime factor is the next candidate factor that is
+    # actually a factor
+    next = first(x for x in candidates if (num%x == 0))
+    # now that we've found next is an actual factor of num, we can
+    # divide num/next and look for more factors greater than or equal
+    # to next.
+    return [next] + prime_factors(num/next, next)
+ 
+answer  = max(prime_factors(k))
+
