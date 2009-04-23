@@ -54,29 +54,18 @@ plist = [2]
 def primes(min, max):
     global plist
     if 2 >= min: yield 2
-
-    # for every i thru the odd numbers in [3,...,max]
     i = 3
     while i <= max:
-        # see if there's a known prime either
-        #   1. that's a factor of i; or
-        #   2. that's too big to be a factor
         for p in plist:
             if i%p == 0 or p*p > i: break
-        # if we're at a prime that's too big ...
-        if i%p != 0:
-            # ... then add i to our primes list
+        if i%p:
             plist.append(i)
-            # ... and if it's above the min, return it.
             if i >= min: yield i
         i = i+2
-                
+        
 def factors(number):
-    # iterate through the primes
     for prime in primes(2, number):
-        # if the number has a factor
         if number % prime == 0:
-            # divide by that factor and yield the prime
             number = number / prime
             yield prime
         if number == 1:
