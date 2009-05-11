@@ -1,0 +1,375 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     11080,        366]
+NotebookOptionsPosition[      9420,        306]
+NotebookOutlinePosition[      9806,        323]
+CellTagsIndexPosition[      9763,        320]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "A Pythagorean triplet is a set of three natural numbers, a  < b < c, for \
+which,\n\n\t",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["a", "2"], TraditionalForm]]],
+ " + ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["b", "2"], TraditionalForm]]],
+ " = ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["c", "2"], TraditionalForm]]],
+ "\n\t\nFor example, ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["3", "2"], TraditionalForm]]],
+ " + ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["4", "2"], TraditionalForm]]],
+ " = 9 + 16 = 25 = ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["5", "2"], TraditionalForm]]],
+ ".\n\nThere exists exactly one Pythagorean triplet for which a + b + c = \
+1000.\nFind the product a*b*c."
+}], "Text",
+ CellChangeTimes->{{3.44955794988793*^9, 3.449557975851803*^9}, {
+  3.4495597193241158`*^9, 3.4495597203857603`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"eq1", ":=", 
+   RowBox[{"a", "<", "b", "<", "c"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eq2", ":=", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["a", "2"], "+", 
+     SuperscriptBox["b", "2"]}], "\[Equal]", 
+    SuperscriptBox["c", "2"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eq3", ":=", 
+   RowBox[{
+    RowBox[{"a", "+", "b", "+", "c"}], "\[Equal]", "1000"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.449557989161874*^9, 3.449558017292885*^9}}],
+
+Cell["First we use eq2 to represent c in terms of a and b", "Text",
+ CellChangeTimes->{{3.44955973180066*^9, 3.449559736322706*^9}, {
+  3.4495597980854893`*^9, 3.449559800925795*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{"eq2", ",", "c"}], "]"}]], "Input",
+ CellChangeTimes->{{3.4495586559223757`*^9, 3.4495586599017973`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"c", "\[Rule]", 
+     RowBox[{"-", 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox["a", "2"], "+", 
+        SuperscriptBox["b", "2"]}]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"c", "\[Rule]", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["a", "2"], "+", 
+       SuperscriptBox["b", "2"]}]]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.449558660384715*^9, 3.449560819456628*^9, 
+  3.449561016414631*^9, 3.4495612094155073`*^9}]
+}, Open  ]],
+
+Cell["All numbers are natural, so all numbers are positive.", "Text",
+ CellChangeTimes->{{3.449559742354905*^9, 3.44955974726687*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "[", 
+  RowBox[{"[", "2", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.449558665868614*^9, 3.4495586681776114`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"c", "\[Rule]", 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox["a", "2"], "+", 
+     SuperscriptBox["b", "2"]}]]}], "}"}]], "Output",
+ CellChangeTimes->{3.44955866904556*^9, 3.449560822947618*^9, 
+  3.449561017960565*^9, 3.4495612112429237`*^9}]
+}, Open  ]],
+
+Cell["Now apply this to eq3 to get a formula relating a and b:", "Text",
+ CellChangeTimes->{{3.449559768596259*^9, 3.4495597718280497`*^9}, {
+  3.449559816950325*^9, 3.449559833214938*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"eq3", " ", "/.", " ", "%"}]], "Input",
+ CellChangeTimes->{{3.44955867272145*^9, 3.44955867562262*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"a", "+", "b", "+", 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox["a", "2"], "+", 
+     SuperscriptBox["b", "2"]}]]}], "\[Equal]", "1000"}]], "Output",
+ CellChangeTimes->{3.449558679223984*^9, 3.449560836106876*^9, 
+  3.449561019606736*^9, 3.4495612139061747`*^9}]
+}, Open  ]],
+
+Cell["We use this to solve for b in terms of a", "Text",
+ CellChangeTimes->{{3.449558835625082*^9, 3.449558887019799*^9}, {
+  3.4495598568489237`*^9, 3.4495599130097733`*^9}, {3.4495610076951847`*^9, 
+  3.4495610089345093`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{"%", ",", "b"}], "]"}]], "Input",
+ CellChangeTimes->{{3.449558969681987*^9, 3.449558997054803*^9}, 
+   3.449560858880446*^9, {3.4495610244254713`*^9, 3.449561024529509*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"b", "\[Rule]", 
+    FractionBox[
+     RowBox[{"1000", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "500"}], "+", "a"}], ")"}]}], 
+     RowBox[{
+      RowBox[{"-", "1000"}], "+", "a"}]]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.4495589706619787`*^9, 3.449558997665144*^9}, 
+   3.4495608615552063`*^9, 3.449561032064122*^9, 3.449561216499628*^9}]
+}, Open  ]],
+
+Cell["\<\
+We know that a,b, and c are all integers.
+
+From eq1 we know that 0<a<334. Now we just try all these values of b in order \
+to find a resulting value of a that gives a as a non-negative integer:\
+\>", "Text",
+ CellChangeTimes->{{3.449559966279435*^9, 3.449560038465016*^9}, {
+  3.449561051985035*^9, 3.449561066698412*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Select", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"b", " ", "/.", " ", 
+      RowBox[{
+       RowBox[{"%", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "1", ",", "333"}], "}"}]}], "]"}], ",", "IntegerQ"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.449559089544051*^9, 3.449559176406537*^9}, {
+  3.4495592339542913`*^9, 3.449559332493404*^9}, {3.449559405212922*^9, 
+  3.4495595184020433`*^9}, {3.449560875929082*^9, 3.4495608762339478`*^9}, {
+  3.449561041370669*^9, 3.449561072044424*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "375", "}"}]], "Output",
+ CellChangeTimes->{{3.449559333059258*^9, 3.449559351954233*^9}, 
+   3.4495593842246637`*^9, {3.4495594577323837`*^9, 3.44955951890526*^9}, 
+   3.449560879452142*^9, 3.449561073366458*^9, 3.4495612218220654`*^9}]
+}, Open  ]],
+
+Cell["So we know b.", "Text",
+ CellChangeTimes->{{3.449559569147921*^9, 3.4495595909170647`*^9}, {
+   3.4495600492572117`*^9, 3.449560052617724*^9}, {3.449560311400148*^9, 
+   3.449560329989657*^9}, {3.44956108589161*^9, 3.449561093562684*^9}, 
+   3.4495611578662567`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"solution", "=", 
+   RowBox[{"{", 
+    RowBox[{"b", "\[Rule]", "375"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.4495611423319283`*^9, 3.449561163812648*^9}}],
+
+Cell["\<\
+
+What does this imply about a?\
+\>", "Text",
+ CellChangeTimes->{{3.449559569147921*^9, 3.4495595909170647`*^9}, {
+  3.4495600492572117`*^9, 3.449560052617724*^9}, {3.449560311400148*^9, 
+  3.449560329989657*^9}, {3.44956108589161*^9, 3.449561093562684*^9}, {
+  3.4495611695150547`*^9, 3.449561181315385*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"%6", " ", "/.", " ", "solution"}], ",", "a"}], "]"}]], "Input",
+ CellChangeTimes->{{3.4495596130204906`*^9, 3.4495596372156963`*^9}, {
+  3.4495609477415867`*^9, 3.449560947839082*^9}, {3.449561233983823*^9, 
+  3.4495612386964684`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"a", "\[Rule]", "200"}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.449559637785516*^9, 3.449560896047489*^9, 
+  3.4495609486477013`*^9, 3.4495612396199837`*^9}]
+}, Open  ]],
+
+Cell["So now we know and b", "Text",
+ CellChangeTimes->{{3.449561247937711*^9, 3.4495612544576063`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"solution", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "\[Rule]", "200"}], ",", 
+     RowBox[{"b", "\[Rule]", "375"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.449561256503824*^9, 3.449561267465098*^9}}],
+
+Cell["With a=200, b=375, what is c?", "Text",
+ CellChangeTimes->{{3.449560055937766*^9, 3.4495600644021273`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"eq3", "/.", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"a", "\[Rule]", "200"}], ",", 
+      RowBox[{"b", "\[Rule]", "375"}]}], "}"}]}], ",", "c"}], "]"}]], "Input",\
+
+ CellChangeTimes->{{3.4495596484513206`*^9, 3.4495596734345016`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"c", "\[Rule]", "425"}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.449559674030452*^9, 3.4495609637848463`*^9, 
+  3.449561275615484*^9}]
+}, Open  ]],
+
+Cell["with this solution what is a b c ?", "Text",
+ CellChangeTimes->{{3.449560066707307*^9, 3.449560071010186*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"solution", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "\[Rule]", "200"}], ",", 
+     RowBox[{"b", "\[Rule]", "375"}], ",", 
+     RowBox[{"c", "\[Rule]", "425"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", " ", "b", " ", "c"}], " ", "/.", " ", "solution"}]}], "Input",
+ CellChangeTimes->{{3.449559682000537*^9, 3.449559692402478*^9}, {
+  3.449561280009233*^9, 3.449561284333737*^9}}],
+
+Cell[BoxData["31875000"], "Output",
+ CellChangeTimes->{3.449559693842925*^9, 3.449560977690844*^9, 
+  3.4495612860437593`*^9}]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{640, 750},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 865, 30, 137, "Text"],
+Cell[1413, 52, 522, 16, 62, "Input"],
+Cell[1938, 70, 183, 2, 26, "Text"],
+Cell[CellGroupData[{
+Cell[2146, 76, 153, 3, 27, "Input"],
+Cell[2302, 81, 521, 17, 43, "Output"]
+}, Open  ]],
+Cell[2838, 101, 134, 1, 26, "Text"],
+Cell[CellGroupData[{
+Cell[2997, 106, 145, 3, 27, "Input"],
+Cell[3145, 111, 283, 8, 43, "Output"]
+}, Open  ]],
+Cell[3443, 122, 189, 2, 26, "Text"],
+Cell[CellGroupData[{
+Cell[3657, 128, 126, 2, 27, "Input"],
+Cell[3786, 132, 298, 8, 39, "Output"]
+}, Open  ]],
+Cell[4099, 143, 228, 3, 26, "Text"],
+Cell[CellGroupData[{
+Cell[4352, 150, 221, 4, 27, "Input"],
+Cell[4576, 156, 427, 12, 47, "Output"]
+}, Open  ]],
+Cell[5018, 171, 332, 7, 71, "Text"],
+Cell[CellGroupData[{
+Cell[5375, 182, 639, 16, 27, "Input"],
+Cell[6017, 200, 265, 4, 27, "Output"]
+}, Open  ]],
+Cell[6297, 207, 272, 4, 26, "Text"],
+Cell[6572, 213, 199, 5, 27, "Input"],
+Cell[6774, 220, 318, 7, 41, "Text"],
+Cell[CellGroupData[{
+Cell[7117, 231, 296, 6, 27, "Input"],
+Cell[7416, 239, 220, 5, 27, "Output"]
+}, Open  ]],
+Cell[7651, 247, 104, 1, 26, "Text"],
+Cell[7758, 250, 267, 7, 27, "Input"],
+Cell[8028, 259, 113, 1, 26, "Text"],
+Cell[CellGroupData[{
+Cell[8166, 264, 301, 9, 27, "Input"],
+Cell[8470, 275, 196, 5, 27, "Output"]
+}, Open  ]],
+Cell[8681, 283, 116, 1, 26, "Text"],
+Cell[CellGroupData[{
+Cell[8822, 288, 453, 11, 43, "Input"],
+Cell[9278, 301, 126, 2, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,111 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      2665,        102]
+NotebookOptionsPosition[      1891,         69]
+NotebookOutlinePosition[      2401,         91]
+CellTagsIndexPosition[      2318,         86]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see \
+that the 6th prime is 13.
+
+What is the 10001st prime number?\
+\>", "Text",
+ CellChangeTimes->{3.449497123009212*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Prime"}]], "Input",
+ CellChangeTimes->{{3.4494971601976233`*^9, 3.449497170218804*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Prime\\\", \\\"[\\\", \
+StyleBox[\\\"n\\\", \\\"TI\\\"], \\\"]\\\"}]\\) gives the \
+\\!\\(\\*SuperscriptBox[StyleBox[\\\"n\\\", \\\"TI\\\"], \\\"th\\\"]\\) prime \
+number. \"\>", "MSG"], "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Prime"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.4494971716784267`*^9},
+ CellTags->"Info3449500771-6165723"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Prime", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.449497185347404*^9, 3.449497190248292*^9}}],
+
+Cell[BoxData["13"], "Output",
+ CellChangeTimes->{3.449497190874288*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Prime", "[", "10001", "]"}]], "Input",
+ CellChangeTimes->{{3.449497195676931*^9, 3.449497203249207*^9}}],
+
+Cell[BoxData["104743"], "Output",
+ CellChangeTimes->{3.449497203809494*^9}]
+}, Open  ]]
+},
+WindowSize->{640, 750},
+WindowMargins->{{Automatic, 99}, {30, Automatic}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3449500771-6165723"->{
+  Cell[892, 34, 505, 12, 44, "Print",
+   CellTags->"Info3449500771-6165723"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3449500771-6165723", 2216, 80}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 203, 6, 56, "Text"],
+Cell[CellGroupData[{
+Cell[773, 30, 116, 2, 27, "Input"],
+Cell[892, 34, 505, 12, 44, "Print",
+ CellTags->"Info3449500771-6165723"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1434, 51, 124, 2, 27, "Input"],
+Cell[1561, 55, 71, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1669, 61, 128, 2, 27, "Input"],
+Cell[1800, 65, 75, 1, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

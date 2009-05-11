@@ -1,0 +1,189 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      4968,        180]
+NotebookOptionsPosition[      3856,        137]
+NotebookOutlinePosition[      4217,        153]
+CellTagsIndexPosition[      4174,        150]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Define a function that gives us the triangle numbers", "Text",
+ CellChangeTimes->{{3.44965137666856*^9, 3.4496513819724493`*^9}, {
+  3.4496517890321913`*^9, 3.449651791472233*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Triangle", "[", "x_", "]"}], "=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{"i", ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "x"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.449651019858355*^9, 3.4496510921157217`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", "x", " ", 
+  RowBox[{"(", 
+   RowBox[{"1", "+", "x"}], ")"}]}]], "Output",
+ CellChangeTimes->{{3.449651086725376*^9, 3.449651094053475*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " already knows how to find the divisors"
+}], "Text",
+ CellChangeTimes->{{3.449651794992412*^9, 3.449651802480392*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Divisors", "[", "28", "]"}]], "Input",
+ CellChangeTimes->{{3.449651771449409*^9, 3.4496517746887913`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "2", ",", "4", ",", "7", ",", "14", ",", "28"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.449651775057702*^9, 3.449655186730742*^9}]
+}, Open  ]],
+
+Cell["Find the first Triangle number with more than 500 divisors", "Text",
+ CellChangeTimes->{{3.4496519682885647`*^9, 3.449651978241263*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"i", "=", "1"}], ";", " ", 
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Length", "[", 
+      RowBox[{"Divisors", "[", 
+       RowBox[{"Triangle", "[", "i", "]"}], "]"}], "]"}], "<", "500"}], ",", 
+    RowBox[{"i", "++"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.449651811620738*^9, 3.449651856453384*^9}, {
+  3.449651889151484*^9, 3.4496518960722446`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["i"], "Input",
+ CellChangeTimes->{3.449651898763474*^9}],
+
+Cell[BoxData["12375"], "Output",
+ CellChangeTimes->{3.449651899162722*^9, 3.4496551927360888`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", 
+  RowBox[{"Divisors", "[", 
+   RowBox[{"Triangle", "[", "12375", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.449651924346443*^9, 3.449651946305488*^9}}],
+
+Cell[BoxData["576"], "Output",
+ CellChangeTimes->{{3.4496519332943*^9, 3.4496519466995897`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Triangle", "[", "12375", "]"}]], "Input",
+ CellChangeTimes->{{3.449651947716708*^9, 3.4496519516736097`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"76576500", "d"}]], "Input",
+ CellChangeTimes->{{3.449666948709735*^9, 3.44966694891814*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FactorInteger", "[", "28", "]"}]], "Input",
+ CellChangeTimes->{{3.4496553058798447`*^9, 3.4496553122772512`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"2", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "1"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.449655312647696*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Divisors", "[", "28", "]"}]], "Input",
+ CellChangeTimes->{{3.4496553230287848`*^9, 3.449655328166551*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "2", ",", "4", ",", "7", ",", "14", ",", "28"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.449655328550077*^9}]
+}, Open  ]]
+},
+WindowSize->{640, 750},
+WindowMargins->{{Automatic, 46}, {Automatic, 47}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 186, 2, 26, "Text"],
+Cell[CellGroupData[{
+Cell[756, 26, 268, 7, 27, "Input"],
+Cell[1027, 35, 194, 5, 46, "Output"]
+}, Open  ]],
+Cell[1236, 43, 185, 5, 26, "Text"],
+Cell[CellGroupData[{
+Cell[1446, 52, 130, 2, 27, "Input"],
+Cell[1579, 56, 182, 4, 27, "Output"]
+}, Open  ]],
+Cell[1776, 63, 142, 1, 26, "Text"],
+Cell[1921, 66, 413, 11, 27, "Input"],
+Cell[CellGroupData[{
+Cell[2359, 81, 69, 1, 27, "Input"],
+Cell[2431, 84, 98, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2566, 90, 200, 4, 27, "Input"],
+Cell[2769, 96, 96, 1, 27, "Output"]
+}, Open  ]],
+Cell[2880, 100, 133, 2, 27, "Input"],
+Cell[3016, 104, 116, 2, 27, InheritFromParent],
+Cell[CellGroupData[{
+Cell[3157, 110, 137, 2, 27, "Input"],
+Cell[3297, 114, 213, 7, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3547, 126, 130, 2, 27, "Input"],
+Cell[3680, 130, 160, 4, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

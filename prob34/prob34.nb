@@ -1,0 +1,270 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      8235,        261]
+NotebookOptionsPosition[      6905,        211]
+NotebookOutlinePosition[      7266,        227]
+CellTagsIndexPosition[      7223,        224]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CuriousQ", "[", "n_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"n", ">", "2"}], " ", "&&", " ", 
+   RowBox[{"n", "==", 
+    RowBox[{"Total", "[", 
+     RowBox[{"Map", "[", 
+      RowBox[{"Factorial", ",", 
+       RowBox[{"IntegerDigits", "[", "n", "]"}]}], "]"}], 
+     "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.450865537629608*^9, 3.450865572698229*^9}, {
+  3.4508656600377007`*^9, 3.4508656654140463`*^9}, {3.450866221584386*^9, 
+  3.4508662247439203`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CuriousQ", "[", "145", "]"}]], "Input",
+ CellChangeTimes->{{3.45086557563146*^9, 3.450865578274382*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.450865578664062*^9, 3.450865638193605*^9, 
+  3.450865668872377*^9, 3.450865774849992*^9, 3.450866229116208*^9, 
+  3.450866508643156*^9, 3.450866644492691*^9}]
+}, Open  ]],
+
+Cell["\<\
+What is the maximum possible curious number?
+
+We know that\
+\>", "Text",
+ CellChangeTimes->{{3.4508669136000547`*^9, 3.450866925743823*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"9", "!"}]], "Input",
+ CellChangeTimes->{{3.45086692730378*^9, 3.4508669276173553`*^9}}],
+
+Cell[BoxData["362880"], "Output",
+ CellChangeTimes->{3.45086692794001*^9}]
+}, Open  ]],
+
+Cell["So the maximum \"curious total\" for an n digit number is ", "Text",
+ CellChangeTimes->{{3.4508669356810417`*^9, 3.450866942935225*^9}, {
+  3.4508683113089943`*^9, 3.4508683124289627`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"CuriousMax", "[", "n_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"9", "!"}], "*", "n"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.450866946305668*^9, 3.450866958187078*^9}}],
+
+Cell["The minimum value for an n digit number is", "Text",
+ CellChangeTimes->{{3.450866981032136*^9, 3.4508669857985077`*^9}, {
+  3.450867079171947*^9, 3.45086708063533*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ValueMinN", "[", "n_", "]"}], ":=", 
+  SuperscriptBox["10", 
+   RowBox[{"(", 
+    RowBox[{"n", "-", "1"}], ")"}]]}]], "Input",
+ CellChangeTimes->{{3.450866988611498*^9, 3.450866994688486*^9}, {
+  3.450867029202536*^9, 3.450867032450595*^9}, {3.450867088294581*^9, 
+  3.450867091682382*^9}, {3.450867905193471*^9, 3.450867907828083*^9}}],
+
+Cell["\<\
+Is there a number of digits n when the minimum value of the number is certain \
+to be higher than the maximum curious total of the number?\
+\>", "Text",
+ CellChangeTimes->{{3.45086705137228*^9, 3.450867112077956*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DiscretePlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"ValueMinN", "[", "n", "]"}], ",", 
+     RowBox[{"CuriousMax", "[", "n", "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "9"}], "}"}], ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.450867114392954*^9, 3.450867129554737*^9}, {
+  3.450867455041711*^9, 3.450867505582633*^9}, {3.450867726225872*^9, 
+  3.450867758786241*^9}, {3.450867802277998*^9, 3.450867803198104*^9}, {
+  3.450867851704649*^9, 3.450867977822187*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[GraphicsComplexBox[CompressedData["
+1:eJxTTMoPSmViYGAQA2IQDQEf7FFpBgcIpQKlOaB0JJQWgNAO/VC+CITuOAzl
+S0DorB9QvgyYbmjRc0SzBwqUwPI/leNR5dXEHFHco6bmiOyehjkGjijuUTNz
+RHZPw3prR2T3NMxxcER2j0OiM5SvANXv5ojsngOvPBynZWnZsOnLo7lPyQHV
+/dj9AwIA02sj9g==
+   "], {{{}, 
+     {Hue[0.67, 0.6, 0.6], Opacity[0.2], EdgeForm[None], 
+      GraphicsGroupBox[
+       PolygonBox[{{1, 21, 22, 9, 19, 7, 6, 5, 4, 3, 2}}]]}, {}, 
+     {Hue[0.9060679774997897, 0.6, 0.6], Opacity[0.2], EdgeForm[None], 
+      GraphicsGroupBox[
+       PolygonBox[{{10, 8, 20, 18, 17, 16, 15, 14, 13, 12, 
+        11}}]]}, {}, {}, {}, {}, {}, {}}, {{}, {}, 
+     {Hue[0.67, 0.6, 0.6], LineBox[{1, 2, 3, 4, 5, 6, 7, 19}]}, 
+     {Hue[0.9060679774997897, 0.6, 0.6], 
+      LineBox[{10, 11, 12, 13, 14, 15, 16, 17, 18}]}}}],
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesOrigin->{0, 0},
+  Method->{},
+  PlotRange->{{0., 9.}, {0., 8.1633*^6}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{
+  3.4508671302804832`*^9, {3.4508674566668177`*^9, 3.4508675069501143`*^9}, {
+   3.450867729253675*^9, 3.45086775923218*^9}, 3.450867803781496*^9, {
+   3.4508678598464518`*^9, 3.450867978506301*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ValueMinN", "[", "8", "]"}]], "Input",
+ CellChangeTimes->{{3.4508680145302563`*^9, 3.450868036272591*^9}}],
+
+Cell[BoxData["10000000"], "Output",
+ CellChangeTimes->{{3.4508680206101294`*^9, 3.4508680367957163`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CuriousMax", "[", "8", "]"}]], "Input",
+ CellChangeTimes->{{3.4508680213317547`*^9, 3.4508680329206247`*^9}}],
+
+Cell[BoxData["2903040"], "Output",
+ CellChangeTimes->{{3.450868026981539*^9, 3.4508680334609957`*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "So there are no \"curious\" numbers with 8 or more digits, since the \
+curious total will be less than the value of the number.\n\nSo we can see \
+that all the curious numbers are less than ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["10", "8"], "-", "1"}], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->{{3.450868070119865*^9, 3.450868121143993*^9}, {
+  3.4508681977227488`*^9, 3.4508682137660713`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"curiousUpperBound", " ", "=", " ", 
+  RowBox[{"CuriousMax", "[", "7", "]"}]}]], "Input",
+ CellChangeTimes->{{3.45086814910606*^9, 3.450868156293654*^9}, {
+  3.4508681901065273`*^9, 3.4508681923311033`*^9}, {3.450868247099723*^9, 
+  3.45086825756389*^9}}],
+
+Cell[BoxData["2540160"], "Output",
+ CellChangeTimes->{
+  3.450868220179451*^9, {3.450868251278022*^9, 3.450868258364668*^9}}]
+}, Open  ]],
+
+Cell["We wish to find the sum of all curious numbers. So", "Text",
+ CellChangeTimes->{{3.450868356247354*^9, 3.450868364549244*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", 
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"Range", "[", 
+     RowBox[{"1", ",", 
+      RowBox[{"curiousUpperBound", "+", "1"}]}], "]"}], ",", "CuriousQ"}], 
+   "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.450868365868176*^9, 3.450868385447751*^9}}],
+
+Cell[BoxData["40730"], "Output",
+ CellChangeTimes->{3.4508684358529263`*^9}]
+}, Open  ]]
+},
+WindowSize->{616, 561},
+WindowMargins->{{Automatic, 1}, {Automatic, 114}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 492, 13, 27, "Input"],
+Cell[CellGroupData[{
+Cell[1062, 37, 128, 2, 27, "Input"],
+Cell[1193, 41, 211, 3, 27, "Output"]
+}, Open  ]],
+Cell[1419, 47, 150, 5, 56, "Text"],
+Cell[CellGroupData[{
+Cell[1594, 56, 111, 2, 27, "Input"],
+Cell[1708, 60, 74, 1, 27, "Output"]
+}, Open  ]],
+Cell[1797, 64, 195, 2, 26, "Text"],
+Cell[1995, 68, 217, 6, 27, "Input"],
+Cell[2215, 76, 174, 2, 26, "Text"],
+Cell[2392, 80, 371, 8, 30, "Input"],
+Cell[2766, 90, 227, 4, 41, "Text"],
+Cell[CellGroupData[{
+Cell[3018, 98, 582, 13, 27, "Input"],
+Cell[3603, 113, 1270, 29, 232, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4910, 147, 130, 2, 27, "Input"],
+Cell[5043, 151, 105, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5185, 157, 133, 2, 27, "Input"],
+Cell[5321, 161, 102, 1, 27, "Output"]
+}, Open  ]],
+Cell[5438, 165, 474, 11, 74, "Text"],
+Cell[CellGroupData[{
+Cell[5937, 180, 278, 5, 27, "Input"],
+Cell[6218, 187, 125, 2, 27, "Output"]
+}, Open  ]],
+Cell[6358, 192, 132, 1, 26, "Text"],
+Cell[CellGroupData[{
+Cell[6515, 197, 295, 8, 27, "Input"],
+Cell[6813, 207, 76, 1, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

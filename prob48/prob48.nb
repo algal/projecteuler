@@ -1,0 +1,476 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     15272,        467]
+NotebookOptionsPosition[     12736,        377]
+NotebookOutlinePosition[     13554,        407]
+CellTagsIndexPosition[     13387,        400]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"gives", " ", "sum", " ", "of", " ", "series"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"f", "[", "n_", "]"}], ":=", 
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     SuperscriptBox["i", "i"], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.4502542251591873`*^9, 3.450254247759449*^9}, {
+  3.450254315704505*^9, 3.450254324218739*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "[", "10", "]"}]], "Input",
+ CellChangeTimes->{{3.450254250625773*^9, 3.4502542548460417`*^9}}],
+
+Cell[BoxData["10405071317"], "Output",
+ CellChangeTimes->{3.45025425623925*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "IntegerDigits"}]], "Input",
+ CellChangeTimes->{{3.4502542646497087`*^9, 3.4502542676568413`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"IntegerDigits\\\", \\\"[\\\", \
+StyleBox[\\\"n\\\", \\\"TI\\\"], \\\"]\\\"}]\\) gives a list of the decimal \
+digits in the integer \\!\\(\\*StyleBox[\\\"n\\\", \\\"TI\\\"]\\). \
+\\n\\!\\(\\*RowBox[{\\\"IntegerDigits\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"n\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"b\\\", \
+\\\"TI\\\"]}], \\\"]\\\"}]\\) gives a list of the \
+base\[Hyphen]\\!\\(\\*StyleBox[\\\"b\\\", \\\"TI\\\"]\\) digits in the \
+integer \\!\\(\\*StyleBox[\\\"n\\\", \\\"TI\\\"]\\). \
+\\n\\!\\(\\*RowBox[{\\\"IntegerDigits\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"n\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"b\\\", \
+\\\"TI\\\"], \\\",\\\", StyleBox[\\\"len\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) \
+pads the list on the left with zeros to give a list of length \
+\\!\\(\\*StyleBox[\\\"len\\\", \\\"TI\\\"]\\). \"\>", "MSG"], 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/IntegerDigits"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.45025426873501*^9},
+ CellTags->"Info3450257868-1145097"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Take"}]], "Input",
+ CellChangeTimes->{{3.450254275557179*^9, 3.450254277191614*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Take\\\", \\\"[\\\", RowBox[{StyleBox[\\\
+\"list\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"n\\\", \\\"TI\\\"]}], \
+\\\"]\\\"}]\\) gives the first \\!\\(\\*StyleBox[\\\"n\\\", \\\"TI\\\"]\\) \
+elements of \\!\\(\\*StyleBox[\\\"list\\\", \\\"TI\\\"]\\). \
+\\n\\!\\(\\*RowBox[{\\\"Take\\\", \\\"[\\\", RowBox[{StyleBox[\\\"list\\\", \
+\\\"TI\\\"], \\\",\\\", RowBox[{\\\"-\\\", StyleBox[\\\"n\\\", \
+\\\"TI\\\"]}]}], \\\"]\\\"}]\\) gives the last \\!\\(\\*StyleBox[\\\"n\\\", \
+\\\"TI\\\"]\\) elements of \\!\\(\\*StyleBox[\\\"list\\\", \\\"TI\\\"]\\). \
+\\n\\!\\(\\*RowBox[{\\\"Take\\\", \\\"[\\\", RowBox[{StyleBox[\\\"list\\\", \
+\\\"TI\\\"], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{StyleBox[\\\"m\\\", \\\"TI\
+\\\"], \\\",\\\", StyleBox[\\\"n\\\", \\\"TI\\\"]}], \\\"}\\\"}]}], \
+\\\"]\\\"}]\\) gives elements \\!\\(\\*StyleBox[\\\"m\\\", \\\"TI\\\"]\\) \
+through \\!\\(\\*StyleBox[\\\"n\\\", \\\"TI\\\"]\\) of \
+\\!\\(\\*StyleBox[\\\"list\\\", \\\"TI\\\"]\\). \
+\\n\\!\\(\\*RowBox[{\\\"Take\\\", \\\"[\\\", RowBox[{StyleBox[\\\"list\\\", \
+\\\"TI\\\"], \\\",\\\", SubscriptBox[StyleBox[\\\"seq\\\", \\\"TI\\\"], \
+StyleBox[\\\"1\\\", \\\"TR\\\"]], \\\",\\\", \
+SubscriptBox[StyleBox[\\\"seq\\\", \\\"TI\\\"], StyleBox[\\\"2\\\", \
+\\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]}], \\\"]\\\
+\"}]\\) gives a nested list in which elements specified by \
+\\!\\(\\*SubscriptBox[StyleBox[\\\"seq\\\", \\\"TI\\\"], StyleBox[\\\"i\\\", \
+\\\"TI\\\"]]\\) are taken at level \\!\\(\\*StyleBox[\\\"i\\\", \
+\\\"TI\\\"]\\) in \\!\\(\\*StyleBox[\\\"list\\\", \\\"TI\\\"]\\). \"\>", 
+   "MSG"], "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Take"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.450254277812698*^9},
+ CellTags->"Info3450257877-7155085"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "gives", " ", "last", " ", "n", " ", "digits", " ", "of", " ", "num"}], 
+   " ", "*)"}], "\[IndentingNewLine]", " ", 
+  RowBox[{
+   RowBox[{"LastDigits", "[", 
+    RowBox[{"num_", ",", "n_"}], "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{"IntegerDigits", "[", "num", "]"}], " ", "//", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Take", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"-", "n"}]}], "]"}], " ", "&"}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.4502542823762074`*^9, 3.4502543657171392`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LastDigits", "[", 
+  RowBox[{
+   RowBox[{"f", "[", "10", "]"}], ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.450254367460161*^9, 3.45025437534832*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3", ",", "1", ",", "7"}], "}"}]], "Output",
+ CellChangeTimes->{3.450254375820582*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LastDigits", "[", 
+  RowBox[{
+   RowBox[{"f", "[", "1000", "]"}], ",", "10"}], "]"}]], "Input",
+ CellChangeTimes->{{3.4502545438915777`*^9, 3.450254551276533*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "9", ",", "1", ",", "1", ",", "0", ",", "8", ",", "4", ",", "6", ",", "7", 
+   ",", "0", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{3.4502545585051937`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Since we know we will only look at the last m digits, it would be faster \
+define an alternate version of f[n_] that only calculdated the last m digits.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.45025473831474*^9, 3.450254780532838*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Mod"}]], "Input",
+ CellChangeTimes->{{3.450254872242985*^9, 3.4502548726751947`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Mod\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"m\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"n\\\", \
+\\\"TI\\\"]}], \\\"]\\\"}]\\) gives the remainder on division of \
+\\!\\(\\*StyleBox[\\\"m\\\", \\\"TI\\\"]\\) by \\!\\(\\*StyleBox[\\\"n\\\", \
+\\\"TI\\\"]\\). \\n\\!\\(\\*RowBox[{\\\"Mod\\\", \\\"[\\\", RowBox[{StyleBox[\
+\\\"m\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"n\\\", \\\"TI\\\"], \
+\\\",\\\", StyleBox[\\\"d\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) uses an offset \
+\\!\\(\\*StyleBox[\\\"d\\\", \\\"TI\\\"]\\). \"\>", "MSG"], 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Mod"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.450254873455711*^9},
+ CellTags->"Info3450258472-2208996"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Mod", "[", 
+   RowBox[{"123987", ",", 
+    SuperscriptBox["10", "3"]}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.4502548654069233`*^9, 3.450254895253319*^9}, {
+  3.450254970578933*^9, 3.450254973044876*^9}}],
+
+Cell[BoxData["987"], "Output",
+ CellChangeTimes->{3.450254973660872*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"gives", " ", "sum", " ", "of", " ", "series"}], ",", " ", 
+    RowBox[{
+    "looking", " ", "only", " ", "at", " ", "the", " ", "last", " ", "m", " ",
+      "digits"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"n_", ",", "m_"}], "]"}], "=", 
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     RowBox[{"Mod", "[", 
+      RowBox[{
+       SuperscriptBox["i", "i"], ",", 
+       SuperscriptBox["10", "m"]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.4502548029265213`*^9, 3.450254861889823*^9}, {
+  3.450254902333954*^9, 3.450254912166724*^9}, {3.450254959075597*^9, 
+  3.450254963356292*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  UnderoverscriptBox["\[Sum]", 
+   RowBox[{"i", "=", "1"}], "n"], 
+  RowBox[{"Mod", "[", 
+   RowBox[{
+    SuperscriptBox["i", "i"], ",", 
+    SuperscriptBox["10", "m"]}], "]"}]}]], "Output",
+ CellChangeTimes->{3.4502550090254087`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LastDigits", "[", 
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"100", ",", "5"}], "]"}], ",", "5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.45025502359274*^9, 3.450255091656619*^9}, {
+  3.450255147316216*^9, 3.450255164355772*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"4", ",", "1", ",", "9", ",", "2", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{{3.4502550472353497`*^9, 3.450255092102283*^9}, {
+  3.4502551607504683`*^9, 3.4502551646693287`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LastDigits", "[", 
+  RowBox[{
+   RowBox[{"f", "[", "100", "]"}], ",", "5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.450255168609495*^9, 3.4502551733322906`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"4", ",", "1", ",", "9", ",", "2", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{3.450255174186431*^9}]
+}, Open  ]],
+
+Cell["\<\
+Adding the Mod[] simplifies the sum. But the real computational cost is \
+working out the power. We could further refine this by never working out the \
+full power, and discarding excess digits in the power computation\
+\>", "Text",
+ CellChangeTimes->{{3.450254981218169*^9, 3.450255005570455*^9}, {
+  3.450255100497314*^9, 3.450255112408145*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "works", " ", "out", " ", "last", " ", "m", " ", "digits", " ", "of", " ", 
+    
+    SuperscriptBox["i", "i"]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"PowerDigits", "[", 
+    RowBox[{"i_", ",", "m_"}], "]"}], ":=", 
+   RowBox[{"Fold", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Mod", "[", 
+       RowBox[{
+        RowBox[{"#1", "*", "#2"}], ",", 
+        SuperscriptBox["10", "m"]}], "]"}], "&"}], ",", "1", ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"i", ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "i"}], "}"}]}], "]"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.450255189452426*^9, 3.450255246290988*^9}, {
+  3.4502553612036667`*^9, 3.450255362435793*^9}, {3.450255465761964*^9, 
+  3.450255483226881*^9}, {3.450255738774136*^9, 3.45025577984374*^9}, {
+  3.45025599864227*^9, 3.450256010189494*^9}}],
+
+Cell["\<\
+(We could come up with a more space-efficient, lazily evaluated generator \
+instead of using Table[] to actually produce a list of i's)\
+\>", "Text",
+ CellChangeTimes->{{3.4502560370361433`*^9, 3.450256077139982*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PowerDigits", "[", 
+  RowBox[{"5", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.4502557850138407`*^9, 3.450255797306819*^9}}],
+
+Cell[BoxData["125"], "Output",
+ CellChangeTimes->{3.45025579769521*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ SuperscriptBox["5", "5"]], "Input",
+ CellChangeTimes->{{3.450255812022681*^9, 3.450255812595333*^9}}],
+
+Cell[BoxData["3125"], "Output",
+ CellChangeTimes->{3.450255813094461*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ff", "[", 
+   RowBox[{"n_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{"Mod", "[", 
+     RowBox[{
+      RowBox[{"PowerDigits", "[", 
+       RowBox[{"i", ",", "m"}], "]"}], ",", 
+      SuperscriptBox["10", "m"]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4502558363353*^9, 3.450255874967682*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LastDigits", "[", 
+  RowBox[{
+   RowBox[{"ff", "[", 
+    RowBox[{"100", ",", "5"}], "]"}], ",", "5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.450255877267034*^9, 3.450255896183971*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"4", ",", "1", ",", "9", ",", "2", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{{3.450255885290049*^9, 3.4502558965719852`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+In fact the Mod[] function probably provides no efficiency speedup, since it \
+may do expensive calculations when we know a priori that we only need to do \
+the cheap operation of keeping the last m digits.\
+\>", "Text",
+ CellChangeTimes->{{3.450255935721043*^9, 3.450255984338935*^9}}]
+},
+WindowSize->{640, 750},
+WindowMargins->{{Automatic, 161}, {Automatic, 38}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3450257868-1145097"->{
+  Cell[1419, 51, 1149, 22, 70, "Print",
+   CellTags->"Info3450257868-1145097"]},
+ "Info3450257877-7155085"->{
+  Cell[2721, 82, 1916, 32, 106, "Print",
+   CellTags->"Info3450257877-7155085"]},
+ "Info3450258472-2208996"->{
+  Cell[6394, 178, 845, 17, 55, "Print",
+   CellTags->"Info3450258472-2208996"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3450257868-1145097", 13062, 388},
+ {"Info3450257877-7155085", 13172, 391},
+ {"Info3450258472-2208996", 13283, 394}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 478, 13, 49, "Input"],
+Cell[CellGroupData[{
+Cell[1048, 37, 123, 2, 27, "Input"],
+Cell[1174, 41, 79, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1290, 47, 126, 2, 27, "Input"],
+Cell[1419, 51, 1149, 22, 70, "Print",
+ CellTags->"Info3450257868-1145097"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2605, 78, 113, 2, 27, "Input"],
+Cell[2721, 82, 1916, 32, 106, "Print",
+ CellTags->"Info3450257877-7155085"]
+}, Open  ]],
+Cell[4652, 117, 577, 16, 43, "Input"],
+Cell[CellGroupData[{
+Cell[5254, 137, 181, 4, 27, "Input"],
+Cell[5438, 143, 125, 3, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5600, 151, 187, 4, 27, "Input"],
+Cell[5790, 157, 204, 5, 27, "Output"]
+}, Open  ]],
+Cell[6009, 165, 243, 5, 41, "Text"],
+Cell[CellGroupData[{
+Cell[6277, 174, 114, 2, 27, "Input"],
+Cell[6394, 178, 845, 17, 55, "Print",
+ CellTags->"Info3450258472-2208996"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7276, 200, 247, 6, 33, "Input"],
+Cell[7526, 208, 72, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7635, 214, 777, 21, 49, "Input"],
+Cell[8415, 237, 258, 8, 55, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8710, 250, 256, 6, 27, "Input"],
+Cell[8969, 258, 224, 4, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9230, 267, 185, 4, 27, "Input"],
+Cell[9418, 273, 145, 3, 27, "Output"]
+}, Open  ]],
+Cell[9578, 279, 357, 6, 41, "Text"],
+Cell[9938, 287, 906, 24, 52, "Input"],
+Cell[10847, 313, 227, 4, 41, "Text"],
+Cell[CellGroupData[{
+Cell[11099, 321, 155, 3, 27, "Input"],
+Cell[11257, 326, 71, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11365, 332, 116, 2, 30, "Input"],
+Cell[11484, 336, 73, 1, 27, "Output"]
+}, Open  ]],
+Cell[11572, 340, 441, 13, 33, "Input"],
+Cell[CellGroupData[{
+Cell[12038, 357, 209, 5, 27, "Input"],
+Cell[12250, 364, 171, 3, 27, "Output"]
+}, Open  ]],
+Cell[12436, 370, 296, 5, 41, "Text"]
+}
+]
+*)
+
+(* End of internal cache information *)

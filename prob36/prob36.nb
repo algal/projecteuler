@@ -1,0 +1,348 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     12269,        339]
+NotebookOptionsPosition[     10445,        272]
+NotebookOutlinePosition[     11262,        302]
+CellTagsIndexPosition[     11095,        295]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"IntegerDigits", "[", "76", "]"}]], "Input",
+ CellChangeTimes->{{3.450863574686531*^9, 3.450863578121243*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"7", ",", "6"}], "}"}]], "Output",
+ CellChangeTimes->{3.4508635794648933`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "IntegerDigits"}]], "Input",
+ CellChangeTimes->{{3.450863580442897*^9, 3.4508635824428873`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"IntegerDigits\\\", \\\"[\\\", \
+StyleBox[\\\"n\\\", \\\"TI\\\"], \\\"]\\\"}]\\) gives a list of the decimal \
+digits in the integer \\!\\(\\*StyleBox[\\\"n\\\", \\\"TI\\\"]\\). \
+\\n\\!\\(\\*RowBox[{\\\"IntegerDigits\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"n\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"b\\\", \
+\\\"TI\\\"]}], \\\"]\\\"}]\\) gives a list of the \
+base\[Hyphen]\\!\\(\\*StyleBox[\\\"b\\\", \\\"TI\\\"]\\) digits in the \
+integer \\!\\(\\*StyleBox[\\\"n\\\", \\\"TI\\\"]\\). \
+\\n\\!\\(\\*RowBox[{\\\"IntegerDigits\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"n\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"b\\\", \
+\\\"TI\\\"], \\\",\\\", StyleBox[\\\"len\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) \
+pads the list on the left with zeros to give a list of length \
+\\!\\(\\*StyleBox[\\\"len\\\", \\\"TI\\\"]\\). \"\>", "MSG"], 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/IntegerDigits"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.4508636326407003`*^9},
+ CellTags->"Info3450867232-2237022"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Reverse"}]], "Input",
+ CellChangeTimes->{{3.450863624007354*^9, 3.450863629104113*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\!\(\*RowBox[{\\\"Reverse\\\", \\\"[\\\", StyleBox[\\\"expr\\\
+\", \\\"TI\\\"], \\\"]\\\"}]\) reverses the order of the elements in \
+\!\(\*StyleBox[\\\"expr\\\", \\\"TI\\\"]\). \\n\!\(\*RowBox[{\\\"Reverse\\\", \
+\\\"[\\\", RowBox[{StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\
+\"n\\\", \\\"TI\\\"]}], \\\"]\\\"}]\) reverses elements at level \
+\!\(\*StyleBox[\\\"n\\\", \\\"TI\\\"]\) in \!\(\*StyleBox[\\\"expr\\\", \
+\\\"TI\\\"]\).\\n\!\(\*RowBox[{\\\"Reverse\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{SubscriptBox[StyleBox[\\\"n\\\", \\\"TI\\\"], StyleBox[\\\"1\\\", \
+\\\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"n\\\", \\\"TI\\\"], \
+StyleBox[\\\"2\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\
+\"TR\\\"]}], \\\"}\\\"}]}], \\\"]\\\"}]\) reverses elements at levels \
+\!\(\*SubscriptBox[StyleBox[\\\"n\\\", \\\"TI\\\"], StyleBox[\\\"1\\\", \
+\\\"TR\\\"]]\), \!\(\*SubscriptBox[StyleBox[\\\"n\\\", \\\"TI\\\"], StyleBox[\
+\\\"2\\\", \\\"TR\\\"]]\), \!\(\*StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]\) \
+in \!\(\*StyleBox[\\\"expr\\\", \\\"TI\\\"]\).\"\>", "MSG"], 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Reverse"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.450863629881751*^9},
+ CellTags->"Info3450867229-9984554"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PalindromeQ", "[", 
+   RowBox[{"n_", ",", 
+    RowBox[{"base_", " ", ":", " ", "10"}]}], "]"}], ":=", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"digits", "=", 
+      RowBox[{"IntegerDigits", "[", 
+       RowBox[{"n", ",", "base"}], "]"}]}], "}"}], ",", 
+    RowBox[{"digits", "\[Equal]", 
+     RowBox[{"Reverse", "[", "digits", "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.450863607034432*^9, 3.450863616732383*^9}, {
+  3.450863651687999*^9, 3.4508636886273413`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PalindromeQ", "[", "101", "]"}]], "Input",
+ CellChangeTimes->{{3.450863682952734*^9, 3.450863702576631*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.450863695088232*^9, 3.45086370315872*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"IntegerDigits", "[", 
+     RowBox[{"#", ",", "2"}], "]"}], "&"}], " ", "/@", " ", 
+   RowBox[{"Range", "[", 
+    RowBox[{"1", ",", "8"}], "]"}]}], " ", "//", " ", 
+  RowBox[{
+   RowBox[{"TableForm", "[", 
+    RowBox[{"#", ",", 
+     RowBox[{"TableAlignments", "\[Rule]", "Center"}]}], "]"}], 
+   "&"}]}]], "Input",
+ CellChangeTimes->{{3.450863708722536*^9, 3.450863744779007*^9}, {
+  3.450863792536648*^9, 3.4508638148912163`*^9}, {3.450863847009853*^9, 
+  3.450863871091879*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"1", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {"1", "0", "\<\"\"\>", "\<\"\"\>"},
+    {"1", "1", "\<\"\"\>", "\<\"\"\>"},
+    {"1", "0", "0", "\<\"\"\>"},
+    {"1", "0", "1", "\<\"\"\>"},
+    {"1", "1", "0", "\<\"\"\>"},
+    {"1", "1", "1", "\<\"\"\>"},
+    {"1", "0", "0", "0"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{1}, {1, 0}, {1, 1}, {1, 0, 0}, {1, 0, 1}, {1, 1, 0}, {1, 1, 
+    1}, {1, 0, 0, 0}}, TableAlignments -> Center]]], "Output",
+ CellChangeTimes->{{3.450863727062785*^9, 3.4508637451735287`*^9}, {
+  3.450863797138074*^9, 3.450863815155595*^9}, {3.450863847985516*^9, 
+  3.4508638716716213`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PalindromeQ", "[", 
+  RowBox[{"7", ",", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.450863926104241*^9, 3.450863931564229*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.4508639319683228`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"nums", " ", "=", " ", 
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"Range", "[", 
+     RowBox[{"1", ",", 
+      RowBox[{
+       SuperscriptBox["10", "6"], "-", "1"}]}], "]"}], ",", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"PalindromeQ", "[", 
+        RowBox[{"#", ",", "10"}], "]"}], " ", "&&", " ", 
+       RowBox[{"PalindromeQ", "[", 
+        RowBox[{"#", ",", "2"}], "]"}]}], ")"}], "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.450863948506968*^9, 3.450863995760448*^9}, {
+  3.450864029037323*^9, 3.450864029124774*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "3", ",", "5", ",", "7", ",", "9", ",", "33", ",", "99", ",", 
+   "313", ",", "585", ",", "717", ",", "7447", ",", "9009", ",", "15351", ",",
+    "32223", ",", "39993", ",", "53235", ",", "53835", ",", "73737", ",", 
+   "585585"}], "}"}]], "Output",
+ CellChangeTimes->{3.450864007229299*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", "nums", "]"}]], "Input",
+ CellChangeTimes->{{3.450864011171135*^9, 3.450864013002061*^9}}],
+
+Cell[BoxData["872187"], "Output",
+ CellChangeTimes->{3.45086401353193*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Reap"}]], "Input",
+ CellChangeTimes->{{3.4508643240224752`*^9, 3.450864325039089*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Reap\\\", \\\"[\\\", StyleBox[\\\"expr\\\
+\", \\\"TI\\\"], \\\"]\\\"}]\\) gives the value of \\!\\(\\*StyleBox[\\\"expr\
+\\\", \\\"TI\\\"]\\) together with all expressions to which Sow has been \
+applied during its evaluation. Expressions sown using \
+\\!\\(\\*RowBox[{\\\"Sow\\\", \\\"[\\\", StyleBox[\\\"e\\\", \\\"TI\\\"], \
+\\\"]\\\"}]\\) or \\!\\(\\*RowBox[{\\\"Sow\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"e\\\", \\\"TI\\\"], \\\",\\\", \
+SubscriptBox[StyleBox[\\\"tag\\\", \\\"TI\\\"], StyleBox[\\\"i\\\", \
+\\\"TI\\\"]]}], \\\"]\\\"}]\\) with different tags are given in different \
+lists. \\n\\!\\(\\*RowBox[{\\\"Reap\\\", \\\"[\\\", RowBox[{StyleBox[\\\"expr\
+\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"patt\\\", \\\"TI\\\"]}], \
+\\\"]\\\"}]\\) reaps only expressions sown with tags that match \
+\\!\\(\\*StyleBox[\\\"patt\\\", \\\"TI\\\"]\\). \
+\\n\\!\\(\\*RowBox[{\\\"Reap\\\", \\\"[\\\", RowBox[{StyleBox[\\\"expr\\\", \
+\\\"TI\\\"], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{SubscriptBox[StyleBox[\\\"patt\\\", \\\"TI\\\"], StyleBox[\\\"1\\\", \
+\\\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"patt\\\", \\\"TI\\\"], \
+StyleBox[\\\"2\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\
+\"TR\\\"]}], \\\"}\\\"}]}], \\\"]\\\"}]\\) puts expressions associated with \
+each of the \\!\\(\\*SubscriptBox[StyleBox[\\\"patt\\\", \\\"TI\\\"], \
+StyleBox[\\\"i\\\", \\\"TI\\\"]]\\) in a separate list. \
+\\n\\!\\(\\*RowBox[{\\\"Reap\\\", \\\"[\\\", RowBox[{StyleBox[\\\"expr\\\", \
+\\\"TI\\\"], \\\",\\\", StyleBox[\\\"patt\\\", \\\"TI\\\"], \\\",\\\", \
+StyleBox[\\\"f\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) returns \\!\\(\\*RowBox[{\\\
+\"{\\\", RowBox[{StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\",\\\", RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{StyleBox[\\\"f\\\", \\\"TI\\\"], \\\"[\\\", \
+RowBox[{SubscriptBox[StyleBox[\\\"tag\\\", \\\"TI\\\"], StyleBox[\\\"1\\\", \
+\\\"TR\\\"]], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{SubscriptBox[StyleBox[\\\"e\\\", \\\"TI\\\"], StyleBox[\\\"11\\\", \\\
+\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"e\\\", \\\"TI\\\"], \
+StyleBox[\\\"12\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \
+\\\"TR\\\"]}], \\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", \
+StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]}], \\\"}\\\"}]}], \\\"}\\\"}]\\). \
+\"\>", "MSG"], "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Reap"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.450864325910935*^9},
+ CellTags->"Info3450867925-1377171"]
+}, Open  ]]
+},
+WindowSize->{640, 750},
+WindowMargins->{{Automatic, 87}, {Automatic, 28}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3450867232-2237022"->{
+  Cell[984, 38, 1152, 22, 70, "Print",
+   CellTags->"Info3450867232-2237022"]},
+ "Info3450867229-9984554"->{
+  Cell[2292, 69, 1464, 25, 70, "Print",
+   CellTags->"Info3450867229-9984554"]},
+ "Info3450867925-1377171"->{
+  Cell[7817, 227, 2612, 42, 145, "Print",
+   CellTags->"Info3450867925-1377171"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3450867232-2237022", 10770, 283},
+ {"Info3450867229-9984554", 10879, 286},
+ {"Info3450867925-1377171", 10989, 289}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 133, 2, 27, "Input"],
+Cell[703, 26, 117, 3, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[857, 34, 124, 2, 27, "Input"],
+Cell[984, 38, 1152, 22, 70, "Print",
+ CellTags->"Info3450867232-2237022"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2173, 65, 116, 2, 27, "Input"],
+Cell[2292, 69, 1464, 25, 70, "Print",
+ CellTags->"Info3450867229-9984554"]
+}, Open  ]],
+Cell[3771, 97, 535, 14, 43, "Input"],
+Cell[CellGroupData[{
+Cell[4331, 115, 132, 2, 27, "Input"],
+Cell[4466, 119, 96, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4599, 125, 540, 15, 43, "Input"],
+Cell[5142, 142, 1043, 25, 153, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6222, 172, 153, 3, 27, "Input"],
+Cell[6378, 177, 75, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6490, 183, 585, 16, 33, "Input"],
+Cell[7078, 201, 343, 7, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7458, 213, 127, 2, 27, "Input"],
+Cell[7588, 217, 74, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7699, 223, 115, 2, 27, "Input"],
+Cell[7817, 227, 2612, 42, 145, "Print",
+ CellTags->"Info3450867925-1377171"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

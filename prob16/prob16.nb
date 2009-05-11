@@ -1,0 +1,136 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      4035,        127]
+NotebookOptionsPosition[      3546,        105]
+NotebookOutlinePosition[      3908,        121]
+CellTagsIndexPosition[      3865,        118]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["2", "15"], TraditionalForm]]],
+ " = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.\n\nWhat is \
+the sum of the digits of the number ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["2", "1000"], TraditionalForm]]],
+ "?"
+}], "Text",
+ CellChangeTimes->{{3.449589645237249*^9, 3.4495896587443237`*^9}, 
+   3.449589695353447*^9, {3.449590367335812*^9, 3.449590398184511*^9}, 
+   3.4495949605627317`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     SuperscriptBox["2", "i"], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "8"}], "}"}]}], "]"}], ",", 
+   RowBox[{"TableAlignments", "\[Rule]", "Right"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.449588935706231*^9, 3.449588973388105*^9}, {
+  3.449589109181756*^9, 3.449589131436298*^9}, {3.4495900995889263`*^9, 
+  3.449590099666259*^9}, {3.4495902999606524`*^9, 3.449590300056183*^9}, {
+  3.4495905131029882`*^9, 3.44959051365458*^9}, {3.44959075213203*^9, 
+  3.449590752219355*^9}, {3.44959389499183*^9, 3.4495938952950993`*^9}, {
+  3.449594994551404*^9, 3.449594995390072*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"2"},
+     {"4"},
+     {"8"},
+     {"16"},
+     {"32"},
+     {"64"},
+     {"128"},
+     {"256"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Right}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$, TableAlignments -> Right]]]], "Output",
+ CellChangeTimes->{
+  3.449588974518209*^9, 3.449589131861497*^9, 3.449590100374927*^9, 
+   3.449590302257455*^9, {3.449590496280814*^9, 3.449590514961852*^9}, 
+   3.44959075383871*^9, 3.449593896486306*^9, 3.449594996030931*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", 
+  RowBox[{"IntegerDigits", "[", 
+   SuperscriptBox["2", "1000"], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.449592801620781*^9, 3.4495929567207527`*^9}, {
+   3.44959299292474*^9, 3.449593099474382*^9}, 3.4495932113205357`*^9, {
+   3.449593352919177*^9, 3.449593420663561*^9}, {3.4495934661080627`*^9, 
+   3.4495935859478407`*^9}, {3.4495938040702057`*^9, 3.449593816485849*^9}, {
+   3.449593912776721*^9, 3.449593925241252*^9}, {3.4495946166189327`*^9, 
+   3.449594703150771*^9}}],
+
+Cell[BoxData["1366"], "Output",
+ CellChangeTimes->{
+  3.449593100999802*^9, {3.4495933545316057`*^9, 3.449593422189399*^9}, {
+   3.4495934562033052`*^9, 3.4495935113521643`*^9}, {3.449593564114106*^9, 
+   3.449593587092957*^9}, 3.449593817828134*^9, 3.44959394378804*^9, {
+   3.449594684150433*^9, 3.449594703834511*^9}, 3.449594998824222*^9}]
+}, Open  ]]
+},
+WindowSize->{1302, 446},
+WindowMargins->{{Automatic, 21}, {Automatic, 50}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 470, 13, 63, "Text"],
+Cell[CellGroupData[{
+Cell[1040, 37, 689, 14, 34, "Input"],
+Cell[1732, 53, 894, 28, 153, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2663, 86, 521, 9, 33, "Input"],
+Cell[3187, 97, 343, 5, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

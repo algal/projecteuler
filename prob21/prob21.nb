@@ -1,0 +1,217 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      6384,        208]
+NotebookOptionsPosition[      5348,        167]
+NotebookOutlinePosition[      5709,        183]
+CellTagsIndexPosition[      5666,        180]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Problem 21
+05 July 2002
+
+Let d(n) be defined as the sum of proper divisors of n (numbers less than n \
+which divide evenly into n).
+If d(a) = b and d(b) = a, where a  b, then a and b are an amicable pair and \
+each of a and b are called amicable numbers.
+
+For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, \
+55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, \
+71 and 142; so d(284) = 220.
+
+Evaluate the sum of all the amicable numbers under 10000.\
+\>", "Text",
+ CellChangeTimes->{3.4502793018111486`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ProperDivisors", "[", "n_", "]"}], ":=", 
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"Divisors", "[", "n", "]"}], ",", 
+    RowBox[{
+     RowBox[{"#", "!=", "n"}], "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.450279504410781*^9, 3.450279534670944*^9}, {
+  3.450279582109501*^9, 3.450279591313696*^9}, {3.450279632559309*^9, 
+  3.450279658119917*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ProperDivisors", "[", "220", "]"}]], "Input",
+ CellChangeTimes->{{3.4502795363975163`*^9, 3.450279543686584*^9}, {
+  3.4502796456860456`*^9, 3.45027964871148*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "2", ",", "4", ",", "5", ",", "10", ",", "11", ",", "20", ",", 
+   "22", ",", "44", ",", "55", ",", "110"}], "}"}]], "Output",
+ CellChangeTimes->{3.4502795974591637`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"d", "[", "n_", "]"}], ":=", 
+  RowBox[{"Total", "[", 
+   RowBox[{"ProperDivisors", "[", "n", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.450279660833226*^9, 3.450279672520507*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"d", "[", "220", "]"}]], "Input",
+ CellChangeTimes->{{3.4502796743404083`*^9, 3.450279675631545*^9}}],
+
+Cell[BoxData["284"], "Output",
+ CellChangeTimes->{3.450279676001958*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"d", "[", "284", "]"}]], "Input",
+ CellChangeTimes->{{3.450279677533742*^9, 3.4502796803932467`*^9}}],
+
+Cell[BoxData["220"], "Output",
+ CellChangeTimes->{3.4502796807767344`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AmicableQ", "[", "n_", "]"}], ":=", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"dd", "=", 
+      RowBox[{"d", "[", "n", "]"}]}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"n", "\[NotEqual]", "dd"}], " ", "&&", " ", 
+     RowBox[{"n", "\[Equal]", 
+      RowBox[{"d", "[", "dd", "]"}]}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.45027728685767*^9, 3.450277337577183*^9}, {
+   3.450277437599051*^9, 3.450277440269867*^9}, {3.450277650862125*^9, 
+   3.450277696789029*^9}, {3.4502780432823133`*^9, 3.450278066492873*^9}, {
+   3.450278204203175*^9, 3.450278254452005*^9}, 3.4502782885668917`*^9, {
+   3.450278355770732*^9, 3.450278401605397*^9}, {3.4502793638913603`*^9, 
+   3.450279366628319*^9}, {3.4502796874129677`*^9, 3.450279729648636*^9}, 
+   3.450279785155888*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AmicableQ", " ", "/@", " ", 
+  RowBox[{"{", 
+   RowBox[{"2", ",", "3", ",", "4", ",", "220", ",", "221", ",", "284"}], 
+   "}"}]}]], "Input",
+ CellChangeTimes->{{3.4502787025301113`*^9, 3.4502787228541527`*^9}, {
+  3.450279220157001*^9, 3.450279227868189*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "False", ",", "False", ",", "False", ",", "True", ",", "False", ",", 
+   "True"}], "}"}]], "Output",
+ CellChangeTimes->{{3.450278718138476*^9, 3.450278723559492*^9}, 
+   3.4502792288749857`*^9, 3.450279372753982*^9, 3.450279734785385*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Select", "[", 
+  RowBox[{
+   RowBox[{"Range", "[", 
+    RowBox[{"2", ",", 
+     RowBox[{"10000", "-", "1"}]}], "]"}], ",", "AmicableQ"}], "]"}]], "Input",\
+
+ CellChangeTimes->{{3.450278465310236*^9, 3.450278527748829*^9}, {
+  3.450278563767871*^9, 3.4502785664227037`*^9}, {3.450278596782613*^9, 
+  3.450278597437834*^9}, {3.450279188192711*^9, 3.4502791888718987`*^9}, {
+  3.450279748052446*^9, 3.4502797568767967`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "220", ",", "284", ",", "1184", ",", "1210", ",", "2620", ",", "2924", ",", 
+   "5020", ",", "5564", ",", "6232", ",", "6368"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.450278529372848*^9, 3.4502785679473543`*^9, 3.4502785987036037`*^9, 
+   3.4502791899346046`*^9, 3.4502792401533012`*^9, 3.450279376462698*^9, 
+   3.45027943123796*^9, {3.45027974217467*^9, 3.450279758011588*^9}, 
+   3.450280701179639*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", " ", "//", " ", "Total"}]], "Input",
+ CellChangeTimes->{{3.4502792423131323`*^9, 3.450279247116373*^9}}],
+
+Cell[BoxData["31626"], "Output",
+ CellChangeTimes->{3.45027924856771*^9, 3.450279385196278*^9, 
+  3.4502797655900507`*^9, 3.450280702412431*^9}]
+}, Open  ]]
+},
+WindowSize->{640, 750},
+WindowMargins->{{60, Automatic}, {Automatic, 24}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 567, 15, 176, "Text"],
+Cell[1115, 37, 397, 10, 27, "Input"],
+Cell[CellGroupData[{
+Cell[1537, 51, 187, 3, 27, "Input"],
+Cell[1727, 56, 222, 5, 27, "Output"]
+}, Open  ]],
+Cell[1964, 64, 219, 5, 27, "Input"],
+Cell[CellGroupData[{
+Cell[2208, 73, 124, 2, 27, "Input"],
+Cell[2335, 77, 72, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2444, 83, 124, 2, 27, "Input"],
+Cell[2571, 87, 74, 1, 27, "Output"]
+}, Open  ]],
+Cell[2660, 91, 828, 18, 27, "Input"],
+Cell[CellGroupData[{
+Cell[3513, 113, 284, 6, 27, "Input"],
+Cell[3800, 121, 280, 6, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4117, 132, 445, 10, 27, "Input"],
+Cell[4565, 144, 451, 9, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5053, 158, 132, 2, 27, "Input"],
+Cell[5188, 162, 144, 2, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

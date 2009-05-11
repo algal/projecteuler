@@ -2,6 +2,25 @@ k = 600851475143
 
 # we know p^2 <= x
 
+def biggestFactor(n):
+    candidate = 2
+    factor = 1
+    # we will keep reducing n by going [n,n/f1, (n/f1)/f2, ..., 1] as
+    # we keep updating our latest biggest factor f1,f2,f3 start with n
+    while n > 1:
+        # if 'factor' is really a factor ...
+        if n % candidate == 0:
+            # ... remember it as a real factor
+            factor=candidate
+            # reduce n by that factor, as much as possible
+            n = n / factor
+            while n % factor ==0:
+                n = n / factor
+        # try the next possible factor
+        candidate += 1
+    return factor
+            
+            
 def primeFactors(x):
     """Calculates all primes of a number.
 
@@ -23,7 +42,7 @@ def primeFactors(x):
     return primes
 
 def isPrime(x):
-    """ Checks primality.
+    """ Checks primality via 'trial division'.
 
     Makes O(n) attempted divisions"""
     import math
@@ -32,44 +51,6 @@ def isPrime(x):
         if x % i == 0:
             return False
     return True
-
-def findLargestPrimeFactor(x):
-    """ Finds largest prime.
-
-    Makes O(N^2) attempted divisions"""
-    n = x/2
-
-    while(True):
-        if isPrime(n):
-            if x % n == 0:
-                return n
-        n=n-1
-    return
-
-
-
-
-plist = [2]
-
-def primes(min, max):
-    global plist
-    if 2 >= min: yield 2
-    i = 3
-    while i <= max:
-        for p in plist:
-            if i%p == 0 or p*p > i: break
-        if i%p:
-            plist.append(i)
-            if i >= min: yield i
-        i = i+2
-        
-def factors(number):
-    for prime in primes(2, number):
-        if number % prime == 0:
-            number = number / prime
-            yield prime
-        if number == 1:
-            raise StopIteration
 
 def prime_factors(num, factor=2):
     """Return all prime factors of num in an ordered list"""
@@ -82,7 +63,7 @@ def prime_factors(num, factor=2):
     # a stream of candidate, starting with 'factor'
     # E.g.,   [factor,factor+1,...,sqrt(num)+1,num]
     candidates = chain(xrange(factor, int(sqrt(num))+1), [num])
-    # the next prime factor is the next candidate factor that is
+    # the next actual prime factor is the next candidate factor that is
     # actually a factor
     next = first(x for x in candidates if (num%x == 0))
     # now that we've found next is an actual factor of num, we can

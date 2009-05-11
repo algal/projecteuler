@@ -1,0 +1,168 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      4343,        159]
+NotebookOptionsPosition[      3485,        124]
+NotebookOutlinePosition[      3998,        146]
+CellTagsIndexPosition[      3914,        141]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Starting in the top left corner of a 2x2 grid, there are 6 routes (without \
+backtracking) to the bottom right corner.
+
+How many routes are there through a 20x20 grid\
+\>", "Text",
+ CellChangeTimes->{{3.45025359398061*^9, 3.450253620367475*^9}}],
+
+Cell["\<\
+1x1 grid:
+routes: 
+ right, down
+ down, right
+ 
+ 2x2 grid:
+ routes:
+  right,right,down,down
+  right,down,right,down
+  right,down,down,right
+  down,right,right,down
+  down,right,down,right
+  down,down,right,right.
+  
+  nxn grid:
+   there must be n rightward moves and n downward moves for a total of 2n \
+moves.
+   
+  The question is only how they are sequenced. every move is either right or \
+down.
+  So the question is only: how many ways are there to allocate n moves in 2n \
+slots?
+  
+  Suppose the 2n slots are represented by the position set {1,2,...,2n}.
+  
+  Then every way to allocate n moves in 2n slots, is just a way to choose n \
+items from the position set {1,2,...,2n}
+  
+  So how many ways are there to choose a set of n items from a 2n set?
+  
+This is (2n choose n), which is represented by the binomial function:\
+\>", "Text",
+ CellChangeTimes->{{3.450253633141624*^9, 3.450253878039901*^9}, {
+  3.4502539631969633`*^9, 3.450253978572793*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Binomial", "[", 
+   RowBox[{
+    RowBox[{"2", "n"}], ",", "n"}], "]"}], " ", "/.", " ", 
+  RowBox[{"n", "\[Rule]", "20"}]}]], "Input",
+ CellChangeTimes->{{3.4502538834399643`*^9, 3.450253948445352*^9}}],
+
+Cell[BoxData["137846528820"], "Output",
+ CellChangeTimes->{
+  3.4502538987352657`*^9, {3.4502539295477057`*^9, 3.450253948916862*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Binomial"}]], "Input",
+ CellChangeTimes->{{3.450254014145069*^9, 3.450254040121072*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\!\(\*RowBox[{\\\"Binomial\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"n\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"m\\\", \
+\\\"TI\\\"]}], \\\"]\\\"}]\) gives the binomial coefficient \
+\!\(\*RowBox[{\\\"(\\\", GridBox[{{\\\"n\\\"}, {\\\"m\\\"}}], \\\")\\\"}]\). \
+\"\>", "MSG"], "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Binomial"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.450254040789958*^9},
+ CellTags->"Info3450257640-6957962"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   RowBox[{"n", "!"}], 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"n", "-", "k"}], ")"}], "!"}], 
+    RowBox[{"k", "!"}]}]], " ", "/.", " ", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"n", "\[Rule]", "40"}], ",", 
+    RowBox[{"k", "\[Rule]", "20"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.450254066656343*^9, 3.4502541069817123`*^9}}],
+
+Cell[BoxData["137846528820"], "Output",
+ CellChangeTimes->{{3.450254100014329*^9, 3.4502541073873863`*^9}}]
+}, Open  ]]
+},
+WindowSize->{640, 750},
+WindowMargins->{{Automatic, -10}, {45, Automatic}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3450257640-6957962"->{
+  Cell[2329, 85, 573, 13, 55, "Print",
+   CellTags->"Info3450257640-6957962"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3450257640-6957962", 3811, 135}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 255, 6, 56, "Text"],
+Cell[803, 28, 970, 34, 416, "Text"],
+Cell[CellGroupData[{
+Cell[1798, 66, 237, 6, 27, "Input"],
+Cell[2038, 74, 134, 2, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2209, 81, 117, 2, 27, "Input"],
+Cell[2329, 85, 573, 13, 55, "Print",
+ CellTags->"Info3450257640-6957962"]
+}, Open  ]],
+Cell[2917, 101, 26, 0, 27, "Input"],
+Cell[CellGroupData[{
+Cell[2968, 105, 391, 13, 48, "Input"],
+Cell[3362, 120, 107, 1, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,177 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      4591,        168]
+NotebookOptionsPosition[      3903,        139]
+NotebookOutlinePosition[      4243,        154]
+CellTagsIndexPosition[      4200,        151]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "The sum of the squares of the first ten natural numbers is,\n\n",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["1", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " + ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["2", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " + ... + ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " = 385\nThe square of the sum of the first ten natural numbers is,\n\n(1 + \
+2 + ... + ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    RowBox[{"10", ")"}], "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " = ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["55", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " = 3025\n\nHence the difference between the sum of the squares of the first \
+ten natural numbers and the square of the sum is 3025  385 = 2640.\n\nFind \
+the difference between the sum of the squares of the first one hundred \
+natural numbers and the square of the sum."
+}], "Text",
+ CellChangeTimes->{{3.449495887787179*^9, 3.449495913076397*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "n_", "]"}], ":=", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"Sum", "[", 
+       RowBox[{"i", ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}], ")"}], "2"], "-", 
+    
+    RowBox[{"Sum", "[", 
+     RowBox[{
+      SuperscriptBox["i", "2"], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}]}], ";", " ", 
+  RowBox[{"f", "[", "n", "]"}]}]], "Input",
+ CellChangeTimes->{{3.449496031299402*^9, 3.44949604010973*^9}, {
+  3.4494961124702387`*^9, 3.449496152020941*^9}, {3.449496208258669*^9, 
+  3.4494962464434223`*^9}, {3.4494963151157303`*^9, 3.449496318571*^9}, {
+  3.449496833883994*^9, 3.449496852856531*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   FractionBox["1", "4"], " ", 
+   SuperscriptBox["n", "2"], " ", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", "n"}], ")"}], "2"]}], "-", 
+  RowBox[{
+   FractionBox["1", "6"], " ", "n", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "+", "n"}], ")"}], " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "+", 
+     RowBox[{"2", " ", "n"}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{3.449496853827879*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "[", "10", "]"}]], "Input",
+ CellChangeTimes->{{3.4494968617248507`*^9, 3.449496863779571*^9}}],
+
+Cell[BoxData["2640"], "Output",
+ CellChangeTimes->{3.44949686696345*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "[", "100", "]"}]], "Input",
+ CellChangeTimes->{{3.4494968709891777`*^9, 3.449496874283699*^9}}],
+
+Cell[BoxData["25164150"], "Output",
+ CellChangeTimes->{3.449496875180388*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Sum", "[", 
+  RowBox[{
+   SuperscriptBox["i", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.449496993246819*^9, 3.449497008183372*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "6"], " ", "n", " ", 
+  RowBox[{"(", 
+   RowBox[{"1", "+", "n"}], ")"}], " ", 
+  RowBox[{"(", 
+   RowBox[{"1", "+", 
+    RowBox[{"2", " ", "n"}]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.449497009318488*^9}]
+}, Open  ]]
+},
+WindowSize->{640, 750},
+WindowMargins->{{Automatic, 41}, {Automatic, 13}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1120, 33, 197, "Text"],
+Cell[CellGroupData[{
+Cell[1690, 57, 760, 21, 33, "Input"],
+Cell[2453, 80, 437, 15, 47, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2927, 100, 123, 2, 27, "Input"],
+Cell[3053, 104, 72, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3162, 110, 124, 2, 27, "Input"],
+Cell[3289, 114, 77, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3403, 120, 229, 6, 33, "Input"],
+Cell[3635, 128, 252, 8, 47, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

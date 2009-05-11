@@ -1,0 +1,5 @@
+F_1 = 1
+F_2 = 1
+F_n+2 = F_(n-1) + F_(n-2)
+
+What is the first term in the Fibonacci sequence to contain 1000 digits?

@@ -1,0 +1,168 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      4320,        158]
+NotebookOptionsPosition[      3600,        128]
+NotebookOutlinePosition[      3938,        143]
+CellTagsIndexPosition[      3895,        140]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"the", " ", "golden", " ", "ratio", " ", "phi"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Phi]", "=", 
+     FractionBox[
+      RowBox[{"1", "+", 
+       RowBox[{"Sqrt", "[", "5", "]"}]}], "2"]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"closed", "-", 
+     RowBox[{
+     "form", " ", "expression", " ", "for", " ", "Fibonnaci", " ", "term", 
+      " ", "n"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"f", "[", "n_", "]"}], ":=", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[Phi]", "n"], "-", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "-", "\[Phi]"}], ")"}], "n"]}], 
+     RowBox[{"Sqrt", "[", "5", "]"}]]}]}]}]], "Input",
+ CellChangeTimes->{{3.450253050515024*^9, 3.450253099758877*^9}, {
+  3.4502532742869577`*^9, 3.4502533180337267`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"n", ",", 
+      RowBox[{"N", "[", 
+       RowBox[{"f", "[", "n", "]"}], "]"}], ",", 
+      RowBox[{"Fibonacci", "[", "n", "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "1", ",", "10"}], "}"}]}], "]"}], " ", "//", "  ", 
+  "TableForm"}]], "Input",
+ CellChangeTimes->{{3.450253107622114*^9, 3.450253232916156*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", "1.`", "1"},
+    {"2", "1.`", "1"},
+    {"3", "2.`", "2"},
+    {"4", "3.`", "3"},
+    {"5", "5.`", "5"},
+    {"6", "8.`", "8"},
+    {"7", "13.`", "13"},
+    {"8", "21.`", "21"},
+    {"9", "34.`", "34"},
+    {"10", "55.`", "55"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[0.7]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.450253178429797*^9, 3.450253233271353*^9}, 
+   3.4502533042489347`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "1", ",", "2", ",", "3", ",", "5", ",", "8", ",", "13", ",", "21",
+    ",", "34", ",", "55"}], "}"}]], "Output",
+ CellChangeTimes->{{3.450253116971529*^9, 3.4502531621987143`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.450253144466712*^9, 3.4502531506233177`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Fibonacci", "[", "5", "]"}]], "Input",
+ CellChangeTimes->{{3.450253209730213*^9, 3.450253213003051*^9}}],
+
+Cell[BoxData["5"], "Output",
+ CellChangeTimes->{3.450253213595756*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\[Phi]"], "Input",
+ CellChangeTimes->{{3.450253288508664*^9, 3.450253288869903*^9}}],
+
+Cell[BoxData["\[Phi]"], "Output",
+ CellChangeTimes->{3.4502532894181013`*^9}]
+}, Open  ]]
+},
+WindowSize->{640, 750},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 922, 27, 119, "Input"],
+Cell[CellGroupData[{
+Cell[1492, 51, 422, 12, 27, "Input"],
+Cell[1917, 65, 819, 26, 185, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2773, 96, 26, 0, 27, "Input"],
+Cell[2802, 98, 232, 5, 27, "Output"]
+}, Open  ]],
+Cell[3049, 106, 94, 1, 27, "Input"],
+Cell[CellGroupData[{
+Cell[3168, 111, 128, 2, 27, "Input"],
+Cell[3299, 115, 70, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3406, 121, 98, 1, 27, "Input"],
+Cell[3507, 124, 77, 1, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
