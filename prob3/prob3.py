@@ -1,3 +1,13 @@
+from __future__ import absolute_import
+
+# begin: kludge to include ../eulertoolspy/functionalpy
+import os
+import sys
+eulerpath = os.path.abspath('..')
+if eulerpath not in sys.path:
+    sys.path = [eulerpath]+sys.path
+# end: kludge
+
 k = 600851475143
 
 # we know p^2 <= x
@@ -54,7 +64,7 @@ def isPrime(x):
 
 def prime_factors(num, factor=2):
     """Return all prime factors of num in an ordered list"""
-    from functionalpy import chain,first
+    from eulertoolspy.functionalpy import chain, first
     from math import sqrt
     
     if num <= 1:
