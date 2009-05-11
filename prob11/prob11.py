@@ -1,3 +1,11 @@
+from __future__ import absolute_import
+# a kludge to include ../eulertoolspy/functionalpy
+import os
+import sys
+eulerpath = os.path.abspath('..')
+if eulerpath not in sys.path:
+    sys.path = [eulerpath]+sys.path
+
 s="""08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -30,8 +38,8 @@ def outofbounds(x,y):
     return False
         
 def getdirections():
-    from functionalpy import icross, ifilter
-    for (xdir, ydir) in ifilter(lambda (x,y): not (x==0 and y==0), icross((-1,0,+1),(-1,0,+1))):
+    from eulertoolspy import functionalpy
+    for (xdir, ydir) in functionalpy.ifilter(lambda (x,y): not (x==0 and y==0), functionalpy.icross((-1,0,+1),(-1,0,+1))):
         yield (xdir,ydir)
 
 def seq(x,y,xdir,ydir):
@@ -80,8 +88,5 @@ def findmax(g):
     return bestsum
                     
 
-                
+answer = findmax(makeGrid(s))                
             
-        
-  
-
