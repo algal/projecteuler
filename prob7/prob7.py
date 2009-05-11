@@ -1,3 +1,14 @@
+from __future__ import absolute_import
+
+# begin: kludge to include ../eulertoolspy/functionalpy
+import os
+import sys
+eulerpath = os.path.abspath('..')
+if eulerpath not in sys.path:
+    sys.path = [eulerpath]+sys.path
+# end: kludge
+
+
 def isPrimeSlow(n):
     """ Checks primality via 'trial division'.
 
@@ -64,5 +75,5 @@ def primes():
             yield i
         i+=1
 
-from functionalpy import takenth
+from eulertoolspy.functionalpy import takenth
 answer = takenth(10001-1,primes()) # 0-based, so correct with -1
