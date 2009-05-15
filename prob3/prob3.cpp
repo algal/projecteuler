@@ -1,17 +1,20 @@
 #include <iostream>
 #include <map>
 
+#include <boost/cstdint.hpp>
+
+using namespace boost;
 using namespace std;
 
+typedef boost::uint64_t biglong;
+
 /* Populates factors with the powers of n's prime factors */
-void factorInteger(long n, map<long,int> &factors) 
+void factorInteger(boost::uint64_t n, map<boost::uint64_t,unsigned int> &factors) 
 {
-  // initialise factors to 0
-
   // start trying candidate factors
-  for(long candidate=2; n > 1 && candidate^2 < (1+n^2); ++candidate) {
-    std::cout << "trying candidate = " << candidate;;
+  for(boost::uint64_t candidate=2; n > 1 && candidate^2 < (1+n^2); ++candidate) {
 
+    // initialise factors to 0
     if(n % candidate == 0) {
       factors[candidate]=0;
     }
@@ -28,8 +31,18 @@ void factorInteger(long n, map<long,int> &factors)
 }
 
 
-/* Returns the largest prime factor of n */
-long biggestFactor(long n)
+/* Returns the largest prime factor of n. 
+
+
+   This function takes [2,3,...,inf] as a list of candidate factors,
+   and one by one tries to divide them out of n as many times as is
+   possible. Since it tries repeatedly on a factor, it will
+   automatically divide out powers of that factor. Thus, it will only
+   divide out primes. Since the candidates are listed in order, the
+   last factor to divide out successfuly will be the highest prime
+   factor of n.
+*/
+long biggestFactor(boost::uint64_t n)
 {
   // the largest factor so far
   long factor = 1;
@@ -58,11 +71,11 @@ long biggestFactor(long n)
 
 
 // prints the map
-void printmap(std::map<long,int> mmap) {
+void printmap(std::map<boost::uint64_t,unsigned int> mmap) {
   clog << "   map = ";
   clog << "{ ";
 
-  for(map<long,int>::iterator thisitem_iter = mmap.begin();
+  for(map<boost::uint64_t,unsigned int>::iterator thisitem_iter = mmap.begin();
       thisitem_iter != mmap.end(); 
       ++thisitem_iter) {
     clog << thisitem_iter->first << ":" << thisitem_iter->second << ", ";
@@ -72,12 +85,11 @@ void printmap(std::map<long,int> mmap) {
 
 main()
 {
-  long k = 7*2*5*5*3*3;
-  //  long k = 600851475143;
+  boost::uint64_t k = 600851475143LL;
   long factor = biggestFactor(k);
   std::cout << "largest factor of " << k << " is " << factor << std::endl;
 
-  std::map<long,int> m;
+  std::map<boost::uint64_t,unsigned int> m;
   factorInteger(k,m);
   printmap(m);
 
