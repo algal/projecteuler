@@ -80,6 +80,8 @@ main()
   std::map<long,int> m;
   factorInteger(k,m);
   printmap(m);
-  
+
+  std::cout << "sizeof char* = " << sizeof(char*) << std::endl;
+  std::cout << "sizeof lond = " << sizeof(long) << std::endl;
 }
 
