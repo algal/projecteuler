@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[      6845,        218]
-NotebookOptionsPosition[      5772,        177]
-NotebookOutlinePosition[      6133,        193]
-CellTagsIndexPosition[      6090,        190]
+NotebookDataLength[     23200,        747]
+NotebookOptionsPosition[     20492,        652]
+NotebookOutlinePosition[     21243,        680]
+CellTagsIndexPosition[     21117,        674]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -30,8 +30,18 @@ four million.
 \>", "Text",
  CellChangeTimes->{3.449467873036478*^9}],
 
-Cell["Brute force to calculate the sequence", "Text",
- CellChangeTimes->{{3.449468984713937*^9, 3.449468997962442*^9}}],
+Cell[TextData[{
+ "Brute force to calculate the sequence. (The f[n_] := f[n] = ... pattern is \
+a ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " idiom for memoization, i.e., for caching already computed values of a \
+function.)"
+}], "Text",
+ CellChangeTimes->{{3.449468984713937*^9, 3.449468997962442*^9}, {
+  3.451287869675632*^9, 3.45128789531668*^9}, {3.4512881851720257`*^9, 
+  3.451288186210496*^9}, {3.451288749033249*^9, 3.4512887514015512`*^9}, {
+  3.451289261616506*^9, 3.4512892666474648`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -39,16 +49,20 @@ Cell[BoxData[{
    RowBox[{"F", "[", "1", "]"}], "=", "1"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"F", "[", "2", "]"}], "=", "2"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"F", "[", "2", "]"}], "=", "1"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"F", "[", "x_", "]"}], ":=", 
    RowBox[{
-    RowBox[{"F", "[", 
-     RowBox[{"x", "-", "1"}], "]"}], "+", 
-    RowBox[{"F", "[", 
-     RowBox[{"x", "-", "2"}], "]"}]}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.4494678907338457`*^9, 3.449467953455295*^9}}],
+    RowBox[{"F", "[", "x", "]"}], "=", 
+    RowBox[{
+     RowBox[{"F", "[", 
+      RowBox[{"x", "-", "1"}], "]"}], "+", 
+     RowBox[{"F", "[", 
+      RowBox[{"x", "-", "2"}], "]"}]}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.4494678907338457`*^9, 3.449467953455295*^9}, {
+  3.451287815829022*^9, 3.4512878159329233`*^9}, {3.451287864270536*^9, 
+  3.451287865487275*^9}}],
 
 Cell[CellGroupData[{
 
@@ -63,9 +77,10 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-  "1", ",", "2", ",", "3", ",", "5", ",", "8", ",", "13", ",", "21", ",", 
-   "34", ",", "55", ",", "89"}], "}"}]], "Output",
- CellChangeTimes->{3.449467973917223*^9}]
+  "1", ",", "1", ",", "2", ",", "3", ",", "5", ",", "8", ",", "13", ",", "21",
+    ",", "34", ",", "55"}], "}"}]], "Output",
+ CellChangeTimes->{3.449467973917223*^9, 3.4512878218039703`*^9, 
+  3.451287899911374*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -74,8 +89,9 @@ Cell[BoxData[
  RowBox[{"F", "[", "32", "]"}]], "Input",
  CellChangeTimes->{{3.449468494850425*^9, 3.449468495926197*^9}}],
 
-Cell[BoxData["3524578"], "Output",
- CellChangeTimes->{3.449468503711878*^9}]
+Cell[BoxData["2178309"], "Output",
+ CellChangeTimes->{3.449468503711878*^9, 3.4512878313082523`*^9, 
+  3.451287901940157*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -86,13 +102,28 @@ Cell[BoxData[
   3.449468355042675*^9, 3.4494683893397417`*^9}, {3.449468425069401*^9, 
   3.44946845259881*^9}}],
 
-Cell[BoxData["5702887"], "Output",
+Cell[BoxData["3524578"], "Output",
  CellChangeTimes->{{3.4494683508742456`*^9, 3.449468385179553*^9}, {
-  3.4494684164056787`*^9, 3.44946846491702*^9}}]
+   3.4494684164056787`*^9, 3.44946846491702*^9}, 3.451287855418939*^9, 
+   3.4512879049678*^9}]
 }, Open  ]],
 
-Cell["Then filter with a list comprehension", "Text",
- CellChangeTimes->{{3.449469001138208*^9, 3.449469004162356*^9}}],
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"F", "[", "34", "]"}]], "Input",
+ CellChangeTimes->{{3.451287981267292*^9, 3.451287982410306*^9}}],
+
+Cell[BoxData["5702887"], "Output",
+ CellChangeTimes->{3.451287982829831*^9, 3.451288224466292*^9}]
+}, Open  ]],
+
+Cell["\<\
+So we need only look at {Fib[i]...,Fib[33]}, then filter the list.\
+\>", "Text",
+ CellChangeTimes->{{3.449469001138208*^9, 3.449469004162356*^9}, {
+  3.451288192307341*^9, 3.4512882214207783`*^9}, {3.4512892923530684`*^9, 
+  3.451289294944585*^9}}],
 
 Cell[CellGroupData[{
 
@@ -104,7 +135,7 @@ Cell[BoxData[
      RowBox[{
       RowBox[{"F", "[", "i", "]"}], ",", 
       RowBox[{"{", 
-       RowBox[{"i", ",", "1", ",", "32"}], "}"}]}], "]"}], ",", 
+       RowBox[{"i", ",", "1", ",", "33"}], "}"}]}], "]"}], ",", 
     RowBox[{
      RowBox[{"(", 
       RowBox[{
@@ -112,10 +143,13 @@ Cell[BoxData[
         RowBox[{"#", ",", " ", "2"}], "]"}], "\[Equal]", "0"}], ")"}], 
      "&"}]}], "]"}], " ", "//", " ", "Total"}]], "Input",
  CellChangeTimes->{{3.4494685509885406`*^9, 3.449468584896762*^9}, 
-   3.4494688183012447`*^9, {3.449468886312318*^9, 3.449468890335372*^9}}],
+   3.4494688183012447`*^9, {3.449468886312318*^9, 3.449468890335372*^9}, {
+   3.451287991348394*^9, 3.451287991452115*^9}, {3.451288234561496*^9, 
+   3.451288234631048*^9}}],
 
 Cell[BoxData["4613732"], "Output",
- CellChangeTimes->{3.449468605054063*^9, 3.44946891155173*^9}]
+ CellChangeTimes->{3.449468605054063*^9, 3.44946891155173*^9, 
+  3.45128791531293*^9, 3.4512879922282057`*^9, 3.45128823526202*^9}]
 }, Open  ]],
 
 Cell["Is there a pattern for solving it analytically?", "Text",
@@ -145,38 +179,479 @@ Cell[BoxData[
 
 Cell[TextData[{
  "It seems like the sequence always show the pattern\n {odd,odd,even, \
-odd,odd,even, odd,odd,even}\n \n odd+odd=even\n odd+even=odd\n even+even=even\
-\n \n 1,2,... = odd,even,...\n \n which implies\n odd,even,odd,odd,even,odd,\n\
- \n So since evens are so predictable, we could calculate a new sequence of \
-OddFibonnaci which skipped the even numbers entirely.\n \n How would that \
-look?\n \n F[1]=1\n F[2]=2\n \n ",
+odd,odd,even, odd,odd,even}.\n \n Yes, this must be the case becaus: \n \
+odd+odd=even\n odd+even=odd\n even+even=even\n \n 1,2,... = odd,even,...\n \n \
+which implies\n odd,even,odd,odd,even,odd,\n \n So since evens are so \
+predictable, we could calculate a new sequence of OddFibonnaci which skipped \
+the even numbers entirely.\n \n How would that look?\n \n F[1]=1\n F[2]=2\n \n\
+ ",
  Cell[BoxData[
   FormBox[
    RowBox[{
     RowBox[{"F", "[", "3", "]"}], " ", "=", " ", 
     RowBox[{
      RowBox[{"F", "[", "1", "]"}], "+", 
-     RowBox[{"F", "[", "2", "]"}]}]}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+     RowBox[{"F", "[", "2", "]"}]}]}], TraditionalForm]]],
  "\nF[4] = F[2]+F[3] \n\nF[1],\t\t\t\t\t\t\t\t\t\t\todd\n          F[2], \t\t\
 \t\t\t\t\t\t\t\teven\n                     (F[1]+F[2]), \t\t\t\t\t\t\t\todd\n \
          (F[2]+(F[1]+F[2]),\t\t\t\t\t\t\t\todd\n                              \
                (F[1]+F[2]) + (F[2]+(F[1]+F[2]),\t\t\t\teven\n                 \
-                        \n\n\n"
+                        \nEvenFib[1]=F[3]\nEvenFib[2]=F[3+1*3]\n\
+EvenFib[3]=F[3+1*3+1*3]\nEvenFib[n]=F[3+3*(n-1)]  n>1\nEvenFib[1]=F[3]=2\n\
+EvenFib[n]=F[3n]\n\nOddFib[1]=Fib[1]\nOddFib[2]=Fib[2]\n\nOddFib[3]=Fib[4]\n\
+OddFib[4]=Fib[5]\n\nOddfib[5]=Fib[7]\nOddFib[6]=Fib[8]"
 }], "Text",
  CellChangeTimes->{{3.4494695428735332`*^9, 3.449469676646104*^9}, {
   3.4494698716623077`*^9, 3.449469981244831*^9}, {3.449470044732499*^9, 
-  3.449470082662359*^9}}],
+  3.449470082662359*^9}, {3.4512883008731833`*^9, 3.4512884015311737`*^9}, {
+  3.451288444301498*^9, 3.451288447447867*^9}, {3.451288547154687*^9, 
+  3.451288670006604*^9}, {3.4512897497927723`*^9, 3.451289750280698*^9}, {
+  3.451289989450674*^9, 3.451289994807356*^9}}],
 
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.449469903467601*^9, 3.4494699044877243`*^9}}],
+Cell["\<\
+Can we generate analytical solutions from the recurrence relation?\
+\>", "Text",
+ CellChangeTimes->{{3.451290330895114*^9, 3.4512903401198397`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "RSolve"}]], "Input",
+ CellChangeTimes->{{3.4512884051443253`*^9, 3.451288407728203*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"RSolve\\\", \\\"[\\\", RowBox[{StyleBox[\
+\\\"eqn\\\", \\\"TI\\\"], \\\",\\\", RowBox[{StyleBox[\\\"a\\\", \\\"TI\\\"], \
+\\\"[\\\", StyleBox[\\\"n\\\", \\\"TI\\\"], \\\"]\\\"}], \\\",\\\", StyleBox[\
+\\\"n\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) solves a recurrence equation for \\!\
+\\(\\*RowBox[{StyleBox[\\\"a\\\", \\\"TI\\\"], \\\"[\\\", StyleBox[\\\"n\\\", \
+\\\"TI\\\"], \\\"]\\\"}]\\). \\n\\!\\(\\*RowBox[{\\\"RSolve\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{SubscriptBox[StyleBox[\\\"eqn\\\", \
+\\\"TI\\\"], StyleBox[\\\"1\\\", \\\"TR\\\"]], \\\",\\\", \
+SubscriptBox[StyleBox[\\\"eqn\\\", \\\"TI\\\"], StyleBox[\\\"2\\\", \
+\\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]}], \\\"}\\\
+\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{SubscriptBox[StyleBox[\\\"a\\\", \\\"TI\\\"], \
+StyleBox[\\\"1\\\", \\\"TR\\\"]], \\\"[\\\", StyleBox[\\\"n\\\", \\\"TI\\\"], \
+\\\"]\\\"}], \\\",\\\", RowBox[{SubscriptBox[StyleBox[\\\"a\\\", \\\"TI\\\"], \
+StyleBox[\\\"2\\\", \\\"TR\\\"]], \\\"[\\\", StyleBox[\\\"n\\\", \\\"TI\\\"], \
+\\\"]\\\"}], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]}], \
+\\\"}\\\"}], \\\",\\\", StyleBox[\\\"n\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) \
+solves a system of recurrence equations. \\n\\!\\(\\*RowBox[{\\\"RSolve\\\", \
+\\\"[\\\", RowBox[{StyleBox[\\\"eqn\\\", \\\"TI\\\"], \\\",\\\", \
+RowBox[{StyleBox[\\\"a\\\", \\\"TI\\\"], \\\"[\\\", \
+RowBox[{SubscriptBox[StyleBox[\\\"n\\\", \\\"TI\\\"], StyleBox[\\\"1\\\", \
+\\\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"n\\\", \\\"TI\\\"], \
+StyleBox[\\\"2\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\
+\"TR\\\"]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{SubscriptBox[StyleBox[\\\"n\\\", \\\"TI\\\"], StyleBox[\\\"1\\\", \
+\\\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"n\\\", \\\"TI\\\"], \
+StyleBox[\\\"2\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\
+\"TR\\\"]}], \\\"}\\\"}]}], \\\"]\\\"}]\\) solves a partial recurrence \
+equation. \"\>", "MSG"], "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/RSolve"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.451288409270935*^9},
+ CellTags->"Info3451292008-7123464"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RSolve", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Fib", "[", "n", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"Fib", "[", 
+        RowBox[{"n", "-", "1"}], "]"}], "+", 
+       RowBox[{"Fib", "[", 
+        RowBox[{"n", "-", "2"}], "]"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"Fib", "[", "1", "]"}], "\[Equal]", "1"}], ",", 
+     RowBox[{
+      RowBox[{"Fib", "[", "2", "]"}], "\[Equal]", "1"}]}], "}"}], ",", 
+   RowBox[{"Fib", "[", "n", "]"}], ",", "n"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Fib", "[", "n", "]"}], "\[Rule]", 
+    RowBox[{"Fibonacci", "[", "n", "]"}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.4512898779322777`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Hmm. ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " already knows the Fibonacci sequence. So let's start using that:"
+}], "Text",
+ CellChangeTimes->{{3.4512902426096687`*^9, 3.4512902555779867`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"EvenFib", "[", "n_", "]"}], ":=", 
+  RowBox[{"Fibonacci", "[", 
+   RowBox[{"3", "*", "n"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4512898545964823`*^9, 3.4512899000919523`*^9}}],
+
+Cell[TextData[{
+ "Fibonacci[33] is the max of our sequence, which corresponds to EvenFib[11]\n\
+\nSo it suffices for us to work out:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"i", "=", "1"}], "11"], 
+    RowBox[{"EvenFib", "[", "i", "]"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\n= ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"i", "=", "1"}], "11"], 
+    RowBox[{"Fibonacci", "[", 
+     RowBox[{"3", " ", "*", " ", "n"}], "]"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\n"
+}], "Text",
+ CellChangeTimes->{{3.451290049027961*^9, 3.451290156965683*^9}, {
+  3.451290261922215*^9, 3.451290262378015*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{"Fibonacci", "[", 
+     RowBox[{"3", "i"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}], " ", "//", " ", 
+  "FullSimplify"}]], "Input",
+ CellChangeTimes->{{3.451290175700252*^9, 3.4512902215458937`*^9}, {
+  3.4512902855186996`*^9, 3.451290298830019*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   SqrtBox["5"]], 
+  RowBox[{
+   SuperscriptBox["2", 
+    RowBox[{
+     RowBox[{"-", "2"}], "-", 
+     RowBox[{"3", " ", "n"}]}]], " ", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "-", 
+      SqrtBox["5"]}], ")"}], 
+    RowBox[{
+     RowBox[{"-", "3"}], " ", "n"}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           SqrtBox["5"]}], ")"}]}], ")"}], 
+       RowBox[{"6", " ", "n"}]], " ", 
+      RowBox[{"(", 
+       RowBox[{"3", "+", 
+        SqrtBox["5"]}], ")"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["8", "n"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "2"}], " ", 
+         SqrtBox["5"], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            SqrtBox["5"]}], ")"}], 
+          RowBox[{"3", " ", "n"}]]}], "+", 
+        RowBox[{
+         SuperscriptBox["8", "n"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "3"}], "+", 
+           SqrtBox["5"]}], ")"}]}]}], ")"}]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{{3.451290187121368*^9, 3.45129022362976*^9}, {
+  3.451290293424631*^9, 3.4512903014438343`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RSolve", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Fib", "[", "n", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"Fib", "[", 
+        RowBox[{"n", "-", "1"}], "]"}], "+", 
+       RowBox[{"Fib", "[", 
+        RowBox[{"n", "-", "2"}], "]"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"Fib", "[", "1", "]"}], "\[Equal]", "1"}], ",", 
+     RowBox[{
+      RowBox[{"Fib", "[", "2", "]"}], "\[Equal]", "1"}]}], "}"}], ",", 
+   RowBox[{"Fib", "[", "n", "]"}], ",", "n"}], "]"}]], "Input",
+ CellChangeTimes->{{3.451288415205613*^9, 3.451288425445623*^9}, {
+  3.451288460960431*^9, 3.451288500586474*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Fib", "[", "n", "]"}], "\[Rule]", 
+    RowBox[{"Fibonacci", "[", "n", "]"}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.451288497398088*^9, 3.4512885016823397`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", " ", "//", " ", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.451288517354254*^9, 3.451288519015888*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Fib", "[", "n", "]"}], "\[Rule]", 
+    RowBox[{"Fibonacci", "[", "n", "]"}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.451288519664235*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{"Fibonacci", "[", "i", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}], " ", "//", " ", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.449469903467601*^9, 3.4494699044877243`*^9}, {
+  3.451289714334373*^9, 3.4512897264556723`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "1"}], "+", 
+  RowBox[{"Fibonacci", "[", 
+   RowBox[{"2", "+", "n"}], "]"}]}]], "Output",
+ CellChangeTimes->{3.451289727390679*^9}]
+}, Open  ]],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.4494696924214497`*^9, 3.44946969295965*^9}, {
-  3.449469868264382*^9, 3.449469868773809*^9}}]
+  3.449469868264382*^9, 3.449469868773809*^9}}],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " memoization idiom (f[n_]:=f[n]=...) works by populating the symbol table \
+with direct assignments of the pattern for function invocations.:"
+}], "Text",
+ CellChangeTimes->{{3.451289634761808*^9, 3.451289690292212*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "F"}]], "Input",
+ CellChangeTimes->{{3.451287908346161*^9, 3.451287908590852*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Global`F", "Print", "PrintUsage",
+ CellChangeTimes->{3.4512879093859386`*^9},
+ CellTags->"Info3451291508-6145522"],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {GridBox[{
+       {
+        RowBox[{
+         RowBox[{"F", "[", "1", "]"}], "=", "1"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "2", "]"}], "=", "1"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "3", "]"}], "=", "2"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "4", "]"}], "=", "3"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "5", "]"}], "=", "5"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "6", "]"}], "=", "8"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "7", "]"}], "=", "13"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "8", "]"}], "=", "21"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "9", "]"}], "=", "34"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "10", "]"}], "=", "55"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "11", "]"}], "=", "89"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "12", "]"}], "=", "144"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "13", "]"}], "=", "233"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "14", "]"}], "=", "377"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "15", "]"}], "=", "610"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "16", "]"}], "=", "987"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "17", "]"}], "=", "1597"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "18", "]"}], "=", "2584"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "19", "]"}], "=", "4181"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "20", "]"}], "=", "6765"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "21", "]"}], "=", "10946"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "22", "]"}], "=", "17711"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "23", "]"}], "=", "28657"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "24", "]"}], "=", "46368"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "25", "]"}], "=", "75025"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "26", "]"}], "=", "121393"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "27", "]"}], "=", "196418"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "28", "]"}], "=", "317811"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "29", "]"}], "=", "514229"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "30", "]"}], "=", "832040"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "31", "]"}], "=", "1346269"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "32", "]"}], "=", "2178309"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "33", "]"}], "=", "3524578"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"F", "[", "x_", "]"}], ":=", 
+         RowBox[{
+          RowBox[{"F", "[", "x", "]"}], "=", 
+          RowBox[{
+           RowBox[{"F", "[", 
+            RowBox[{"x", "-", "1"}], "]"}], "+", 
+           RowBox[{"F", "[", 
+            RowBox[{"x", "-", "2"}], "]"}]}]}]}]}
+      },
+      BaselinePosition->{Baseline, {1, 1}},
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxItemSize->{"Columns" -> {{
+           Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+        "RowsIndexed" -> {}}]}
+   },
+   BaselinePosition->{Baseline, {1, 1}},
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}}],
+  Definition[$CellContext`F],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.4512879094545794`*^9},
+ CellTags->"Info3451291508-6145522"]
+}, Open  ]]
+}, Open  ]]
 },
-WindowSize->{640, 750},
-WindowMargins->{{96, Automatic}, {49, Automatic}},
+WindowSize->{548, 737},
+WindowMargins->{{96, Automatic}, {Automatic, 53}},
 ShowSelection->True,
 FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
 StyleDefinitions->"Default.nb"
@@ -185,41 +660,95 @@ StyleDefinitions->"Default.nb"
 
 (* Internal cache information *)
 (*CellTagsOutline
-CellTagsIndex->{}
+CellTagsIndex->{
+ "Info3451292008-7123464"->{
+  Cell[7591, 221, 2337, 37, 89, "Print",
+   CellTags->"Info3451292008-7123464"]},
+ "Info3451291508-6145522"->{
+  Cell[16173, 483, 120, 2, 39, "Print",
+   CellTags->"Info3451291508-6145522"],
+  Cell[16296, 487, 4168, 161, 1044, "Print",
+   CellTags->"Info3451291508-6145522"]}
+ }
 *)
 (*CellTagsIndex
-CellTagsIndex->{}
+CellTagsIndex->{
+ {"Info3451292008-7123464", 20817, 663},
+ {"Info3451291508-6145522", 20928, 666}
+ }
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[545, 20, 344, 10, 116, "Text"],
-Cell[892, 32, 119, 1, 26, "Text"],
-Cell[1014, 35, 498, 15, 58, "Input"],
+Cell[892, 32, 511, 11, 41, "Text"],
+Cell[1406, 45, 657, 19, 58, "Input"],
 Cell[CellGroupData[{
-Cell[1537, 54, 238, 6, 27, "Input"],
-Cell[1778, 62, 207, 5, 27, "Output"]
+Cell[2088, 68, 238, 6, 27, "Input"],
+Cell[2329, 76, 255, 6, 27, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2022, 72, 121, 2, 27, "Input"],
-Cell[2146, 76, 76, 1, 27, "Output"]
+Cell[2621, 87, 121, 2, 27, "Input"],
+Cell[2745, 91, 125, 2, 27, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2259, 82, 220, 4, 27, "Input"],
-Cell[2482, 88, 152, 2, 27, "Output"]
+Cell[2907, 98, 220, 4, 27, "Input"],
+Cell[3130, 104, 199, 3, 27, "Output"]
 }, Open  ]],
-Cell[2649, 93, 119, 1, 26, "Text"],
 Cell[CellGroupData[{
-Cell[2793, 98, 576, 16, 27, "Input"],
-Cell[3372, 116, 97, 1, 27, "Output"]
+Cell[3366, 112, 121, 2, 27, "Input"],
+Cell[3490, 116, 98, 1, 27, "Output"]
 }, Open  ]],
-Cell[3484, 120, 129, 1, 26, "Text"],
+Cell[3603, 120, 258, 5, 26, "Text"],
 Cell[CellGroupData[{
-Cell[3638, 125, 281, 7, 27, "Input"],
-Cell[3922, 134, 389, 8, 43, "Output"]
+Cell[3886, 129, 676, 18, 43, "Input"],
+Cell[4565, 149, 166, 2, 27, "Output"]
 }, Open  ]],
-Cell[4326, 145, 1200, 23, 491, "Text"],
-Cell[5529, 170, 94, 1, 27, "Input"],
-Cell[5626, 173, 142, 2, 27, "Input"]
+Cell[4746, 154, 129, 1, 26, "Text"],
+Cell[CellGroupData[{
+Cell[4900, 159, 281, 7, 27, "Input"],
+Cell[5184, 168, 389, 8, 43, "Output"]
+}, Open  ]],
+Cell[5588, 179, 1697, 29, 686, "Text"],
+Cell[7288, 210, 158, 3, 26, "Text"],
+Cell[CellGroupData[{
+Cell[7471, 217, 117, 2, 27, "Input"],
+Cell[7591, 221, 2337, 37, 89, "Print",
+ CellTags->"Info3451292008-7123464"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9965, 263, 538, 16, 43, "Input"],
+Cell[10506, 281, 217, 6, 27, "Output"]
+}, Open  ]],
+Cell[10738, 290, 225, 6, 26, "Text"],
+Cell[10966, 298, 215, 5, 27, "Input"],
+Cell[11184, 305, 728, 22, 125, "Text"],
+Cell[CellGroupData[{
+Cell[11937, 331, 367, 10, 27, "Input"],
+Cell[12307, 343, 1376, 49, 79, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13720, 397, 653, 18, 43, "Input"],
+Cell[14376, 417, 241, 6, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14654, 428, 133, 2, 27, "Input"],
+Cell[14790, 432, 215, 6, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15042, 443, 342, 9, 27, "Input"],
+Cell[15387, 454, 170, 5, 27, "Output"]
+}, Open  ]],
+Cell[15572, 462, 142, 2, 27, "Input"],
+Cell[15717, 466, 296, 7, 41, "Text"],
+Cell[CellGroupData[{
+Cell[16038, 477, 110, 2, 27, "Input"],
+Cell[CellGroupData[{
+Cell[16173, 483, 120, 2, 39, "Print",
+ CellTags->"Info3451291508-6145522"],
+Cell[16296, 487, 4168, 161, 1044, "Print",
+ CellTags->"Info3451291508-6145522"]
+}, Open  ]]
+}, Open  ]]
 }
 ]
 *)

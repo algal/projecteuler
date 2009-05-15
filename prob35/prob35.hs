@@ -1,18 +1,29 @@
 import Char
+import Primes
 
-circularPrimes = filter isCircularPrime primes
 
-isCircularPrime :: (Integral a) => a -> Bool
-isCircularPrime n = all isPrime (integerRotations n)
+-- bad performance
+
+-- should: use an efficient sieve to generate the primes.
+-- do extra sieving to exclude circle peers
+
+answer = length $ circularPrimesTo upperboundPrime
+
+-- is a prime above 10^6
+upperboundPrime = 1000000
+
+circularPrimesTo n = takeWhile (< n) $ filter isCircularPrime primes
+
+isCircularPrime n = all Primes.isPrime (integerRotations n)
 
 -- just filters with a primality test, instead of sieving
-primes = filter isPrime [1..]
+primes = filter Primes.isPrime [1..]
 
--- tests primality by naive trial division
-isPrime :: (Integral a) => a -> Bool
-isPrime 1 = False
-isPrime 2 = True
-isPrime n = not $ any (\x -> (mod n x == 0)) [2..(n-1)]
+-- -- tests primality by naive trial division
+-- isPrime :: (Integer a) => a -> Bool
+-- isPrime 1 = False
+-- isPrime 2 = True
+-- isPrime n = not $ any (\x -> (mod n x == 0)) [2..(n-1)]
 
 integerRotations :: (Integral a) => a -> [a]
 integerRotations n = map digitsToInt (rotations (intToDigits n))
@@ -40,6 +51,7 @@ rotations lst = take (length lst) (nestList rotateList lst)
 rotateList :: [a] -> [a]
 rotateList (x:xs) = xs ++ [x]
 
+-- gives a list of successive applications of f to initial
 nestList :: (a -> a) -> a -> [a]
 nestList f initial = initial : nestList f (f initial)
 
