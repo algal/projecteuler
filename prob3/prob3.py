@@ -29,15 +29,14 @@ def biggestFactor(n):
         # try the next possible factor
         candidate += 1
     return factor
-            
-            
+
 def primeFactors(x):
     """Calculates all primes of a number.
 
     This algorithm is the sieve of eratothsenes. But requires a
     collection the size of the number, so no good for large numbers"""
     import math
-    candidates = range(2,x)
+    candidates = list(range(2,x))
     primes = []
     while(len(candidates) > 0):
         candidate = candidates.pop(0)
@@ -51,6 +50,36 @@ def primeFactors(x):
 
     return primes
 
+
+def primeFactorsMap(x):
+    """Returns a map of all prime factors of x to their powers in x"""
+    import math
+    factors = {}
+    # would rather use list of primes here, instead of integers
+    candidates = list(range(2,x))
+    while x > 1:
+        candidate = candidates.pop(0)
+        print "trying candidates = ", candidate
+        # if candidate is a factor ...
+        if x % candidate == 0:
+            print "found a factor ", candidate
+            # purge its multiples
+#            candidates = [i for i in candidates if i % candidate != 0]
+
+            if candidate not in factors:
+                factors[candidate]=0
+
+            while x % candidate ==0:
+                # ... record that and purge its multiples
+                factors[candidate] += 1
+                x = x / candidate
+    return factors
+            
+
+
+          
+          
+          
 def isPrime(x):
     """ Checks primality via 'trial division'.
 
