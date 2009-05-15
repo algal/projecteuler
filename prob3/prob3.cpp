@@ -1,18 +1,13 @@
 #include <iostream>
 #include <map>
 
-#include <boost/cstdint.hpp>
-
-using namespace boost;
 using namespace std;
 
-typedef boost::uint64_t biglong;
-
 /* Populates factors with the powers of n's prime factors */
-void factorInteger(boost::uint64_t n, map<boost::uint64_t,unsigned int> &factors) 
+void factorInteger(uint64_t n, map<uint64_t,unsigned int> &factors) 
 {
   // start trying candidate factors
-  for(boost::uint64_t candidate=2; n > 1 && candidate^2 < (1+n^2); ++candidate) {
+  for(uint64_t candidate=2; n > 1 && candidate^2 < (1+n^2); ++candidate) {
 
     // initialise factors to 0
     if(n % candidate == 0) {
@@ -42,7 +37,7 @@ void factorInteger(boost::uint64_t n, map<boost::uint64_t,unsigned int> &factors
    last factor to divide out successfuly will be the highest prime
    factor of n.
 */
-long biggestFactor(boost::uint64_t n)
+long biggestFactor(uint64_t n)
 {
   // the largest factor so far
   long factor = 1;
@@ -71,11 +66,11 @@ long biggestFactor(boost::uint64_t n)
 
 
 // prints the map
-void printmap(std::map<boost::uint64_t,unsigned int> mmap) {
+void printmap(std::map<uint64_t,unsigned int> mmap) {
   clog << "   map = ";
   clog << "{ ";
 
-  for(map<boost::uint64_t,unsigned int>::iterator thisitem_iter = mmap.begin();
+  for(map<uint64_t,unsigned int>::iterator thisitem_iter = mmap.begin();
       thisitem_iter != mmap.end(); 
       ++thisitem_iter) {
     clog << thisitem_iter->first << ":" << thisitem_iter->second << ", ";
@@ -85,11 +80,11 @@ void printmap(std::map<boost::uint64_t,unsigned int> mmap) {
 
 main()
 {
-  boost::uint64_t k = 600851475143LL;
+  uint64_t k = 600851475143LL;
   long factor = biggestFactor(k);
   std::cout << "largest factor of " << k << " is " << factor << std::endl;
 
-  std::map<boost::uint64_t,unsigned int> m;
+  std::map<uint64_t,unsigned int> m;
   factorInteger(k,m);
   printmap(m);
 
