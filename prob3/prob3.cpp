@@ -6,8 +6,6 @@
 using namespace boost;
 using namespace std;
 
-typedef boost::uint64_t biglong;
-
 /* Populates factors with the powers of n's prime factors */
 void factorInteger(boost::uint64_t n, map<boost::uint64_t,unsigned int> &factors) 
 {
