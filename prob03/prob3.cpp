@@ -93,6 +93,6 @@ main()
   printmap(m);
 
   std::cout << "sizeof char* = " << sizeof(char*) << std::endl;
-  std::cout << "sizeof lond = " << sizeof(long) << std::endl;
+  std::cout << "sizeof long = " << sizeof(long) << std::endl;
 }
 

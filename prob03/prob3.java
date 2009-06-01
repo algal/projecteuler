@@ -12,7 +12,7 @@ public class prob3
 	String n = "600851475143";
 	out.println("biggest factor of " + n + " = " + biggestFactor(new BigInteger(n)));
 
-	out.println("factors of " + 12 + " = " + factorInteger(new BigInteger("12")));
+	out.println("factors of " + 12 + " = " + factorInteger(new BigInteger(n)));
     }
     
     /** Returns the largest prime factor of n. 
