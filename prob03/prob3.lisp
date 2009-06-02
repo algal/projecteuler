@@ -11,7 +11,7 @@
   (zerop (mod num factor)))
 
 ; functional version
-(defun ffactorInteger (num minFac)
+(defun ffactorInteger (num &optional (minFac 2))
   "Returns the prime factors of NUM"
   (cond ((> (* minFac minFac) num) 
 	 (list num))
