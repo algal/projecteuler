@@ -14,8 +14,7 @@ isPrime num = not $ any (num `divisibleBy`) [2..(num-1)]
 
 -- | Returns largest prime of num.
 -- inefficient. filters all factors by primality
-largestFactor :: Integer -> Integer
-largestFactor num = last $ primeFactors num 
+largestFactor num = last . factorInteger $ num 
 
 -- | Returns all prime factors of n.
 factorInteger n = primeFactors' n 2 
