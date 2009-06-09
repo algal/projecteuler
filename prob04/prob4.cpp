@@ -1,14 +1,13 @@
 #include<sstream>
 #include<iostream>
 
-bool isPalindrome(int x) 
+bool isPalindrome(int& x) 
 {
-  
   std::ostringstream stream;
   stream << x;
-  std::string s = stream.str();
+  const std::string s = stream.str();
   
-  int length  = s.length();
+  const int length  = s.length();
   for(int i=0; i < length; ++i)
     {
       if(s[i] != s[length-1-i])
