@@ -26,10 +26,10 @@ int main()
       if(isPalindrome(product) == true && product > best)
 	{
 	  best = product;
-	  std::cout << "best so far is " << i << " * " << j << " = " << best << std::endl;
+	  std::cout << "highest palindrome so far is " << i << " * " << j << " = " << best << std::endl;
 	}
     }
   }      
   
-  std::cout << "overall best = " << best << std::endl;
+  std::cout << "highest 3-digit palindrom is best = " << best << std::endl;
 }
