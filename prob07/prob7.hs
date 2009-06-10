@@ -10,6 +10,6 @@ sieve xs =  sieve' xs Data.Map.empty
               where
                 reinsert table prime = Data.Map.insertWith (++) (x+prime) [prime] table
 
-primes = sieve 
-answer = take 1 $ drop 10000 $ sieve [2..]
-answer2 = (sieve [2..]) !! 10000
+primes = sieve [2..]
+answer = primes !! (10001-1) -- since primes is 0-based
+
