@@ -56,7 +56,7 @@ list<int> primesTo(const unsigned int n) {
   return primes;
 }
 
-/* Sums primes under n */
+/* Sums primes less than n */
 uint64_t sumPrimesTo(const unsigned long n) {
   uint64_t sum=0;
 
