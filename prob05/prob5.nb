@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[     16527,        497]
-NotebookOptionsPosition[     13780,        399]
-NotebookOutlinePosition[     14599,        429]
-CellTagsIndexPosition[     14432,        422]
+NotebookDataLength[      4838,        169]
+NotebookOptionsPosition[      3989,        135]
+NotebookOutlinePosition[      4349,        151]
+CellTagsIndexPosition[      4306,        148]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -54,30 +54,10 @@ Cell[BoxData[
  CellChangeTimes->{3.449494137830789*^9, 3.449494205554776*^9}]
 }, Open  ]],
 
-Cell["Consider the power factors of 2 in the range", "Text",
+Cell["Consider the powers of 2 in the range", "Text",
  CellChangeTimes->{{3.449494153514879*^9, 3.4494941908426027`*^9}, {
-  3.44949430723164*^9, 3.449494310146769*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Select", "[", 
-  RowBox[{"r", ",", 
-   RowBox[{
-    RowBox[{"(", 
-     RowBox[{
-      RowBox[{"Mod", "[", 
-       RowBox[{"#", ",", "2"}], "]"}], "\[Equal]", "0"}], ")"}], "&"}]}], 
-  "]"}]], "Input",
- CellChangeTimes->{{3.449494191883401*^9, 3.44949425424798*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-  "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", ",", "14", ",", 
-   "16", ",", "18", ",", "20"}], "}"}]], "Output",
- CellChangeTimes->{{3.4494942307202263`*^9, 3.449494254864966*^9}}]
-}, Open  ]],
+  3.44949430723164*^9, 3.449494310146769*^9}, {3.4536220460342007`*^9, 
+  3.4536220469522657`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -151,250 +131,6 @@ Cell[BoxData[
 
 Cell[BoxData["232792560"], "Output",
  CellChangeTimes->{3.449494877889909*^9, 3.449495264179213*^9}]
-}, Open  ]],
-
-Cell["\<\
-Seems high. What's the brute force answer? Are we sure the simpler solution \
-does not work?\
-\>", "Text",
- CellChangeTimes->{{3.449495133660701*^9, 3.449495138885607*^9}, {
-  3.449495500655575*^9, 3.449495504654896*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Select", "[", 
-  RowBox[{"r", ",", 
-   RowBox[{
-    RowBox[{"PrimeQ", "[", "#", "]"}], "&"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.449495506009473*^9, 3.449495547698884*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-  "2", ",", "3", ",", "5", ",", "7", ",", "11", ",", "13", ",", "17", ",", 
-   "19"}], "}"}]], "Output",
- CellChangeTimes->{
-  3.449495512106443*^9, {3.4494955479448757`*^9, 3.449495558954144*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"%", " ", "//", " ", 
-  RowBox[{
-   RowBox[{"Fold", "[", 
-    RowBox[{"Times", ",", "1", ",", "#"}], "]"}], "&"}]}]], "Input",
- CellChangeTimes->{{3.4494955502597427`*^9, 3.449495596045683*^9}}],
-
-Cell[BoxData["9699690"], "Output",
- CellChangeTimes->{{3.449495555498768*^9, 3.4494955619200068`*^9}, 
-   3.449495596835536*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"DivisibleUpToQ", "[", 
-  RowBox[{"%", ",", "20"}], "]"}]], "Input",
- CellChangeTimes->{{3.4494955991845617`*^9, 3.449495606669305*^9}}],
-
-Cell[BoxData["False"], "Output",
- CellChangeTimes->{3.4494956071422157`*^9}]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{"DivisibleUpToQ", "[", 
-    RowBox[{"n_", ",", "x_"}], "]"}], ":=", 
-   RowBox[{
-    RowBox[{"Total", "[", 
-     RowBox[{"Map", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{"Mod", "[", 
-          RowBox[{"n", ",", "#"}], "]"}], ")"}], "&"}], ",", 
-       RowBox[{"Range", "[", 
-        RowBox[{"2", ",", "x"}], "]"}]}], "]"}], "]"}], "\[Equal]", "0"}]}], 
-  ";"}]], "Input",
- CellChangeTimes->{{3.449494903223749*^9, 3.449495017177227*^9}, {
-  3.449495089029768*^9, 3.4494951215742073`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"DivisibleUpToQ", "[", 
-  RowBox[{"2520", ",", "10"}], "]"}]], "Input",
- CellChangeTimes->{{3.4494949966688347`*^9, 3.4494950366576757`*^9}, {
-  3.449495146295426*^9, 3.4494951479908657`*^9}}],
-
-Cell[BoxData["True"], "Output",
- CellChangeTimes->{{3.4494950950883417`*^9, 3.4494951485360203`*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"DivisibleUpToQ", "[", 
-  RowBox[{"answer", ",", "20"}], "]"}]], "Input",
- CellChangeTimes->{{3.449495205153309*^9, 3.449495215418261*^9}}],
-
-Cell[BoxData["True"], "Output",
- CellChangeTimes->{3.449495215959291*^9, 3.4494952685183992`*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"DivisibleUpToQ", "[", 
-  RowBox[{
-   RowBox[{"answer", "-", "1"}], ",", "20"}], "]"}]], "Input",
- CellChangeTimes->{{3.4494953716579*^9, 3.44949537171422*^9}}],
-
-Cell[BoxData["False"], "Output",
- CellChangeTimes->{3.449495372233362*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"x", " ", "=", " ", 
-   RowBox[{"answer", "-", "1"}]}], ";", " ", 
-  RowBox[{"While", "[", 
-   RowBox[{
-    RowBox[{
-     RowBox[{
-      RowBox[{"DivisibleUpToQ", "[", 
-       RowBox[{"x", ",", "20"}], "]"}], "\[Equal]", "False"}], " ", "&&", " ", 
-     RowBox[{"x", ">", "1"}]}], ",", 
-    RowBox[{"x", "--"}]}], "]"}]}]], "Input",
- CellChangeTimes->{{3.4494953449253807`*^9, 3.449495456499324*^9}}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"Decrement", "::", "\<\"rvalue\"\>"}], 
-  RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\*StyleBox[\\!\\(n\\), \\\"MT\\\"]\\)\
-\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" is not a variable with a value, so \
-its value cannot be changed.\\\\\\\"\\\", \\\"MT\\\"]\\) \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/rvalue\\\", \
-ButtonNote -> \\\"Decrement::rvalue\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.449495446509342*^9}],
-
-Cell[BoxData["$Aborted"], "Output",
- CellChangeTimes->{3.449495493925323*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"?", "While"}]], "Input",
- CellChangeTimes->{{3.44949528795747*^9, 3.449495288558887*^9}}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"While\\\", \\\"[\\\", \
-RowBox[{StyleBox[\\\"test\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"body\\\", \
-\\\"TI\\\"]}], \\\"]\\\"}]\\) evaluates \\!\\(\\*StyleBox[\\\"test\\\", \
-\\\"TI\\\"]\\), then \\!\\(\\*StyleBox[\\\"body\\\", \\\"TI\\\"]\\), \
-repetitively, until \\!\\(\\*StyleBox[\\\"test\\\", \\\"TI\\\"]\\) first \
-fails to give True. \"\>", "MSG"], "\[NonBreakingSpace]", 
-  ButtonBox[
-   StyleBox["\[RightSkeleton]", "SR"],
-   Active->True,
-   BaseStyle->"Link",
-   ButtonData->"paclet:ref/While"]}]], "Print", "PrintUsage",
- CellChangeTimes->{3.449495289083259*^9},
- CellTags->"Info3449498888-2666298"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"?", "FindMaximum"}]], "Input",
- CellChangeTimes->{{3.44949515389844*^9, 3.449495159145658*^9}}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"FindMaximum\\\", \\\"[\\\", \
-RowBox[{StyleBox[\\\"f\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"x\\\", \
-\\\"TI\\\"]}], \\\"]\\\"}]\\) searches for a local maximum in \
-\\!\\(\\*StyleBox[\\\"f\\\", \\\"TI\\\"]\\), starting from an automatically \
-selected point.\\n\\!\\(\\*RowBox[{\\\"FindMaximum\\\", \\\"[\\\", \
-RowBox[{StyleBox[\\\"f\\\", \\\"TI\\\"], \\\",\\\", RowBox[{\\\"{\\\", \
-RowBox[{StyleBox[\\\"x\\\", \\\"TI\\\"], \\\",\\\", \
-SubscriptBox[StyleBox[\\\"x\\\", \\\"TI\\\"], StyleBox[\\\"0\\\", \
-\\\"TR\\\"]]}], \\\"}\\\"}]}], \\\"]\\\"}]\\) searches for a local maximum in \
-\\!\\(\\*StyleBox[\\\"f\\\", \\\"TI\\\"]\\), starting from the point \
-\\!\\(\\*RowBox[{StyleBox[\\\"x\\\", \\\"TI\\\"], \\\"=\\\", \
-SubscriptBox[StyleBox[\\\"x\\\", \\\"TI\\\"], StyleBox[\\\"0\\\", \
-\\\"TR\\\"]]}]\\). \\n\\!\\(\\*RowBox[{\\\"FindMaximum\\\", \\\"[\\\", \
-RowBox[{StyleBox[\\\"f\\\", \\\"TI\\\"], \\\",\\\", RowBox[{\\\"{\\\", \
-RowBox[{RowBox[{\\\"{\\\", RowBox[{StyleBox[\\\"x\\\", \\\"TI\\\"], \
-\\\",\\\", SubscriptBox[StyleBox[\\\"x\\\", \\\"TI\\\"], StyleBox[\\\"0\\\", \
-\\\"TR\\\"]]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
-RowBox[{StyleBox[\\\"y\\\", \\\"TI\\\"], \\\",\\\", \
-SubscriptBox[StyleBox[\\\"y\\\", \\\"TI\\\"], StyleBox[\\\"0\\\", \
-\\\"TR\\\"]]}], \\\"}\\\"}], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \
-\\\"TR\\\"]}], \\\"}\\\"}]}], \\\"]\\\"}]\\) searches for a local maximum in \
-a function of several variables. \\n\\!\\(\\*RowBox[{\\\"FindMaximum\\\", \
-\\\"[\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{StyleBox[\\\"f\\\", \
-\\\"TI\\\"], \\\",\\\", StyleBox[\\\"cons\\\", \\\"TI\\\"]}], \\\"}\\\"}], \\\
-\",\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{StyleBox[\\\"x\
-\\\", \\\"TI\\\"], \\\",\\\", SubscriptBox[StyleBox[\\\"x\\\", \\\"TI\\\"], \
-StyleBox[\\\"0\\\", \\\"TR\\\"]]}], \\\"}\\\"}], \\\",\\\", \
-RowBox[{\\\"{\\\", RowBox[{StyleBox[\\\"y\\\", \\\"TI\\\"], \\\",\\\", \
-SubscriptBox[StyleBox[\\\"y\\\", \\\"TI\\\"], StyleBox[\\\"0\\\", \
-\\\"TR\\\"]]}], \\\"}\\\"}], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \
-\\\"TR\\\"]}], \\\"}\\\"}]}], \\\"]\\\"}]\\) searches for a local maximum \
-subject to the constraints \\!\\(\\*StyleBox[\\\"cons\\\", \\\"TI\\\"]\\).\\n\
-\\!\\(\\*RowBox[{\\\"FindMaximum\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\", \
-RowBox[{StyleBox[\\\"f\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"cons\\\", \\\
-\"TI\\\"]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
-RowBox[{StyleBox[\\\"x\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"y\\\", \
-\\\"TI\\\"], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]}], \
-\\\"}\\\"}]}], \\\"]\\\"}]\\) starts from a point within the region defined \
-by the constraints.\"\>", "MSG"], "\[NonBreakingSpace]", 
-  ButtonBox[
-   StyleBox["\[RightSkeleton]", "SR"],
-   Active->True,
-   BaseStyle->"Link",
-   ButtonData->"paclet:ref/FindMaximum"]}]], "Print", "PrintUsage",
- CellChangeTimes->{3.4494951598553667`*^9},
- CellTags->"Info3449498759-4229341"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"?", "Map"}]], "Input",
- CellChangeTimes->{{3.449495049246997*^9, 3.449495049677388*^9}}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Map\\\", \\\"[\\\", \
-RowBox[{StyleBox[\\\"f\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"expr\\\", \\\
-\"TI\\\"]}], \\\"]\\\"}]\\) or \\!\\(\\*RowBox[{StyleBox[\\\"f\\\", \
-\\\"TI\\\"], \\\"/@\\\", StyleBox[\\\"expr\\\", \\\"TI\\\"]}]\\) applies \
-\\!\\(\\*StyleBox[\\\"f\\\", \\\"TI\\\"]\\) to each element on the first \
-level in \\!\\(\\*StyleBox[\\\"expr\\\", \\\"TI\\\"]\\). \\n\\!\\(\\*RowBox[{\
-\\\"Map\\\", \\\"[\\\", RowBox[{StyleBox[\\\"f\\\", \\\"TI\\\"], \\\",\\\", \
-StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"levelspec\\\", \\\
-\"TI\\\"]}], \\\"]\\\"}]\\) applies \\!\\(\\*StyleBox[\\\"f\\\", \
-\\\"TI\\\"]\\) to parts of \\!\\(\\*StyleBox[\\\"expr\\\", \\\"TI\\\"]\\) \
-specified by \\!\\(\\*StyleBox[\\\"levelspec\\\", \\\"TI\\\"]\\). \"\>", 
-   "MSG"], "\[NonBreakingSpace]", 
-  ButtonBox[
-   StyleBox["\[RightSkeleton]", "SR"],
-   Active->True,
-   BaseStyle->"Link",
-   ButtonData->"paclet:ref/Map"]}]], "Print", "PrintUsage",
- CellChangeTimes->{3.449495050226884*^9},
- CellTags->"Info3449498650-9606558"]
 }, Open  ]]
 },
 WindowSize->{640, 750},
@@ -407,24 +143,10 @@ StyleDefinitions->"Default.nb"
 
 (* Internal cache information *)
 (*CellTagsOutline
-CellTagsIndex->{
- "Info3449498650-9606558"->{
-  Cell[12665, 376, 1099, 20, 55, "Print",
-   CellTags->"Info3449498650-9606558"]},
- "Info3449498759-4229341"->{
-  Cell[9486, 320, 3027, 47, 171, "Print",
-   CellTags->"Info3449498759-4229341"]},
- "Info3449498888-2666298"->{
-  Cell[8652, 297, 675, 14, 39, "Print",
-   CellTags->"Info3449498888-2666298"]}
- }
+CellTagsIndex->{}
 *)
 (*CellTagsIndex
-CellTagsIndex->{
- {"Info3449498650-9606558", 14104, 410},
- {"Info3449498759-4229341", 14216, 413},
- {"Info3449498888-2666298", 14328, 416}
- }
+CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
@@ -434,70 +156,20 @@ Cell[CellGroupData[{
 Cell[1052, 39, 235, 5, 27, "Input"],
 Cell[1290, 46, 341, 7, 27, "Output"]
 }, Open  ]],
-Cell[1646, 56, 176, 2, 26, "Text"],
+Cell[1646, 56, 222, 3, 26, "Text"],
 Cell[CellGroupData[{
-Cell[1847, 62, 289, 9, 27, "Input"],
-Cell[2139, 73, 234, 5, 27, "Output"]
+Cell[1893, 63, 264, 7, 27, "Input"],
+Cell[2160, 72, 148, 3, 27, "Output"]
 }, Open  ]],
+Cell[2323, 78, 591, 14, 116, "Text"],
 Cell[CellGroupData[{
-Cell[2410, 83, 264, 7, 27, "Input"],
-Cell[2677, 92, 148, 3, 27, "Output"]
+Cell[2939, 96, 202, 5, 27, "Input"],
+Cell[3144, 103, 186, 5, 27, "Output"]
 }, Open  ]],
-Cell[2840, 98, 591, 14, 116, "Text"],
+Cell[3345, 111, 222, 8, 101, "Text"],
 Cell[CellGroupData[{
-Cell[3456, 116, 202, 5, 27, "Input"],
-Cell[3661, 123, 186, 5, 27, "Output"]
-}, Open  ]],
-Cell[3862, 131, 222, 8, 101, "Text"],
-Cell[CellGroupData[{
-Cell[4109, 143, 278, 6, 27, "Input"],
-Cell[4390, 151, 100, 1, 27, "Output"]
-}, Open  ]],
-Cell[4505, 155, 231, 5, 26, "Text"],
-Cell[CellGroupData[{
-Cell[4761, 164, 202, 5, 27, "Input"],
-Cell[4966, 171, 237, 6, 27, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[5240, 182, 217, 5, 27, "Input"],
-Cell[5460, 189, 128, 2, 27, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[5625, 196, 159, 3, 27, "Input"],
-Cell[5787, 201, 76, 1, 27, "Output"]
-}, Open  ]],
-Cell[5878, 205, 568, 17, 27, "Input"],
-Cell[CellGroupData[{
-Cell[6471, 226, 215, 4, 27, "Input"],
-Cell[6689, 232, 101, 1, 27, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[6827, 238, 162, 3, 27, "Input"],
-Cell[6992, 243, 97, 1, 27, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[7126, 249, 183, 4, 27, "Input"],
-Cell[7312, 255, 74, 1, 27, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[7423, 261, 434, 12, 27, "Input"],
-Cell[7860, 275, 559, 10, 23, "Message"],
-Cell[8422, 287, 77, 1, 27, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[8536, 293, 113, 2, 27, "Input"],
-Cell[8652, 297, 675, 14, 39, "Print",
- CellTags->"Info3449498888-2666298"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[9364, 316, 119, 2, 27, "Input"],
-Cell[9486, 320, 3027, 47, 171, "Print",
- CellTags->"Info3449498759-4229341"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[12550, 372, 112, 2, 27, "Input"],
-Cell[12665, 376, 1099, 20, 55, "Print",
- CellTags->"Info3449498650-9606558"]
+Cell[3592, 123, 278, 6, 27, "Input"],
+Cell[3873, 131, 100, 1, 27, "Output"]
 }, Open  ]]
 }
 ]
