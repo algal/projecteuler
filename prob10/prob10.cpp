@@ -22,7 +22,7 @@ void print(C const & c)
   std::cout << "}";
 } 
 
-/* returns a vector, with primes[i] telling if i is prime for i < n 
+/* Returns primes where primes[i] tells if i is prime, for i < n
 
    Uses the sieve of eratosthenes.
 */
@@ -77,8 +77,6 @@ int main()
 
   cout << "sum of primes < " << limit << " = " << sumPrimesTo(limit) << endl;
   cout << "primeFlags(20) = ";
-  //  vector<bool> primes = sieve(21);
-  //  print(primes);
   print(primeFlags(21));
   cout << endl;
 
