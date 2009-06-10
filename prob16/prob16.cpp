@@ -3,12 +3,6 @@
 #include<vector>
 #include<memory>
 
-#include<boost/cstdint.hpp>
-using boost::uint64_t;
-
-#include<boost/shared_ptr.hpp>
-using boost::shared_ptr;
-
 #include <gmpxx.h>
 
 using std::endl;
