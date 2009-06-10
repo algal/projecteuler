@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <list>
 
 // boost provides 64 bit integers to non-gcc compilers
 #include <boost/cstdint.hpp>
@@ -31,7 +32,6 @@ void factorInteger(uint64_t n, map<uint64_t,unsigned int> &factors)
 
 
 /* Returns the largest prime factor of n. 
-
 
    This function takes [2,3,...,inf] as a list of candidate factors,
    and one by one tries to divide them out of n as many times as is
@@ -67,14 +67,51 @@ long biggestFactor(uint64_t n)
   return factor;
 }
 
+/* Returns a list of all prime factors of n. 
+
+   This function takes [2,3,...,inf] as a list of candidate factors,
+   and one by one tries to divide them out of n as many times as is
+   possible. Since it tries repeatedly on a factor, it will
+   automatically divide out powers of that factor. Thus, it will only
+   divide out primes. Since the candidates are listed in order, the
+   last factor to divide out successfuly will be the highest prime
+   factor of n.
+*/
+template<typename T>
+std::list<unsigned long> factorIntegerList(T n)
+{
+  // the prime factors so far
+  std::list<unsigned long> factors;
+  // a candidate factor
+  unsigned long candidate = 2;
+
+  // as long as n is not completely factored ...
+  while(n > 1) {
+    // ... try our next candidate factor
+    if(n % candidate == 0) {
+      // if it is a factor, remember it as the highest so far,
+      factors.push_back(candidate);
+
+      //  and divide it out of n
+      n = n / candidate;
+      while(n % candidate == 0) {
+	n = n / candidate;
+      }
+    }
+    // then prepare to try the next highest factor
+    candidate += 1;
+  }
+  return factors;
+}
 
 
-// prints the map
-void printmap(std::map<uint64_t,unsigned int> mmap) {
+// prints a map
+template<typename K,typename V>
+void printmap(std::map<K,V> mmap) {
   clog << "   map = ";
   clog << "{ ";
 
-  for(map<uint64_t,unsigned int>::iterator thisitem_iter = mmap.begin();
+  for(typename map<K,V>::iterator thisitem_iter = mmap.begin();
       thisitem_iter != mmap.end(); 
       ++thisitem_iter) {
     clog << thisitem_iter->first << ":" << thisitem_iter->second << ", ";
@@ -82,7 +119,22 @@ void printmap(std::map<uint64_t,unsigned int> mmap) {
   clog << "}" << endl;
 }
 
-main()
+// prints a list
+template<typename T>
+void printlist(std::list<T> lst) {
+  clog << "   list = ";
+  clog << "[ ";
+
+  for(typename list<T>::iterator thisitem_iter = lst.begin();
+      thisitem_iter != lst.end();
+      ++thisitem_iter) {
+    clog << *thisitem_iter << ", "; 
+  }
+
+  clog << "]" << endl;
+}
+
+int main()
 {
   uint64_t k = 600851475143LL;
   long factor = biggestFactor(k);
@@ -91,6 +143,14 @@ main()
   std::map<uint64_t,unsigned int> m;
   factorInteger(k,m);
   printmap(m);
+
+  std::list<unsigned long> lst;
+  lst.push_back(1);
+  lst.push_back(2);
+  printlist(lst);
+
+  printlist(factorIntegerList(k));
+
 
   std::cout << "sizeof char* = " << sizeof(char*) << std::endl;
   std::cout << "sizeof long = " << sizeof(long) << std::endl;
