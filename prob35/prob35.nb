@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[     36908,        787]
-NotebookOptionsPosition[     34820,        712]
-NotebookOutlinePosition[     35489,        738]
-CellTagsIndexPosition[     35363,        732]
+NotebookDataLength[     37733,        812]
+NotebookOptionsPosition[     35494,        732]
+NotebookOutlinePosition[     36163,        758]
+CellTagsIndexPosition[     36037,        752]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -628,6 +628,21 @@ Cell[BoxData["1299709"], "Output",
 Cell[CellGroupData[{
 
 Cell[BoxData[
+ RowBox[{"Prime", "[", 
+  RowBox[{"79", "*", 
+   SuperscriptBox["10", "3"]}], "]"}]], "Input",
+ CellChangeTimes->{{3.453626312672504*^9, 3.4536263602454576`*^9}}],
+
+Cell[BoxData["1006721"], "Output",
+ CellChangeTimes->{{3.453626318148473*^9, 3.4536263609934797`*^9}}]
+}, Open  ]],
+
+Cell["So the 79000th prime is just over a million. ", "Text",
+ CellChangeTimes->{{3.453626461252645*^9, 3.453626470464744*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
  RowBox[{"circularPrimes", " ", "=", " ", 
   RowBox[{"Select", "[", 
    RowBox[{
@@ -635,11 +650,13 @@ Cell[BoxData[
      RowBox[{"Prime", ",", 
       RowBox[{"Range", "[", 
        RowBox[{"1", ",", 
-        SuperscriptBox["10", "5"]}], "]"}]}], "]"}], ",", "CircularPrimeQ"}], 
-   "]"}]}]], "Input",
+        RowBox[{"79", "*", 
+         SuperscriptBox["10", "3"]}]}], "]"}]}], "]"}], ",", 
+    "CircularPrimeQ"}], "]"}]}]], "Input",
  CellChangeTimes->{{3.451024175582659*^9, 3.451024213307981*^9}, {
   3.45102424971614*^9, 3.4510242502105703`*^9}, {3.451025581865768*^9, 
-  3.451025584999997*^9}}],
+  3.451025584999997*^9}, {3.453626375510113*^9, 3.45362639043972*^9}, {
+  3.453626421648757*^9, 3.453626429433179*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -654,8 +671,10 @@ Cell[BoxData[
    "93911", ",", "99371", ",", "193939", ",", "199933", ",", "319993", ",", 
    "331999", ",", "391939", ",", "393919", ",", "919393", ",", "933199", ",", 
    "939193", ",", "939391", ",", "993319", ",", "999331"}], "}"}]], "Output",
- CellChangeTimes->{3.451024214962096*^9, 3.451024272194457*^9, 
-  3.451026614620928*^9, 3.451026649521261*^9}]
+ CellChangeTimes->{
+  3.451024214962096*^9, 3.451024272194457*^9, 3.451026614620928*^9, 
+   3.451026649521261*^9, {3.453626378381707*^9, 3.453626391123726*^9}, 
+   3.45362644640476*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -707,7 +726,8 @@ Cell[BoxData[
  CellChangeTimes->{{3.451024286826951*^9, 3.4510242906711884`*^9}}],
 
 Cell[BoxData["55"], "Output",
- CellChangeTimes->{3.451024291719614*^9, 3.451026651929867*^9}]
+ CellChangeTimes->{3.451024291719614*^9, 3.451026651929867*^9, 
+  3.453626455686976*^9}]
 }, Open  ]]
 },
 WindowSize->{640, 750},
@@ -731,8 +751,8 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info3451026592-8234717", 35146, 723},
- {"Info3451026629-2294433", 35258, 726}
+ {"Info3451026592-8234717", 35820, 743},
+ {"Info3451026629-2294433", 35932, 746}
  }
 *)
 (*NotebookFileOutline
@@ -781,13 +801,18 @@ Cell[31035, 618, 149, 3, 33, "Input"],
 Cell[31187, 623, 100, 1, 27, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[31324, 629, 468, 12, 33, "Input"],
-Cell[31795, 643, 910, 14, 88, "Output"]
+Cell[31324, 629, 176, 4, 33, "Input"],
+Cell[31503, 635, 102, 1, 27, "Output"]
 }, Open  ]],
-Cell[32720, 660, 1823, 40, 253, "Input"],
+Cell[31620, 639, 127, 1, 26, "Text"],
 Cell[CellGroupData[{
-Cell[34568, 704, 140, 2, 27, "Input"],
-Cell[34711, 708, 93, 1, 27, "Output"]
+Cell[31772, 644, 594, 14, 33, "Input"],
+Cell[32369, 660, 985, 16, 88, "Output"]
+}, Open  ]],
+Cell[33369, 679, 1823, 40, 253, "Input"],
+Cell[CellGroupData[{
+Cell[35217, 723, 140, 2, 27, "Input"],
+Cell[35360, 727, 118, 2, 27, "Output"]
 }, Open  ]]
 }
 ]

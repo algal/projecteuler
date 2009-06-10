@@ -1,23 +1,20 @@
-import Char
-import Primes
+import Data.Map (empty,lookup,insert,delete,insertWith)
 
+-- | prime numbers
+primes = sieve [2..]
 
--- bad performance
+-- | sieve xs for primes
+sieve xs =  sieve' xs Data.Map.empty
+    where sieve' [] table     = []
+          sieve' (x:xs) table =
+              case Data.Map.lookup x table of
+                Nothing    -> x : sieve' xs (Data.Map.insert (x*x) [x] table)
+                Just facts -> sieve' xs (foldl reinsert (Data.Map.delete x table) facts)
+              where
+                reinsert table prime = Data.Map.insertWith (++) (x+prime) [prime] table
 
--- should: use an efficient sieve to generate the primes.
--- do extra sieving to exclude circle peers
-
-answer = length $ circularPrimesTo upperboundPrime
-
--- is a prime above 10^6
-upperboundPrime = 1000000
-
-circularPrimesTo n = takeWhile (< n) $ filter isCircularPrime primes
-
-isCircularPrime n = all Primes.isPrime (integerRotations n)
-
--- just filters with a primality test, instead of sieving
-primes = filter Primes.isPrime [1..]
+-- | tests primality
+isPrime n = n `elem` (sieve [2..n])
 
 -- -- tests primality by naive trial division
 -- isPrime :: (Integer a) => a -> Bool
@@ -25,15 +22,26 @@ primes = filter Primes.isPrime [1..]
 -- isPrime 2 = True
 -- isPrime n = not $ any (\x -> (mod n x == 0)) [2..(n-1)]
 
-integerRotations :: (Integral a) => a -> [a]
-integerRotations n = map digitsToInt (rotations (intToDigits n))
+-- should: use an efficient sieve to generate the primes.
+-- do extra sieving to exclude circle peers
 
+answer = length $ circularPrimesTo 1000000
 
-intToDigits :: (Integral a) => a -> [a]
-intToDigits = reverse . intToDigitsReversed
+circularPrimesTo n = takeWhile (< n) . filter isCircularPrime $ primes
+
+isCircularPrime n = all isPrime (integerRotations n)
+
+-- integerRotations :: (Integral a) => a -> [a]
+integerRotations n = map digitsToInt (rotations (integerDigits n))
+
+-- integerDigits = reverse . integerDigitsRev
+-- integerDigitsRev n = map (`mod` 10) . takeWhile (/= 0) . iterate (`div` 10) $ n
+
+-- integerDigits :: (Integral a) => a -> [a]
+integerDigits = reverse . intToDigitsReversed
 intToDigitsReversed  n | (n == digit) = [digit]
                        | otherwise    = digit : intToDigitsReversed rest
-    where (rest, digit) = quotRem n 10
+                      where (rest, digit) = quotRem n 10
 
 digitsToInt  :: (Integral a) => [a] -> a
 digitsToInt digits = 
@@ -45,13 +53,9 @@ digitsToInt digits =
 
 -- gives all rotations of a list [a].
 rotations :: [a] -> [[a]]
-rotations lst = take (length lst) (nestList rotateList lst)
+rotations lst = take (length lst) (iterate rotateList lst)
 
 -- rotates the list by one element, e.g., {1,2,3}:->{2,3,1}
 rotateList :: [a] -> [a]
 rotateList (x:xs) = xs ++ [x]
-
--- gives a list of successive applications of f to initial
-nestList :: (a -> a) -> a -> [a]
-nestList f initial = initial : nestList f (f initial)
 
