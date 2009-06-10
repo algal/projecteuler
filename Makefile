@@ -3,7 +3,7 @@ CPP = g++
 BOOSTHEADERS = -I /sw/include/boost-1_35/
 
 GMPHEADERS = -I /sw/include
-GMPLIB = -L /sw/lib/libgmp.a
+GMPLIB = -L /sw/lib/libgmpxx.a -L /sw/lib/libgmp.a
 
 # NTL dependson GMP
 NTLHEADERS = -I /sw/include/
