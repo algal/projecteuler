@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[      4591,        168]
-NotebookOptionsPosition[      3903,        139]
-NotebookOutlinePosition[      4243,        154]
-CellTagsIndexPosition[      4200,        151]
+NotebookDataLength[      4452,        164]
+NotebookOptionsPosition[      3765,        135]
+NotebookOutlinePosition[      4106,        150]
+CellTagsIndexPosition[      4063,        147]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,36 +22,32 @@ Cell[TextData[{
  "The sum of the squares of the first ten natural numbers is,\n\n",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["1", "2"], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+   SuperscriptBox["1", "2"], TraditionalForm]]],
  " + ",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["2", "2"], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+   SuperscriptBox["2", "2"], TraditionalForm]]],
  " + ... + ",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["10", "2"], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+   SuperscriptBox["10", "2"], TraditionalForm]]],
  " = 385\nThe square of the sum of the first ten natural numbers is,\n\n(1 + \
 2 + ... + ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox[
-    RowBox[{"10", ")"}], "2"], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+    RowBox[{"10", ")"}], "2"], TraditionalForm]]],
  " = ",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["55", "2"], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+   SuperscriptBox["55", "2"], TraditionalForm]]],
  " = 3025\n\nHence the difference between the sum of the squares of the first \
-ten natural numbers and the square of the sum is 3025  385 = 2640.\n\nFind \
+ten natural numbers and the square of the sum is 3025 - 385 = 2640.\n\nFind \
 the difference between the sum of the squares of the first one hundred \
 natural numbers and the square of the sum."
 }], "Text",
- CellChangeTimes->{{3.449495887787179*^9, 3.449495913076397*^9}}],
+ CellChangeTimes->{{3.449495887787179*^9, 3.449495913076397*^9}, 
+   3.453622455799244*^9}],
 
 Cell[CellGroupData[{
 
@@ -138,7 +134,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{640, 750},
-WindowMargins->{{Automatic, 41}, {Automatic, 13}},
+WindowMargins->{{298, Automatic}, {12, Automatic}},
 FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
 StyleDefinitions->"Default.nb"
 ]
@@ -153,22 +149,22 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[545, 20, 1120, 33, 197, "Text"],
+Cell[545, 20, 982, 29, 197, "Text"],
 Cell[CellGroupData[{
-Cell[1690, 57, 760, 21, 33, "Input"],
-Cell[2453, 80, 437, 15, 47, "Output"]
+Cell[1552, 53, 760, 21, 33, "Input"],
+Cell[2315, 76, 437, 15, 47, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2927, 100, 123, 2, 27, "Input"],
-Cell[3053, 104, 72, 1, 27, "Output"]
+Cell[2789, 96, 123, 2, 27, "Input"],
+Cell[2915, 100, 72, 1, 27, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3162, 110, 124, 2, 27, "Input"],
-Cell[3289, 114, 77, 1, 27, "Output"]
+Cell[3024, 106, 124, 2, 27, "Input"],
+Cell[3151, 110, 77, 1, 27, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3403, 120, 229, 6, 33, "Input"],
-Cell[3635, 128, 252, 8, 47, "Output"]
+Cell[3265, 116, 229, 6, 33, "Input"],
+Cell[3497, 124, 252, 8, 47, "Output"]
 }, Open  ]]
 }
 ]
