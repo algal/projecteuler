@@ -27,7 +27,7 @@ vector<int> integerDigits(const std::string& s)
 }
 
 /* Returns digits of n as vector */
-vector<int> integerDigits(const mpz_t bignum) {
+vector<int> integerDigits(const mpz_t& bignum) {
   char * resultp = mpz_get_str(NULL,10,bignum);
   std::string s(resultp);
   free( resultp );
@@ -37,7 +37,7 @@ vector<int> integerDigits(const mpz_t bignum) {
 
 
 /* Returns digits of n */
-vector<int> integerDigits(const unsigned long n) {
+vector<int> integerDigits(const unsigned long & n) {
   std::ostringstream stream;
   stream << n;
   const std::string s = stream.str();
@@ -45,7 +45,7 @@ vector<int> integerDigits(const unsigned long n) {
 }
 
 template<typename T>
-unsigned long sumDigits(T n) {
+unsigned long sumDigits(T& n) {
   vector<int> digits = integerDigits(n);
 
   unsigned long sum=0;
