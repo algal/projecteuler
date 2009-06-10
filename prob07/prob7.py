@@ -22,7 +22,7 @@ def isPrimeSlow(n):
 
 
 def isPrime(x):
-    """ Checks primality via 'trial division'.
+    """ Checks primality via trial division and a trick.
 
     We reduce number of trials by relying on:
     1. primefactor^2 < n

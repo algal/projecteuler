@@ -2,6 +2,10 @@ import  static java.lang.System.out;
 
 public class prob7 {
     
+    /** Tests primality via trial division
+
+	@param n number to test for primaity
+    */
     public static boolean isPrime(int n) {
 	if(n==1)
 	    return false;
