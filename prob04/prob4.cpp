@@ -21,7 +21,7 @@ int main()
 {
   int best = 0;
   for(int i = 100; i < 1000; ++i) {
-    for(int j = 1; j < i; ++j) {
+    for(int j = 100; j < i; ++j) {
       int product = i*j;
       if(isPalindrome(product) == true && product > best)
 	{
