@@ -17,9 +17,12 @@ def isPalindrome(x):
     return True
 
 def getpalindromes():
+    """returns generator of palindromic products of 3-digit numbers.
+
+    This is written in a functional style."""
     from eulertoolspy.functionalpy import icross, ifilter
     from itertools import takewhile, imap
-    products = icross(xrange(100,999),xrange(100,999))
+    products = icross(xrange(100,1000),xrange(100,1000))
     products = ifilter(lambda (a,b): a<b, products)
     products = imap(lambda (a,b): a*b, products)
     products = ifilter(isPalindrome,products)
@@ -27,4 +30,15 @@ def getpalindromes():
     return products
 
 answer = max(getpalindromes())
+
+def findMaxPalindrome():
+    """Returns the max palindromic product of 3-digits numbers"""
+    maxpalindrome = 0
+    for val in (a*b for a in xrange(100,1000) for b in xrange(100,1000) if a <= b):
+        if isPalindrome(val) is True:
+            if val > maxpalindrome:
+                maxpalindrome = val
+    return maxpalindrome
+
+
     
