@@ -4,7 +4,7 @@ INCLUDES = /sw/include/boost-1_35/
 .PHONY: run all
 
 a.out :
-	$(CPP) -I $(INCLUDES) *cpp -o a.out
+	$(CPP) -I $(INCLUDES) -Wall *cpp -o a.out
 
 
 clean : 
