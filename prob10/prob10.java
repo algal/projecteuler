@@ -12,28 +12,24 @@ public class prob10 {
     public static boolean[] sieve(int n) 
     {
 	boolean[] primes = new boolean[n];
-	boolean[] visited = new boolean[n];
 
-	Arrays.fill(primes,false);
-	Arrays.fill(visited,false);
-
+	Arrays.fill(primes,true);
 	primes[0]=false;
 	primes[1]=false;
-	// iterate thru every number
+
+	// iterate thru every number.
 	for(int i=2; i < n; ++i) {
-	    if(visited[i]==true)
-		continue;
-	    // mark it as prime
-	    primes[i]=true;
-	    // mark all its multiples as non-prime
-	    for(int j=(i+i); j < n; j=j+i) {
-		primes[j]=false;
-		visited[j]=true;
+	    // if we're encountering a new prime ...
+	    if(primes[i]==true) {
+		// .. mark its multiples as non-prime
+		for(int j=(i+i); j < n; j=j+i) {
+		    primes[j]=false;
+		}
 	    }
 	}
 	return primes;
     }
-
+    
     public static void main(String[] args) {
 	boolean[] primes = sieve(MAX);
 
