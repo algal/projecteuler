@@ -42,10 +42,9 @@ int main()
 
   for(string::size_type 
 	window_begin = 0, 
-	window_end = window_size, 
-	string_end = num.size();
-      window_end != string_end;
-      ++window_begin, ++window_end) {
+	max_window_begin = num.size() - window_size;
+      window_begin != max_window_begin;
+      ++window_begin) {
     const string window = num.substr(window_begin,window_size);
     const unsigned int product = productDigits(window);
     if(product > bestProduct) {
