@@ -23,8 +23,9 @@ unsigned int productDigits(const string & digits) {
   return product;
 }
 
-int main()
-{
+/* Returns one long string of digits, from num.txt containing
+   consecutive lines of numbers */
+string readNum() {
   std::ifstream f;
   f.open("num.txt");
   if(!f) {
@@ -37,12 +38,18 @@ int main()
   while(f >> line) {
     num += line;
   }
-  
+
+  return num;
+}
+
+int main()
+{
+  string num;
+  num  = readNum();
+
   unsigned int bestProduct = 0;
 
-  for(string::size_type 
-	window_begin = 0, 
-	max_window_begin = num.size() - window_size;
+  for(string::size_type window_begin = 0, max_window_begin = num.size() - window_size;
       window_begin != max_window_begin;
       ++window_begin) {
     const string window = num.substr(window_begin,window_size);
@@ -53,6 +60,4 @@ int main()
   }
   
   std::cout << "bestProduct= " << bestProduct << std::endl;
-
-  
 }
