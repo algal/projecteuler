@@ -19,7 +19,7 @@ void factorInteger(uint64_t n, map<uint64_t,unsigned int> &factors)
       factors[candidate]=0;
     }
 
-    // if candiate is a factor ..
+    // if candidate is a factor ..
     while(n % candidate == 0) {
       // then factor out all its multiples
       n = n / candidate;
