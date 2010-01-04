@@ -22,11 +22,11 @@ public class prob3
      *
      * 	This function takes [2,3,...,inf] as a list of candidate
      * 	factors, and one by one tries to divide them out of n as many
-     * 	times as is possible. Since it tries repeatedly on a factor,
-     * 	it will automatically divide out powers of that factor. Thus,
-     * 	it will only divide out primes. Since the candidates are
-     * 	listed in order, the last factor to divide out successfuly
-     * 	will be the highest prime factor of n.
+     * 	times as is possible. Since it tries a factor repeatedly, it
+     * 	will divide out all powers of that factor. Since it proceeds
+     * 	sequentially it will only divide out primes. Since the
+     * 	candidates are listed in order, the last factor to divide out
+     * 	successfuly will be the highest prime factor of n.
      *
      */
     public static BigInteger biggestFactor(BigInteger n) 
