@@ -1,4 +1,4 @@
-CPP = g++ #/sw/bin/gcc-4
+CPP = g++ 
 PYTHON = /sw/bin/python2.6
 HASKELL = /usr/bin/ghc
 LISP = /sw/bin/sbcl
@@ -34,19 +34,19 @@ clean :
 	rm -f *.class
 
 cpp :
-	$(CPP) -Wall $(INCLUDES)  $(LIBS)  *.cpp -o a.out 
+	$(CPP) -Wall $(INCLUDES)  $(LIBS)  *.cpp -o cpp.out 
 
 haskell :
-	$(HASKELL) -o a.out *.hs
+	$(HASKELL) -o hs.out *.hs
 
 java :
 	$(JAVAC) *.java
 
 runhs : haskell
-	./a.out
+	./hs.out
 
 runcpp : cpp
-	./a.out
+	./cpp.out
 
 runpy :
 	$(PYTHON) $(PYFILES)
