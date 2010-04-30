@@ -30,7 +30,7 @@ cpp :
 	$(CPP) -Wall $(INCLUDES)  $(LIBS)  *.cpp -o a.out 
 
 haskell :
-	$(HASKELL) *.hs
+	$(HASKELL) -o a.out *.hs
 
 clean : 
 	rm -f ./a.out
