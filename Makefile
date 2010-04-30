@@ -1,4 +1,4 @@
-CPP = g++ 
+CXX = g++ 
 PYTHON = /sw/bin/python2.6
 HASKELL = /usr/bin/ghc
 LISP = /sw/bin/sbcl
@@ -34,7 +34,7 @@ clean :
 	rm -f *.class
 
 cpp :
-	$(CPP) -Wall $(INCLUDES)  $(LIBS)  *.cpp -o cpp.out 
+	$(CXX) -Wall $(INCLUDES)  $(LIBS)  *.cpp -o cpp.out 
 
 haskell :
 	$(HASKELL) -o hs.out *.hs
