@@ -1,8 +1,9 @@
 CXX = g++ 
-PYTHON = /sw/bin/python2.6
 HASKELL = /usr/bin/ghc
 LISP = /sw/bin/sbcl
 JAVAC = /usr/bin/javac
+
+PYTHON = /sw/bin/python2.6
 JAVA = /usr/bin/java
 
 # libraries
@@ -25,6 +26,9 @@ LIBS = $(NTLLIB)
 
 PYFILES = $(wildcard *.py)
 
+
+# See info/make/10.5.3 Automatic Variables 
+
 .PHONY: clean cpp haskell java runhs runcpp runpy runjava
 
 clean : 
@@ -33,7 +37,7 @@ clean :
 	rm -f *.hi
 	rm -f *.class
 
-cpp :
+%.cpp :
 	$(CXX) -Wall $(INCLUDES)  $(LIBS)  *.cpp -o cpp.out 
 
 haskell :
