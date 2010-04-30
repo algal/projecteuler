@@ -26,25 +26,49 @@ LIBS = $(NTLLIB)
 
 PYFILES = $(wildcard *.py)
 
+SRCS = $(wildcard *.py *.hs *.cpp *.h *.lisp)
+
+ABSPATH = $(subst /, ,$(PWD))
+
+# infers lang from current directory
+LANGUAGE = $(lastword $(ABSPATH))
+
+# infers prob number from penultimate direcotry
+PROBLEM = $(word $(words $(ABSPATH))-1,$(ABSPATH))
 
 # See info/make/10.5.3 Automatic Variables 
 
-.PHONY: clean cpp haskell java runhs runcpp runpy runjava
+.PHONY: runbinary clean cpp haskell java runhs runcpp runpy runjava
 
-clean : 
-	rm -f ./a.out
-	rm -f *.o
-	rm -f *.hi
-	rm -f *.class
 
-%.cpp :
-	$(CXX) -Wall $(INCLUDES)  $(LIBS)  *.cpp -o cpp.out 
 
-haskell :
-	$(HASKELL) -o hs.out *.hs
+# determines the language, to determine the final build product
+ifeq ($(LANGUAGE),java)
+  compilable = prob01.class
+else
+  compilable = prob01.out
+endif
 
-java :
-	$(JAVAC) *.java
+run: $(compilable)
+
+test:
+	echo $(PROBLEM)
+	echo $(LANGUAGE)
+
+%.out : %.cpp
+	$(CXX) -Wall $(INCLUDES)  $(LIBS)  $< -o $@
+
+%.out %.o %.hi : %.hs
+	$(HASKELL) -o $@ $<
+
+%.class : %.java
+	$(JAVAC) $^
+
+runbinary : prob01.out
+	./$<
+
+runjava : prob01.class
+	$(JAVA) prob01
 
 runhs : haskell
 	./hs.out
@@ -55,5 +79,9 @@ runcpp : cpp
 runpy :
 	$(PYTHON) $(PYFILES)
 
-runjava : java
-	java prob01
+clean : 
+	rm -f *.out
+	rm -f *.o
+	rm -f *.hi
+	rm -f *.class
+
