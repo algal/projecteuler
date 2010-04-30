@@ -2,7 +2,8 @@ CPP = g++ #/sw/bin/gcc-4
 PYTHON = /sw/bin/python2.6
 HASKELL = /usr/bin/ghc
 LISP = /sw/bin/sbcl
-JAVA = /usr/bin/javac
+JAVAC = /usr/bin/javac
+JAVA = /usr/bin/java
 
 # libraries
 
@@ -24,7 +25,13 @@ LIBS = $(NTLLIB)
 
 PYFILES = $(wildcard *.py)
 
-.PHONY: runpy runcpp runhs haskell cpp
+.PHONY: clean cpp haskell java runhs runcpp runpy runjava
+
+clean : 
+	rm -f ./a.out
+	rm -f *.o
+	rm -f *.hi
+	rm -f *.class
 
 cpp :
 	$(CPP) -Wall $(INCLUDES)  $(LIBS)  *.cpp -o a.out 
@@ -32,10 +39,8 @@ cpp :
 haskell :
 	$(HASKELL) -o a.out *.hs
 
-clean : 
-	rm -f ./a.out
-	rm -f *.o
-	rm -f *.hi
+java :
+	$(JAVAC) *.java
 
 runhs : haskell
 	./a.out
@@ -46,3 +51,5 @@ runcpp : cpp
 runpy :
 	$(PYTHON) $(PYFILES)
 
+runjava : java
+	java prob01
