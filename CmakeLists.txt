@@ -1,13 +1,30 @@
 cmake_minimum_required(VERSION 2.8.1)
 
+set( CMAKE_PREFIX_PATH "/sw")
+
 set(BOOST_INCLUDES "/sw/include/boost-1_41")
-# set(GMP_INCLUDES "/sw/include")
+#set(FINK_INCLUDES "/sw/include")
+
+set(GMP_INCLUDES "/sw/include")
+
 # set(GMP_LIBS "/sw/lib")
+
 
 project(projecteuler)
 
 include_directories("${BOOST_INCLUDES}")
 # include_directories("${GMP_INCLUDES}")
+
+
+include_directories("${GMP_INCLUDES}")
+find_library(GMP NAMES libgmp.a libgmpxx.a)
+
+#find_package(LIBGMP REQUIRED)
+#include_directories(${LIBGMP_INCLUDE_DIRS})
+#set(LIBS ${LIBS} ${LIBGMP_LIBRARIES})
+
+# executables
+
 
 add_executable (prob01.out prob01/cpp/prob01.cpp)
 add_executable (prob02.out prob02/cpp/prob02.cpp)
@@ -21,6 +38,7 @@ add_executable (prob08.out prob08/cpp/prob08.cpp)
 add_executable (prob10.out prob10/cpp/prob10.cpp)
 
 #add_library(gmp ....)
-#add_executable (prob16.out prob16/cpp/prob16.cpp)
+add_executable (prob16.out prob16/cpp/prob16.cpp)
+target_link_libraries(prob16.out ${GMP})
 
 # add_executable (prob25.out prob25/cpp/prob25.cpp)
