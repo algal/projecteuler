@@ -5,7 +5,8 @@ project(projecteuler)
 add_executable (prob01.out prob01/cpp/prob01.cpp)
 add_executable (prob02.out prob02/cpp/prob02.cpp)
 
-# add_executable (prob03.out prob03/cpp/prob03.cpp)
+include_directories("/sw/include/boost-1_41")
+add_executable (prob03.out prob03/cpp/prob03.cpp)
 # target_link_libraries(prob03.out boost)
 
 # add_executable (prob04.out prob04/cpp/prob04.cpp)
