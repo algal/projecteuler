@@ -1,0 +1,4 @@
+PROJECT(euler CXX)
+
+SET(SRC prob01/cpp/prob01)
+ADD_EXECUTABLE( prob01/cpp/prob01 ${SRC})
