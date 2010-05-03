@@ -1,6 +1,5 @@
-project(euler)
+cmake_minimum_required(VERSION 2.8.1)
 
-#set(SRC prob01/cpp/prob01.cpp)
-#add_executable( prob01/cpp/prob01 ${SRC})
+project(projecteuler)
 
-add_executable (prob01 prob01/cpp/prob01.cpp)
+add_executable (prob01.out prob01/cpp/prob01.cpp)
