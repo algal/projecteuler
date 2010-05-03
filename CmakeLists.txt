@@ -1,17 +1,26 @@
 cmake_minimum_required(VERSION 2.8.1)
 
+set(BOOST_INCLUDES "/sw/include/boost-1_41")
+# set(GMP_INCLUDES "/sw/include")
+# set(GMP_LIBS "/sw/lib")
+
 project(projecteuler)
+
+include_directories("${BOOST_INCLUDES}")
+# include_directories("${GMP_INCLUDES}")
 
 add_executable (prob01.out prob01/cpp/prob01.cpp)
 add_executable (prob02.out prob02/cpp/prob02.cpp)
 
-include_directories("/sw/include/boost-1_41")
 add_executable (prob03.out prob03/cpp/prob03.cpp)
 # target_link_libraries(prob03.out boost)
 
-# add_executable (prob04.out prob04/cpp/prob04.cpp)
-# add_executable (prob07.out prob07/cpp/prob07.cpp)
-# add_executable (prob08.out prob08/cpp/prob08.cpp)
-# add_executable (prob10.out prob10/cpp/prob10.cpp)
-# add_executable (prob16.out prob16/cpp/prob16.cpp)
+add_executable (prob04.out prob04/cpp/prob04.cpp)
+add_executable (prob07.out prob07/cpp/prob07.cpp)
+add_executable (prob08.out prob08/cpp/prob08.cpp)
+add_executable (prob10.out prob10/cpp/prob10.cpp)
+
+#add_library(gmp ....)
+#add_executable (prob16.out prob16/cpp/prob16.cpp)
+
 # add_executable (prob25.out prob25/cpp/prob25.cpp)
