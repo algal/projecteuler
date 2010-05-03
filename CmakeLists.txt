@@ -1,4 +1,6 @@
-PROJECT(euler CXX)
+project(euler)
 
-SET(SRC prob01/cpp/prob01)
-ADD_EXECUTABLE( prob01/cpp/prob01 ${SRC})
+#set(SRC prob01/cpp/prob01.cpp)
+#add_executable( prob01/cpp/prob01 ${SRC})
+
+add_executable (prob01 prob01/cpp/prob01.cpp)
