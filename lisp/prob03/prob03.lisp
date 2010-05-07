@@ -20,6 +20,9 @@
 	(t 
 	 (ffactorInteger num (1+ minFac)))))
 
+(defun largestFactor (num) 
+  (car (reverse (ffactorInteger num))))
+
 (defparameter *k* 600851475143)
 
-(defparameter *answer* (car (reverse (ffactorInteger *k*))))
+(defparameter *answer* (largestFactor *k*))
