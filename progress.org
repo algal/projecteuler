@@ -2,7 +2,7 @@ http://projecteuler.net/
 
 | problem | mathematica | python | cpp | Java | Haskell | CL    | NOTES |
 |---------+-------------+--------+-----+------+---------+-------+-------|
-|       1 | x           | x      | x   | x    | x       | FIXME |       |
+|       1 | x           | x      | x   | x    | x       | x     |       |
 |       2 | x           | x      | x   | x    | x       |       |       |
 |       6 | x           | x      | x   |      | x       | x     |       |
 |       5 |             |        |     |      |         |       |       |
