@@ -4,7 +4,6 @@
   "Returns T if NUM is divisible by FACTOR"
   (zerop (mod num factor)))
 
-; imperative
 (defun foo ()
   "Returns sum of 1..1000, divisible by 3 and 5"
   (apply #'+ 
