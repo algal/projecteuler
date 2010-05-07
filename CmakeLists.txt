@@ -27,6 +27,7 @@ add_executable (prob02.out cpp/prob02/prob02.cpp)
 add_executable (prob03.out cpp/prob03/prob03.cpp)
 
 add_executable (prob04.out cpp/prob04/prob04.cpp)
+add_executable (prob06.out cpp/prob06/prob06.cpp)
 add_executable (prob07.out cpp/prob07/prob07.cpp)
 add_executable (prob08.out cpp/prob08/prob08.cpp)
 add_executable (prob10.out cpp/prob10/prob10.cpp)
