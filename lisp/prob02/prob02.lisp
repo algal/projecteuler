@@ -13,7 +13,6 @@
 
 ; experimentation shows (< (car (revfib 33)) 4000000)
 ; experimentation shows (> (car (revfib 34)) 4000000)
-(defparameter *answer* (apply #'+ (remove-if-not (lambda (x)
-						   (divisibleBy x 2))
+(defparameter *answer* (apply #'+ (remove-if-not (lambda (x) (divisibleBy x 2))
 						 (revfib 33))))
   
