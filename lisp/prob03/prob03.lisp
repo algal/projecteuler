@@ -1,3 +1,7 @@
+(defun divisibleBy (num factor)
+  "Returns T if NUM is divisible by FACTOR"
+  (zerop (mod num factor)))
+
 ; imperative version
 (defun factorInteger (num) 
   "Returns the prime factors of NUM"
@@ -5,10 +9,6 @@
     (do ((x 2 (1+ x))) 
 	((zerop (mod num x)) 
 	 (cons x (factorInteger (/ num x)))))))
-
-(defun divisibleBy (num factor)
-  "Returns T if NUM is divisible by FACTOR"
-  (zerop (mod num factor)))
 
 ; functional version
 (defun ffactorInteger (num &optional (minFac 2))
@@ -20,4 +20,6 @@
 	(t 
 	 (ffactorInteger num (1+ minFac)))))
 
+(defparameter *k* 600851475143)
 
+(defparameter *answer* (car (reverse (ffactorInteger *k*))))
