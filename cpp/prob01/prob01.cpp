@@ -1,6 +1,9 @@
 #include<iostream>
 
-int main()
+/**
+   Returns sum of all numbers divisible by 3 or 5.
+ */
+int foo()
 {
      int sum=0;
      for(int i=0; i<1000;++i)
@@ -8,5 +11,12 @@ int main()
 	  if(i%3==0 || i%5==0)
 	       sum+=i;
      }
-     std::cout << "Sum = " << sum << std::endl;
+     return sum;
+}
+
+
+int main()
+{
+     int answer = foo();
+     std::cout << answer << std::endl;
 }
