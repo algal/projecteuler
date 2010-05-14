@@ -1,5 +1,3 @@
-; FIXME: fix. is broken.
-
 (defun divisibleBy (num factor)
   "Returns T if NUM is divisible by FACTOR"
   (zerop (mod num factor)))
