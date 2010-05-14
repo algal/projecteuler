@@ -1,4 +1,4 @@
-(defun divisibleBy (num factor)
+(defun divisibleBy (factor num)
   "Returns T if NUM is divisible by FACTOR"
   (zerop (mod num factor)))
 
@@ -13,6 +13,8 @@
 
 ; experimentation shows (< (car (revfib 33)) 4000000)
 ; experimentation shows (> (car (revfib 34)) 4000000)
-(defparameter *answer* (apply #'+ (remove-if-not (lambda (x) (divisibleBy x 2))
+(defparameter *answer* (apply #'+ (remove-if-not (lambda (x) (divisibleBy 2 x))
 						 (revfib 33))))
+(format t "~A~&" *answer*)
+
   

@@ -1,4 +1,4 @@
-(defun divisibleBy (num factor)
+(defun divisibleBy (factor num)
   "Returns T if NUM is divisible by FACTOR"
   (zerop (mod num factor)))
 
@@ -15,7 +15,7 @@
   "Returns the prime factors of NUM"
   (cond ((> (* minFac minFac) num) 
 	 (list num))
-	((divisibleBy num minFac)
+	((divisibleBy minFac num)
 	 (cons minFac (ffactorInteger (/ num minFac) minFac)))
 	(t 
 	 (ffactorInteger num (1+ minFac)))))
@@ -26,3 +26,4 @@
 (defparameter *k* 600851475143)
 
 (defparameter *answer* (largestFactor *k*))
+(format t "~A~&" *answer*)
