@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[      5048,        171]
-NotebookOptionsPosition[      4199,        137]
-NotebookOutlinePosition[      4559,        153]
-CellTagsIndexPosition[      4516,        150]
+NotebookDataLength[      7525,        243]
+NotebookOptionsPosition[      6487,        203]
+NotebookOutlinePosition[      6847,        219]
+CellTagsIndexPosition[      6804,        216]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,17 +23,19 @@ Cell["\<\
 to 10 without any remainder.
 
 What is the smallest number that is evenly divisible by all of the numbers \
-from 1 to 20?
-
-\
+from 1 to 20?\
 \>", "Text",
- CellChangeTimes->{{3.449494098211084*^9, 3.4494941006786547`*^9}}],
+ CellChangeTimes->{{3.449494098211084*^9, 3.4494941006786547`*^9}, {
+  3.482820332184112*^9, 3.482820334343814*^9}}],
 
 Cell["\<\
-The first impulse is to consider 20! But this surely includes certain factors \
-too many times.\
+The first impulse is to consider 20! 
+
+But this includes certain factors too many times. For instance, consider the \
+powers of 2 in the following range:\
 \>", "Text",
- CellChangeTimes->{{3.449494605444563*^9, 3.449494623421625*^9}}],
+ CellChangeTimes->{{3.449494605444563*^9, 3.449494623421625*^9}, {
+  3.4828203915086737`*^9, 3.482820418010556*^9}}],
 
 Cell[CellGroupData[{
 
@@ -51,13 +53,9 @@ Cell[BoxData[
    ",", "9", ",", "10", ",", "11", ",", "12", ",", "13", ",", "14", ",", "15",
     ",", "16", ",", "17", ",", "18", ",", "19", ",", "20"}], "}"}]], "Output",\
 
- CellChangeTimes->{3.449494137830789*^9, 3.449494205554776*^9}]
+ CellChangeTimes->{3.449494137830789*^9, 3.449494205554776*^9, 
+  3.482820422806491*^9}]
 }, Open  ]],
-
-Cell["Consider the powers of 2 in the range", "Text",
- CellChangeTimes->{{3.449494153514879*^9, 3.4494941908426027`*^9}, {
-  3.44949430723164*^9, 3.449494310146769*^9}, {3.4536220460342007`*^9, 
-  3.4536220469522657`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -73,26 +71,33 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"1", ",", "2", ",", "4", ",", "8", ",", "16"}], "}"}]], "Output",
- CellChangeTimes->{3.4494944294581747`*^9}]
+ CellChangeTimes->{3.4494944294581747`*^9, 3.482820426741847*^9}]
 }, Open  ]],
 
 Cell["\<\
-If a number is divisible by 4, then it is also divisble by 2, since dividing \
-by 4 is nothing but dividing by 2 twice. Similarly, if a number is divisible \
-by 16, then it is divisible by 8, 4, and 2. So we know this number has a \
-factor of 16 but we don't need to add any further factors of 2.
+We are looking for the smallest number divisible by all these values.
 
-2 is just one prime within {1,..20}. We repeat the process for the other \
-primes in that set.
+But if a number is divisible by 4, then it is also divisble by 2, since \
+dividing by 4 is nothing but dividing by 2 twice. Similarly, if a number is \
+divisible by 16, then it is divisible by 8, 4, and 2. So it is enough to know \
+to ensure that this number is divisible by 16, but not then by further powers \
+of 2.  That is, it is enough to ensure that the desired number is divisble by \
+the highest power of 2 which falls within the range {1,..20}.
 
-That, we we need only take from {1,...,20} all those numbers which are the \
-highest powers of all the prime numbers within {1,...,20} 
+2 is just one prime within {1,..20}. We repeat the process for the other such \
+primes.
+
+That, our desired number must be divisible by only those numbers in \
+{1,...,20} which are the highest powers of all the prime numbers within \
+{1,...,20} 
 
 These are the primes in {1,...20}\
 \>", "Text",
  CellChangeTimes->{{3.449494275806859*^9, 3.4494942959322767`*^9}, {
   3.4494944503139877`*^9, 3.449494559758801*^9}, {3.449494645296463*^9, 
-  3.449494713899276*^9}, {3.48281993976997*^9, 3.482820008504376*^9}}],
+  3.449494713899276*^9}, {3.48281993976997*^9, 3.482820008504376*^9}, {
+  3.4828204467382507`*^9, 3.482820568101075*^9}, {3.4828207320458612`*^9, 
+  3.482820763338732*^9}}],
 
 Cell[CellGroupData[{
 
@@ -133,6 +138,67 @@ Cell[BoxData[
 
 Cell[BoxData["232792560"], "Output",
  CellChangeTimes->{3.449494877889909*^9, 3.449495264179213*^9}]
+}, Open  ]],
+
+Cell["In general,", "Text",
+ CellChangeTimes->{{3.482820794108531*^9, 3.4828207965958567`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"HighestPower", "[", 
+    RowBox[{"factor_", ",", "limit_"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Returns", " ", "highest", " ", "power", " ", "of", " ", "FACTOR"}], ",",
+      " ", 
+     RowBox[{"less", " ", "than", " ", "LIMIT"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NestWhileList", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "*", "factor"}], "&"}], ",", "1", ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"#", "<", "limit"}], ")"}], "&"}]}], "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"-", "2"}], "]"}], "]"}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.48282079803205*^9, 3.482820839113969*^9}, {
+  3.482821081902433*^9, 3.48282115447815*^9}, {3.482821506776552*^9, 
+  3.482821513203964*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SmallestProduct", "[", "limit_", "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+  "(*", "\"\<Smallest number which is divisible by every number from 1 to \
+LIMIT\>\"", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Times", " ", "@@", "  ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"HighestPower", "[", 
+        RowBox[{"#", ",", "limit"}], "]"}], "&"}], ")"}], ",", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"Range", "[", 
+        RowBox[{"1", ",", "limit"}], "]"}], ",", "PrimeQ"}], "]"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.482821410768681*^9, 3.482821479137438*^9}, {
+  3.482821524262719*^9, 3.4828215253062487`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SmallestProduct", "[", "20", "]"}]], "Input",
+ CellChangeTimes->{{3.482821480726179*^9, 3.4828214856618423`*^9}}],
+
+Cell[BoxData["232792560"], "Output",
+ CellChangeTimes->{3.4828214866345997`*^9}]
 }, Open  ]]
 },
 WindowSize->{640, 750},
@@ -152,26 +218,32 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[545, 20, 294, 9, 86, "Text"],
-Cell[842, 31, 185, 4, 26, "Text"],
+Cell[545, 20, 341, 8, 56, "Text"],
+Cell[889, 30, 294, 7, 56, "Text"],
 Cell[CellGroupData[{
-Cell[1052, 39, 235, 5, 27, "Input"],
-Cell[1290, 46, 341, 7, 27, "Output"]
+Cell[1208, 41, 235, 5, 27, "Input"],
+Cell[1446, 48, 366, 8, 27, "Output"]
 }, Open  ]],
-Cell[1646, 56, 222, 3, 26, "Text"],
 Cell[CellGroupData[{
-Cell[1893, 63, 264, 7, 27, "Input"],
-Cell[2160, 72, 148, 3, 27, "Output"]
+Cell[1849, 61, 264, 7, 27, "Input"],
+Cell[2116, 70, 170, 3, 27, "Output"]
 }, Open  ]],
-Cell[2323, 78, 801, 16, 161, "Text"],
+Cell[2301, 76, 1144, 23, 206, "Text"],
 Cell[CellGroupData[{
-Cell[3149, 98, 202, 5, 27, "Input"],
-Cell[3354, 105, 186, 5, 27, "Output"]
+Cell[3470, 103, 202, 5, 27, "Input"],
+Cell[3675, 110, 186, 5, 27, "Output"]
 }, Open  ]],
-Cell[3555, 113, 222, 8, 101, "Text"],
+Cell[3876, 118, 222, 8, 101, "Text"],
 Cell[CellGroupData[{
-Cell[3802, 125, 278, 6, 27, "Input"],
-Cell[4083, 133, 100, 1, 27, "Output"]
+Cell[4123, 130, 278, 6, 27, "Input"],
+Cell[4404, 138, 100, 1, 27, "Output"]
+}, Open  ]],
+Cell[4519, 142, 95, 1, 26, "Text"],
+Cell[4617, 145, 872, 24, 73, "Input"],
+Cell[5492, 171, 734, 20, 58, "Input"],
+Cell[CellGroupData[{
+Cell[6251, 195, 137, 2, 27, "Input"],
+Cell[6391, 199, 80, 1, 27, "Output"]
 }, Open  ]]
 }
 ]
