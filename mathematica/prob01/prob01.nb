@@ -10,16 +10,29 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[      7730,        251]
-NotebookOptionsPosition[      6690,        211]
-NotebookOutlinePosition[      7052,        227]
-CellTagsIndexPosition[      7009,        224]
+NotebookDataLength[      8127,        265]
+NotebookOptionsPosition[      7050,        224]
+NotebookOutlinePosition[      7411,        240]
+CellTagsIndexPosition[      7368,        237]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell["Calculated directly by defining a list comprehension", "Text",
- CellChangeTimes->{{3.44946617180547*^9, 3.449466207455418*^9}}],
+Cell["\<\
+PROBLEM:
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we \
+get 3, 5, 6, and 9. The sum of these multiples is 23.
+
+Find the sum of all the multiples of 3 or 5 below 1000.\
+\>", "Text",
+ CellChangeTimes->{{3.4828255738819723`*^9, 3.482825603752166*^9}}],
+
+Cell["\<\
+SOLUTION:
+Calculated directly by defining a list comprehension\
+\>", "Text",
+ CellChangeTimes->{{3.44946617180547*^9, 3.449466207455418*^9}, {
+  3.482825605422543*^9, 3.482825608446438*^9}}],
 
 Cell[CellGroupData[{
 
@@ -210,7 +223,7 @@ Cell[BoxData["233168"], "Output",
 }, Open  ]]
 },
 WindowSize->{640, 750},
-WindowMargins->{{Automatic, 202}, {Automatic, 34}},
+WindowMargins->{{Automatic, 147}, {8, Automatic}},
 ShowSelection->True,
 FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
 StyleDefinitions->"Default.nb"
@@ -226,32 +239,33 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[545, 20, 133, 1, 26, "Text"],
+Cell[545, 20, 290, 7, 86, "Text"],
+Cell[838, 29, 200, 5, 41, "Text"],
 Cell[CellGroupData[{
-Cell[703, 25, 741, 19, 27, "Input"],
-Cell[1447, 46, 99, 1, 27, "Output"]
+Cell[1063, 38, 741, 19, 27, "Input"],
+Cell[1807, 59, 99, 1, 27, "Output"]
 }, Open  ]],
-Cell[1561, 50, 200, 6, 56, "Text"],
-Cell[1764, 58, 696, 18, 58, "Input"],
-Cell[2463, 78, 344, 7, 71, "Text"],
+Cell[1921, 63, 200, 6, 56, "Text"],
+Cell[2124, 71, 696, 18, 58, "Input"],
+Cell[2823, 91, 344, 7, 71, "Text"],
 Cell[CellGroupData[{
-Cell[2832, 89, 382, 7, 27, "Input"],
-Cell[3217, 98, 242, 4, 27, "Output"]
+Cell[3192, 102, 382, 7, 27, "Input"],
+Cell[3577, 111, 242, 4, 27, "Output"]
 }, Open  ]],
-Cell[3474, 105, 156, 2, 26, "Text"],
-Cell[3633, 109, 1381, 40, 164, "Input"],
+Cell[3834, 118, 156, 2, 26, "Text"],
+Cell[3993, 122, 1381, 40, 164, "Input"],
 Cell[CellGroupData[{
-Cell[5039, 153, 124, 2, 27, "Input"],
-Cell[5166, 157, 458, 13, 56, "Output"]
+Cell[5399, 166, 124, 2, 27, "Input"],
+Cell[5526, 170, 458, 13, 56, "Output"]
 }, Open  ]],
-Cell[5639, 173, 181, 4, 26, "Text"],
+Cell[5999, 186, 181, 4, 26, "Text"],
 Cell[CellGroupData[{
-Cell[5845, 181, 194, 5, 27, "Input"],
-Cell[6042, 188, 170, 5, 46, "Output"]
+Cell[6205, 194, 194, 5, 27, "Input"],
+Cell[6402, 201, 170, 5, 46, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6249, 198, 274, 6, 27, "Input"],
-Cell[6526, 206, 148, 2, 27, "Output"]
+Cell[6609, 211, 274, 6, 27, "Input"],
+Cell[6886, 219, 148, 2, 27, "Output"]
 }, Open  ]]
 }
 ]
