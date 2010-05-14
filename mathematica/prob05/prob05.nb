@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[      4838,        169]
-NotebookOptionsPosition[      3989,        135]
-NotebookOutlinePosition[      4349,        151]
-CellTagsIndexPosition[      4306,        148]
+NotebookDataLength[      5048,        171]
+NotebookOptionsPosition[      4199,        137]
+NotebookOutlinePosition[      4559,        153]
+CellTagsIndexPosition[      4516,        150]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -78,19 +78,21 @@ Cell[BoxData[
 
 Cell["\<\
 If a number is divisible by 4, then it is also divisble by 2, since dividing \
-by 4 is nothing but dividing by 2 twice.
+by 4 is nothing but dividing by 2 twice. Similarly, if a number is divisible \
+by 16, then it is divisible by 8, 4, and 2. So we know this number has a \
+factor of 16 but we don't need to add any further factors of 2.
 
-Similarly, if a number is divisible by 16, then it is divisible by 8, 4, and 2.
+2 is just one prime within {1,..20}. We repeat the process for the other \
+primes in that set.
 
-So we know this number has a factor of 16 but we don't need to add any \
-further factors of 2.
+That, we we need only take from {1,...,20} all those numbers which are the \
+highest powers of all the prime numbers within {1,...,20} 
 
-So we need only take from {1,...,20} the highest powers of all the prime \
-numbers within {1,...,20} \
+These are the primes in {1,...20}\
 \>", "Text",
  CellChangeTimes->{{3.449494275806859*^9, 3.4494942959322767`*^9}, {
   3.4494944503139877`*^9, 3.449494559758801*^9}, {3.449494645296463*^9, 
-  3.449494713899276*^9}}],
+  3.449494713899276*^9}, {3.48281993976997*^9, 3.482820008504376*^9}}],
 
 Cell[CellGroupData[{
 
@@ -161,15 +163,15 @@ Cell[CellGroupData[{
 Cell[1893, 63, 264, 7, 27, "Input"],
 Cell[2160, 72, 148, 3, 27, "Output"]
 }, Open  ]],
-Cell[2323, 78, 591, 14, 116, "Text"],
+Cell[2323, 78, 801, 16, 161, "Text"],
 Cell[CellGroupData[{
-Cell[2939, 96, 202, 5, 27, "Input"],
-Cell[3144, 103, 186, 5, 27, "Output"]
+Cell[3149, 98, 202, 5, 27, "Input"],
+Cell[3354, 105, 186, 5, 27, "Output"]
 }, Open  ]],
-Cell[3345, 111, 222, 8, 101, "Text"],
+Cell[3555, 113, 222, 8, 101, "Text"],
 Cell[CellGroupData[{
-Cell[3592, 123, 278, 6, 27, "Input"],
-Cell[3873, 131, 100, 1, 27, "Output"]
+Cell[3802, 125, 278, 6, 27, "Input"],
+Cell[4083, 133, 100, 1, 27, "Output"]
 }, Open  ]]
 }
 ]
