@@ -1,7 +1,7 @@
 #include<iostream>
 
 /**
-   Returns sum of all numbers divisible by 3 or 5.
+   Returns sum of all numbers less than 1000 and divisible by 3 or 5.
  */
 int foo()
 {
@@ -9,7 +9,7 @@ int foo()
      for(int i=0; i<1000;++i)
      {
 	  if(i%3==0 || i%5==0)
-	       sum+=i;
+	       sum += i;
      }
      return sum;
 }
